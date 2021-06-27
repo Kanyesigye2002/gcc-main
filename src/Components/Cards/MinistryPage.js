@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
-import {FaWindowClose} from "react-icons/fa";
+import {Cancel} from "@material-ui/icons";
 
 const useStyles = makeStyles({
     root: {
@@ -26,7 +26,7 @@ function EventPage(props) {
         <Grid container direction="row">
             <Grid className="closebtn" container style={{padding: "0 10px"}}>
                 <h2>{props.content.title}</h2>
-                <span onClick={() => props.onClose()}><FaWindowClose/></span>
+                <span onClick={() => props.onClose()}><Cancel/></span>
             </Grid>
 
             <div className="scrol">

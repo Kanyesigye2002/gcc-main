@@ -1,6 +1,6 @@
 import React, {useState, Fragment} from 'react';
 import {MenuItems} from './MenuItems';
-import {FiChevronDown} from "react-icons/fi";
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import {Link, NavLink} from 'react-router-dom'
 
 import {NavButton} from './NavButton'
@@ -48,7 +48,7 @@ function Navbar() {
                         <Fragment key={index}>
                             {item.children == null ?
                                 <li><Link className={item.cName} to={item.url}>{item.title}</Link></li> :
-                                <li onClick={toggleSubmenu}><Link className={item.cName} to={item.url}>{item.title}<FiChevronDown/> </Link>
+                                <li onClick={toggleSubmenu}><Link className={item.cName} to={item.url}>{item.title}<KeyboardArrowDownIcon/> </Link>
                                     <ul className={boxClassSubMenu.join(' ')}>
                                         {item.children.map((item, index) => (
                                             <li><NavLink onClick={toggleClass} activeClassName='is-active' to={item.url}> {item.title} </NavLink></li>
@@ -61,7 +61,7 @@ function Navbar() {
                     )
                 )
                 }
-                {/*<li onClick={toggleSubmenu} className="nav-link"><Link to="#"> Shop <FiChevronDown/> </Link>*/}
+                {/*<li onClick={toggleSubmenu} className="nav-link"><Link to="#"> Shop <KeyboardArrowDownIcon/> </Link>*/}
                 {/*    <ul className={boxClassSubMenu.join(' ')}>*/}
                 {/*        <li><NavLink onClick={toggleClass} activeClassName='is-active' to={`/Online`}> Online*/}
                 {/*            Shop </NavLink></li>*/}

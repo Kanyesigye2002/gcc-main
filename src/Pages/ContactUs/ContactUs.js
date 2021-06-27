@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {FaLocationArrow, FaSmile} from "react-icons/fa";
+import {LocationOn, Mood} from "@material-ui/icons";
 
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -47,7 +47,7 @@ function ContactUs(props) {
                 <Card className={classes.root}>
                     <Grid container justify="space-between" alignItems="center">
                         <span className="">Location: </span>
-                        <span className="badge rounded-pill"><FaLocationArrow/></span>
+                        <span className="badge rounded-pill"><LocationOn/></span>
                     </Grid>
                     <Grid container justify="space-between" alignItems="center">
                         <p>Glorious Church Of Christ ministries Bunamwaya Located 200M from Bunamwaya-Ngobe
@@ -55,12 +55,12 @@ function ContactUs(props) {
                     </Grid>
                     <Grid container justify="space-between" alignItems="center">
                         <span className="">Email Us: </span>
-                        <span className="badge rounded-pill"><FaLocationArrow/></span>
+                        <span className="badge rounded-pill"><LocationOn/></span>
                     </Grid>
                     <p>gloriouschurch@gcc.com</p>
                     <Grid container justify="space-between" alignItems="center">
                         <span className="">Call Us: </span>
-                        <span className="badge rounded-pill"><FaLocationArrow/></span>
+                        <span className="badge rounded-pill"><LocationOn/></span>
                     </Grid>
                     <p>Tel +256-782 325564</p>
                     <Grid container justify="space-between" alignItems="center">
@@ -75,7 +75,7 @@ function ContactUs(props) {
             </Grid>
             <Grid spacing={4} item xs={12} md={8}>
                 <h2 style={{marginBottom: "1rem", textAlign: "center"}}>Contact Us</h2>
-                <p style={{marginBottom: "70px", textAlign: "center"}}>We are here to help you out <FaSmile/></p>
+                <p style={{marginBottom: "70px", textAlign: "center"}}>We are here to help you out <Mood/></p>
                 <Grid container>
                     <form onSubmit={onSubmit} className={classes.root} noValidate autoComplete="off">
                         <Grid spacing={5} container direction="row" justify="center" alignItems="center">

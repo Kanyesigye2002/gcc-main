@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import Grid from "@material-ui/core/Grid";
-import { FaYoutube} from "react-icons/fa"
+import { YouTube} from "@material-ui/icons"
 import {useDispatch, useSelector} from "react-redux";
 
 import {NextService, Carousels, Iframe} from '../../Components'
@@ -26,7 +26,7 @@ function Home(props) {
                 <NextService date={homed.nextService}/>
             </Grid>
             <Grid container justify="center" style={{padding: "0"}}>
-                <button className="btn-height" style={{width: 300}} ><FaYoutube size="1.5em"/> Latest Video</button>
+                <button className="btn-height" style={{width: 300}} ><YouTube size="1.5em"/> Latest Video</button>
             </Grid>
             <Iframe/>
         </Paper>

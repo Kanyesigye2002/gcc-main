@@ -5,8 +5,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
 
-import {FaLocationArrow, FaPhone, FaWindowClose} from "react-icons/fa";
-import {MdMail} from "react-icons/md";
+import {Email, LocationOn, Call, Cancel} from "@material-ui/icons";
 
 const useStyles = makeStyles({
     root: {
@@ -29,7 +28,7 @@ const EventPage = (props) => {
         <>
             <Grid className="closebtn" container style={{padding: "0 10px"}}>
                 <h2>{props.event.title}</h2>
-                <span onClick={() => props.onClose()}><FaWindowClose/></span>
+                <span onClick={() => props.onClose()}><Cancel/></span>
             </Grid>
 
             <div className="scrol">
@@ -51,21 +50,21 @@ const EventPage = (props) => {
                                 </p>
                                 <Grid container justify="space-between" alignItems="center">
                                     <span className="">Location: </span>
-                                    <span className="badge rounded-pill"><FaLocationArrow/></span>
+                                    <span className="badge rounded-pill"><LocationOn/></span>
                                 </Grid>
                                 <Grid container justify="space-between" alignItems="center">
                                     <span className="">Date: </span>
-                                    <span className="badge rounded-pill"><FaLocationArrow/></span>
+                                    <span className="badge rounded-pill"><LocationOn/></span>
                                 </Grid>
                                 <p>{props.event.date}</p>
                                 <Grid container justify="space-between" alignItems="center">
                                     <span className="">Email: </span>
-                                    <span className="badge rounded-pill"><MdMail/></span>
+                                    <span className="badge rounded-pill"><Email/></span>
                                 </Grid>
                                 <p>gloriouschurch@gcc.com</p>
                                 <Grid container justify="space-between" alignItems="center">
                                     <span className="">Call: </span>
-                                    <span className="badge rounded-pill"><FaPhone/></span>
+                                    <span className="badge rounded-pill"><call/></span>
                                 </Grid>
                                 <p>Tel +256-782 325564</p>
                             </Card>
@@ -74,7 +73,7 @@ const EventPage = (props) => {
                             <Card className={classes.root}>
                                 <Grid container justify="space-between" alignItems="center">
                                     <span className="">Location: </span>
-                                    <span className="badge rounded-pill"><FaLocationArrow/></span>
+                                    <span className="badge rounded-pill"><LocationOn/></span>
                                 </Grid>
                                 <Grid container justify="space-between" alignItems="center">
                                     <p>Glorious Church Of Christ ministries Bunamwaya Located 200M from Bunamwaya-Ngobe
