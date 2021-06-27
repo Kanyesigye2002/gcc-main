@@ -1,0 +1,87 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+
+html {
+  font-family: sans-serif; // 2
+  line-height: 1.15; // 3
+  -webkit-text-size-adjust: 100%; // 4
+  -webkit-tap-highlight-color: rgba($black, 0); // 5
+}
+
+// Body
+//
+// 1. Remove the margin in all browsers.
+// 2. As a best practice, apply a default `background-color`.
+// 3. Set an explicit initial text-align value so that we can later use
+//    the `inherit` value on things like `<th>` elements.
+// 4. Disable horizontal scrolling
+
+body {
+  margin: 0; // 1
+  // TODO: find a better solution to avoid horizontal scroll if a sidebar doesn't have a fixed position.
+  overflow-x: hidden; // 4
+  font-family: $font-family-base;
+  @include font-size($font-size-base);
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  text-align: left; // 3
+  @include themes($body-theme-map, $create: append) {
+    color: themes-get-value("body-color");
+    background-color: themes-get-value("body-bg"); // 2
+  }
+}
+
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+
+
+//
+// Links
+//
+
+a {
+  text-decoration: $link-decoration;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+  @include themes($link-theme-map) {
+    color: themes-get-value("link-color");
+  }
+
+  @include hover() {
+    text-decoration: $link-hover-decoration;
+    @include themes($link-theme-map) {
+      color: themes-get-value("link-color");
+    }
+  }
+}
+
+// And undo these styles for placeholder links/named anchors (without href).
+// It would be more straightforward to just use a[href] in previous block, but that
+// causes specificity issues in many other styles that are too complex to fix.
+// See https://github.com/twbs/bootstrap/issues/19402
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+
+  @include hover() {
+    color: inherit;
+    text-decoration: none;
+  }
+}

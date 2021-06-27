@@ -1,0 +1,38 @@
+// Variable overrides
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Color system
+@import "node_modules/@coreui/coreui/scss/variables/colors";
+@import "node_modules/@coreui/coreui/scss/variables/brand-colors";
+@import "node_modules/@coreui/coreui/scss/variables/gradients";
+
+// Options
+@import "node_modules/@coreui/coreui/scss/variables/options";
+@import "node_modules/@coreui/coreui/scss/variables/spacing";
+@import "node_modules/@coreui/coreui/scss/variables/z-index";
+
+@import "node_modules/@coreui/coreui/scss/variables/body";
+@import "node_modules/@coreui/coreui/scss/variables/components/shared";
+@import "node_modules/@coreui/coreui/scss/variables/typography";
+@import "node_modules/@coreui/coreui/scss/variables/grid";
+
+// Components
+@import "node_modules/@coreui/coreui/scss/variables/components/links";
+@import "node_modules/@coreui/coreui/scss/variables/components/tables";
+@import "node_modules/@coreui/coreui/scss/variables/components/buttons-forms";
+@import "node_modules/@coreui/coreui/scss/variables/components/sidebar";
+@import "node_modules/@coreui/coreui/scss/variables/components/badges";
+
+// Utilities
+@import "node_modules/@coreui/coreui/scss/variables/utilities";
+
+
+// Printing
+@import "node_modules/@coreui/coreui/scss/variables/printing";
+
+// Cursor
+$cursor-disabled: default !default;
+
