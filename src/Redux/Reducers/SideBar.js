@@ -13,3 +13,12 @@ export const changeState = (state = initialState, action) => {
             return state
     }
 }
+
+export const changeState2 = (state = initialState, action) => {
+    switch (action.type) {
+        case 'set1':
+            return action.payload
+        default:
+            return state
+    }
+}
