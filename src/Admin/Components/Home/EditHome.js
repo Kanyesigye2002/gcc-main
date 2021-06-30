@@ -55,6 +55,7 @@ function EditHome(props) {
 
     return (
         <>
+            {console.log("home Data : ",datas)}
             <div style={{margin: "10px"}}>
                 <form className={classes.root} onSubmit={onSubmit}>
                     <Grid spacing={5} container direction="row" justify="center" alignItems="center">

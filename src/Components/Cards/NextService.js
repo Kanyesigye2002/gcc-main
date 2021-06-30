@@ -43,14 +43,16 @@ const NextService = (props) => {
 
     const startTimer = () => {
 
-        console.log(props.date)
-        const countdownDate = new Date(props.date).getTime();
-        console.log(countdownDate)
+        let date = props.date
 
-        // const countdownDate = new Date('2021/06/28, 12:00').getTime();
+        if (date === undefined)
+            date = new Date().getTime();
 
-        console.log(new Date('12/06/2021, 12:00').getTime())
-        console.log(new Date().getTime())
+
+
+        console.log("Date: ",date)
+
+        const countdownDate = new Date(date).getTime();
 
         interval = setInterval(() => {
             const now = new Date().getTime();

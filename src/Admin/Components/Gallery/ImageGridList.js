@@ -15,9 +15,9 @@ function ImageGridList() {
                 <div>
                     <SRLWrapper>
                         {
-                            fetchedImages.map(images => {
+                            fetchedImages.map((images, index) => {
                                 return (
-                                    <div>
+                                    <div key={index}>
                                         {
                                             images.images.length > 1 && (
                                                 <>

@@ -3,6 +3,8 @@ import {useDropzone} from "react-dropzone";
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 
+import S3FileUpload from 'react-s3';
+
 import {createStyles, Dialog, DialogContent, DialogTitle, Grid, Typography, TextField, MenuItem} from '@material-ui/core'
 import {makeStyles, Theme} from "@material-ui/core/styles";
 import {Close, AddAPhotoOutlined, Add, Remove} from "@material-ui/icons";
@@ -55,6 +57,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     }
 }));
 
+const config = {
+    bucketName: 'gcc-api',
+    dirName: 'images', /* optional */
+    region: 'us-east-2',
+    accessKeyId: 'AKIAUYJHZSXOSNCOMIA2',
+    secretAccessKey: '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',
+}
+
+
+
 function AddImage() {
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -67,10 +79,8 @@ function AddImage() {
 
     const onDrops = (acceptedFiles) => {
         const pre = [];
-        console.log(acceptedFiles)
         acceptedFiles.map((image, index) => {
             const previewUrl = URL.createObjectURL(image);
-            console.log()
             pre.push({
                 file: image, img: previewUrl
             })
@@ -81,11 +91,85 @@ function AddImage() {
         ]
         setPreviews(pres)
         setOpenPopup(true);
-
-        console.log(pres)
     };
 
+    const uploadFiled = async (files) => {
+        try {
+            const response = await S3FileUpload
+                .uploadFile(files[0].file, config)
+                .then(data => {
+                    console.log(data)
+                })
+                .catch(err => console.error(err))
+
+            console.log(config)
+            console.log("Response",response)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     const uploadFile = (files) => {
+        try {
+            let newImages = images
+            files.map(async (file, index) => {
+                try {
+                    S3FileUpload
+                        .uploadFile(files[0].file, config)
+                        .then(response =>  {
+                            console.log(response)
+                            const data = response.location
+                            console.log("File: ", data)
+
+                            const imageDat = {
+                                "galleryCategory": {
+                                    name: selected,
+                                    images: [
+                                        {
+                                            image: data,
+                                            name: file.file.name,
+                                            date: new Date()
+                                        }
+                                    ]
+                                }
+                            }
+
+                            const API_URL_Data = Url + "/api/gcc/v1/gallery/" + selected;
+
+                            console.log(API_URL_Data)
+
+                            axios.put(API_URL_Data, imageDat);
+
+                            newImages.map(images => {
+                                if (images.name === selected) {
+                                    images.images.push(
+                                        {
+                                            image: data,
+                                            name: file.file.name,
+                                            date: new Date()
+                                        }
+                                    )
+                                }
+                            })
+                        })
+                        .catch(err => console.error(err))
+                } catch (err) {
+                    console.log("Try1", err.message);
+                }
+            })
+            dispatch(
+                {
+                    type: "SetImages",
+                    payload: newImages
+                }
+            )
+        } catch (e) {
+            console.log("Try2", e.message);
+        }
+
+    };
+
+    const uploadFiles = (files) => {
         try {
             let newImages = images
             files.map(async (file, index) => {
@@ -93,10 +177,9 @@ function AddImage() {
                 try {
                     const formData = new FormData();
                     formData.append("file", file.file);
-                    console.log("files got ", file.file);
-                    const API_URL = Url + "/files";
+                    const API_URL = Url + "/gcc/api/files/upload";
 
-                    const response = await axios.put(API_URL, formData, {
+                    const response = await axios.post(API_URL, formData, {
                         onUploadProgress: (progressEvent) => {
                             const percentCompleted = Math.round(
                                 (progressEvent.loaded * 100) / progressEvent.total
@@ -105,7 +188,7 @@ function AddImage() {
                         },
                     });
 
-                    const data = response.data.fileDownloadUri
+                    const data = response.data
                     console.log("File: ", data)
 
                     const imageDat = {
@@ -120,22 +203,11 @@ function AddImage() {
                             ]
                         }
                     }
-
-                    console.log("Image Data: ", imageDat)
                     const API_URL_Data = Url + "/api/gcc/v1/gallery/" + selected;
 
-                    console.log(API_URL_Data)
-
                     const responseData = await axios.put(API_URL_Data, imageDat);
-                    console.log(responseData)
-
-                    console.log(images)
-
-
-
 
                     newImages.map(images => {
-                        console.log(images)
                         if (images.name === selected) {
                             images.images.push(
                                 {
@@ -147,21 +219,18 @@ function AddImage() {
                         }
                     })
 
-                    console.log(newImages)
-
-
                 } catch (err) {
-                    alert("Try1", err.message);
+                    console.log("Try1", err.message);
                 }
             })
-            dispatch(
-                {
-                    type: "SetImages",
-                    payload: newImages
-                }
-            )
+            // dispatch(
+            //     {
+            //         type: "SetImages",
+            //         payload: newImages
+            //     }
+            // )
         } catch (e) {
-            alert("Try2", e.message);
+            console.log("Try2", e.message);
         }
 
     };
@@ -177,7 +246,7 @@ function AddImage() {
 
     return (
         <>
-            <Grid container zeroMinWidth className={classes.root}>
+            <Grid container className={classes.root}>
                 <Grid spacing={5} container direction="row" justify="center" alignItems="center"
                       style={{padding: "0 0px"}}>
                     <Grid item xs={12} container alignItems="center" justify="center">

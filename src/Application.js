@@ -15,7 +15,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: "100vw",
+        width: "99.2vw",
         minHeight: "100vh",
         backgroundColor: "#121212"
     },
@@ -56,10 +56,12 @@ const Application = (props) => {
 
     const dispatch = useDispatch();
 
-    React.useEffect(() => dispatch(FetchImages()), [])
-    React.useEffect(() => dispatch(FetchHome()), [])
-    React.useEffect(() => dispatch(FetchEvents()), [])
-    React.useEffect(() => dispatch(FetchMessages()), [])
+    React.useEffect(() => {
+        dispatch(FetchEvents())
+        dispatch(FetchMessages())
+        dispatch(FetchHome())
+        dispatch(FetchImages())
+    }, [])
 
     return (
         <ThemeProvider theme={theme}>

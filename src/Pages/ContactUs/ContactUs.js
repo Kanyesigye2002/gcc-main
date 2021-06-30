@@ -1,12 +1,13 @@
 import React from 'react';
 
-import {LocationOn, Mood} from "@material-ui/icons";
+import {LocationOn, Mood, Call, Mail} from "@material-ui/icons";
 
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 
 import {Controls} from "../../Components";
+import {Typography} from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
@@ -45,32 +46,36 @@ function ContactUs(props) {
         <Grid container direction="row">
             <Grid spacing={4} item xs={12} md={4}>
                 <Card className={classes.root}>
-                    <Grid container justify="space-between" alignItems="center">
-                        <span className="">Location: </span>
-                        <span className="badge rounded-pill"><LocationOn/></span>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <Grid item container justify="space-between" alignItems="center">
+                                <Typography variant="subtitle1">Location: </Typography>
+                                <LocationOn/>
+                            </Grid>
+                            <Typography variant="subtitle2">Bunamwaya Located 200M from Bunamwaya-Ngobe Road</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Grid item container justify="space-between" alignItems="center">
+                                <Typography variant="subtitle1" className="">Email Us: </Typography>
+                                <Mail/>
+                            </Grid>
+                            <Typography variant="subtitle2">gloriouschurch@gcc.com</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Grid item container justify="space-between" alignItems="center">
+                                <Typography variant="subtitle1" className="">Call Us: </Typography>
+                                <Call/>
+                            </Grid>
+                            <Typography variant="subtitle2">Tel +256-782 325564</Typography>
+                        </Grid>
+                        <Grid item xs={12} container justify="space-between" alignItems="center">
+                            <iframe title="Church Location"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.776094264171!2d32.54391671475331!3d0.2636038998076775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd4f3d32d995%3A0x444bed85639cbda8!2sGLORIOUS%20CHURCH%20OF%20CHRIST!5e0!3m2!1sen!2sug!4v1624952809594!5m2!1sen!2sug"
+                                    frameBorder="0"
+                                    style={{border: "0", width: "100%", height: "400px", borderRadius: "10px", paddingTop: "3rem"}}
+                                    allowFullScreen=""/>
+                        </Grid>
                     </Grid>
-                    <Grid container justify="space-between" alignItems="center">
-                        <p>Glorious Church Of Christ ministries Bunamwaya Located 200M from Bunamwaya-Ngobe
-                            Road</p>
-                    </Grid>
-                    <Grid container justify="space-between" alignItems="center">
-                        <span className="">Email Us: </span>
-                        <span className="badge rounded-pill"><LocationOn/></span>
-                    </Grid>
-                    <p>gloriouschurch@gcc.com</p>
-                    <Grid container justify="space-between" alignItems="center">
-                        <span className="">Call Us: </span>
-                        <span className="badge rounded-pill"><LocationOn/></span>
-                    </Grid>
-                    <p>Tel +256-782 325564</p>
-                    <Grid container justify="space-between" alignItems="center">
-                        <iframe title="Church Location"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                                frameBorder="0"
-                                style={{border: "0", width: "100%", height: "400px", borderRadius: "10px", paddingTop: "3rem"}}
-                                allowFullScreen=""/>
-                    </Grid>
-
                 </Card>
             </Grid>
             <Grid spacing={4} item xs={12} md={8}>

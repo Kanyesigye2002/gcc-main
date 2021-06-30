@@ -4,14 +4,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
 import {Drawer, List, ListItem, useMediaQuery, useTheme} from "@material-ui/core";
-import {MenuItems} from "./Components/MenuItems/MenuItems";
+import {MenuItems} from "../MenuItems/MenuItems";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
-import logo from "./Assets/Images/logos/logo-sm.png";
+import logo from "../../Assets/Images/logos/logo-sm.png";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -48,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     list: {
         display: "flex",
     },
+    drawerList: {
+        margin: "20px 5px",
+    },
     drawer: {
         width: 250,
     },
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function HideAppBar(props) {
+export default function AppBarGcc(props) {
 
     const classes = useStyles();
     const [drawer, setDrawer] = useState(false);
@@ -77,10 +78,12 @@ export default function HideAppBar(props) {
     const list = () => (
         <>
             <div onClick={() => tag(false)} className={classes.drawer}>
-                <List>
+                <List className={classes.drawerList}>
+                    <ListItem style={{marginBottom: 20}}>
+                        <div className='menu-logo'><img src={logo} alt="" width="100%" height="100%"/></div>
+                    </ListItem>
                     {MenuItems.map((item, index) => (
-                        <ListItem button>{item.title}</ListItem>
-                        // <ListItem button> <Link to={item.url}>{item.title}</Link></ListItem>
+                        <ListItem button key={index} className={classes.linkBtn} style={{marginTop: 10, color: "#fff"}}> <Link to={item.url}>{item.title}</Link></ListItem>
                     ))}
                 </List>
             </div>
@@ -88,7 +91,7 @@ export default function HideAppBar(props) {
     )
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline/>
             <HideOnScroll {...props}>
                 <AppBar>
@@ -102,8 +105,7 @@ export default function HideAppBar(props) {
                             ) : (
                                 <List className={classes.list}>
                                     {MenuItems.map((item, index) => (
-                                        <ListItem button className={classes.linkBtn}>{item.title}</ListItem>
-                                        // <ListItem button className={classes.linkBtn}> <Link to={item.url}>{item.title}</Link></ListItem>
+                                        <ListItem button className={classes.linkBtn} key={index}> <Link to={item.url}>{item.title}</Link></ListItem>
                                     ))}
                                 </List>
                             )}
@@ -117,15 +119,6 @@ export default function HideAppBar(props) {
                 {list()}
             </Drawer>
             <Toolbar/>
-            <Container>
-                <Box my={2}>
-                    {[...new Array(12)]
-                        .map(
-                            () => `Cras mattis consectetur purus sit amet fermentum.Cras justo odio, dapibus ac facilisis in, egestas eget quam.Morbi leo risus, porta ac consectetur ac, vestibulum at eros.Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-                        )
-                        .join('\n')}
-                </Box>
-            </Container>
-        </React.Fragment>
+        </>
     );
 }

@@ -1,29 +1,29 @@
 import axios from "axios";
 
 import { Url } from '../Url'
+import S3FileUpload from "react-s3";
+import {config} from "../../Admin/Config";
 
 export const UploadFile = (file, Data) => async (dispatch, getState) => {
 
     try {
-        const formData = new FormData();
-        formData.append("file", file);
-        console.log("files got ", file);
-        const API_URL = Url + Url + "/files";
+        const response = await S3FileUpload
+            .uploadFile(file, config)
+            .then(data => {
+                const newData = {
+                    ...Data,
+                    fileName: data.location
+                }
 
-        const response = await axios.put(API_URL, formData);
+                console.log(newData)
 
-        console.log("Response1: ", response)
+                const res = axios.post(Url + "/api/gcc/v1/events", newData)
 
-        const newData = {
-            ...Data,
-            fileName: response.data.fileDownloadUri
-        }
+                console.log("Finished: ", res)
+                console.log(data)
+            })
+            .catch(err => console.error(err))
 
-        console.log(newData)
-
-        const res = axios.post(Url + "/api/gcc/v1/events", newData)
-
-        console.log("Finished: ", res)
 
 
     } catch (err) {

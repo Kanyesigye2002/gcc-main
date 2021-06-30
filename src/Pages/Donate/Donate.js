@@ -100,10 +100,6 @@ export default function DetailedAccordion() {
                                         <TextField label="Phone Number" type="text" name="phoneNumber"
                                                    variant="filled" fullWidth/>
                                     </Grid>
-                                    <Grid item xs={12}>
-                                        <TextField label="Reason For Giving" type="text" name="reason" variant="filled"
-                                                   fullWidth/>
-                                    </Grid>
                                     <Grid item xs={12} container direction="row">
                                         <Grid item xs={3}>
                                             <TextField label="Currency" type="text" name="phoneNumber" variant="filled"
@@ -122,6 +118,10 @@ export default function DetailedAccordion() {
                                                        variant="filled" fullWidth/>
                                         </Grid>
                                     </Grid>
+                                    <Grid item xs={12}>
+                                        <TextField label="Reason For Giving" type="text" name="reason" variant="filled"
+                                                   fullWidth/>
+                                    </Grid>
 
 
                                     <Grid container justify="space-between" style={{padding: 10}}>
@@ -130,7 +130,7 @@ export default function DetailedAccordion() {
                                     </Grid>
 
                                 </Grid>
-                                <Grid item xs={12} md={4} className={classes.helper} style={{padding: "8px 16px", marginLeft: 20}}>
+                                <Grid item xs={12} md={2} className={classes.helper} style={{padding: "8px 16px", margin: 20}}>
                                     <Typography variant="caption">
                                         Secured By Weber's Task in Co-operation with FlutterWave
                                         <br/>

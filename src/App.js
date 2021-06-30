@@ -1,21 +1,21 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {useDispatch} from "react-redux";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+
 
 import {Sermons, ContactUs, Donate, Events, Gallery, Ministries, Home} from "./Pages";
-import {FetchEvents, FetchHome, FetchImages, FetchMessages} from "./Redux/MiddleWare";
+
+import {AppBarGcc} from './Components'
 
 import './Assets/CSS/style.css'
+import GccFooter from "./Components/Footer/GccFooter";
+import {Typography} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,30 +59,25 @@ const App = () => {
             <React.Suspense fallback={
                 <CircularProgress color="primary"/>
             }>
-                <div className={classes.appBar}>
-                    <AppBar position="static">
-                        <Toolbar variant="dense">
-                            <IconButton edge="start" className={classes.menuButton} color="inherit"
-                                        aria-label="menu">
-                                <MenuIcon/>
-                            </IconButton>
-                            <Typography variant="h6" color="inherit">
-                                Photos
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                </div>
-                <Paper className={classes.root}>
-                    <Switch>
-                        <Route path="/sermons" name="Home" component={Sermons}/>
-                        <Route path="/contactUs" name="Home" component={ContactUs}/>
-                        <Route path="/donate" name="Home" component={Donate}/>
-                        <Route path="/events" name="Home" component={Events}/>
-                        <Route path="/gallery" name="Home" component={Gallery}/>
-                        <Route path="/ministries" name="Home" component={Ministries}/>
-                        <Route path="" name="Home" component={Home}/>
-                    </Switch>
-                </Paper>
+                <AppBarGcc/>
+                <Container style={{paddingLeft: "2px", paddingRight: "2px"}}>
+                    <Box>
+                        <Paper className={classes.root}>
+                            <Switch>
+                                <Route path="/sermons" name="Home" component={Sermons}/>
+                                <Route path="/contactUs" name="Home" component={ContactUs}/>
+                                <Route path="/donate" name="Home" component={Donate}/>
+                                <Route path="/events" name="Home" component={Events}/>
+                                <Route path="/gallery" name="Home" component={Gallery}/>
+                                <Route path="/ministries" name="Home" component={Ministries}/>
+                                <Route path="" name="Home" component={Home}/>
+                            </Switch>
+                        </Paper>
+                    </Box>
+                </Container>
+
+
+                <GccFooter/>
 
             </React.Suspense>
         </Router>

@@ -20,6 +20,11 @@ body, html {
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
 /*---------------------------------------Video Wrapper-----------------------------------------------*/
 
 .video-div {

@@ -3,7 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import { YouTube} from "@material-ui/icons"
 import {useDispatch, useSelector} from "react-redux";
 
-import {NextService, Carousels, Iframe} from '../../Components'
+
+import {NextService, Carousels, Iframe, Swipes} from '../../Components'
 import {fetchData} from '../../Redux/Actions'
 import Paper from "@material-ui/core/Paper";
 
@@ -25,10 +26,11 @@ function Home(props) {
             <Grid container justify="center">
                 <NextService date={homed.nextService}/>
             </Grid>
-            <Grid container justify="center" style={{padding: "0"}}>
+            <Grid container justify="center" style={{padding: "20px 0 10px"}}>
                 <button className="btn-height" style={{width: 300}} ><YouTube size="1.5em"/> Latest Video</button>
             </Grid>
             <Iframe/>
+            <Swipes/>
         </Paper>
     );
 }

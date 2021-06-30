@@ -3,6 +3,8 @@ import NavBar from './NavBar/Navbar'
 import Carousels from "./Carousel/Carousel";
 import Iframe from './IFrames/Iframe'
 import Controls from "./Controls";
+import AppBarGcc from './AppBar/AppBarGcc'
+import Swipes from './Swipers/Swipes'
 
 
 export {
@@ -15,5 +17,7 @@ export {
     NextService,
     Carousels,
     Iframe,
-    Controls
+    Controls,
+    AppBarGcc,
+    Swipes
 }
