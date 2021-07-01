@@ -49,8 +49,8 @@ export default function MediaCard(props) {
             </CardActionArea>
 
             <CardActions style={{justifyContent: "space-between"}}>
-                <Button size="small" color="primary">Support</Button>
-                <Button size="small" color="primary" onClick={() => props.view(props.content)}>Read More</Button>
+                <Button variant="contained" size="small" color="primary">Support</Button>
+                <Button variant="contained" size="small" color="primary" onClick={() => props.view(props.content)}>Read More</Button>
             </CardActions>
         </Card>
     );

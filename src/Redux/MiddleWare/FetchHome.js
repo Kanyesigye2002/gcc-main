@@ -11,11 +11,11 @@ export const UploadHome = (files, formEventData) => async (dispatch, getState) =
         ...formEventData
     }
 
-    files.map(async (file, index) => {
+    files.map((file, index) => {
         if (file !== undefined) {
             console.log(file)
             console.log(file.file)
-            const response = await S3FileUpload
+            S3FileUpload
                 .uploadFile(file, config)
                 .then(response => {
 
@@ -30,7 +30,7 @@ export const UploadHome = (files, formEventData) => async (dispatch, getState) =
 
                     console.log("Finished: ", res)
                 })
-                .catch(err => console.error(err))
+                .catch(err => console.error(err));
         } else {
             const res = axios.put(Url + "/api/gcc/v1/home/1", data)
         }

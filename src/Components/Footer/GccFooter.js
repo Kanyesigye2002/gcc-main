@@ -3,18 +3,16 @@ import {Grid, ListItem, makeStyles, Typography} from '@material-ui/core'
 import {MenuItems} from '../MenuItems/MenuItems.js';
 import logo from "../../Assets/Images/logos/logo-sm.png";
 import Controls from '../Controls'
-import {Facebook, Call, YouTube} from '@material-ui/icons'
+import Footer from "./Footer";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     linkBtn: {
-        border: "0px",
-        width: "100%",
-        "&$hover": {
-            border: "1px solid red"
-        }
+        borderBottom: "1px solid black",
+        borderRadius: "0",
     },
     footer: {
-        borderTop: "1px solid black"
+        // borderTop: "1px solid black"
     }
 }))
 
@@ -23,7 +21,7 @@ function GccFooter(props) {
 
 
     return (
-        <Grid container>
+        <Grid container  style={{marginTop: "20px", borderTop: "1px solid burlywood"}}>
             <Grid item container spacing={3} xs={12} sm={6} direction="row" justify="center" alignItems="center">
                 <Grid item xs={7} container alignContent="center" justify="center">
                     <img src={logo}/>
@@ -31,27 +29,36 @@ function GccFooter(props) {
                 <Grid item xs={12} container alignContent="center" justify="center">
                     <Typography>Welcome to Glorious Church</Typography>
                 </Grid>
+                <Grid item xs={12} container alignContent="center" justify="center">
+                        <iframe title="Church Location"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.776094264171!2d32.54391671475331!3d0.2636038998076775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd4f3d32d995%3A0x444bed85639cbda8!2sGLORIOUS%20CHURCH%20OF%20CHRIST!5e0!3m2!1sen!2sug!4v1624952809594!5m2!1sen!2sug"
+                                frameBorder="0"
+                                style={{
+                                    border: "0",
+                                    width: "100%",
+                                    height: "200px",
+                                    borderRadius: "2px"
+                                }}
+                                allowFullScreen=""/>
+                </Grid>
             </Grid>
             <Grid item container xs={12} sm={6} spacing={2}>
 
                 {MenuItems.map((item, index) => (
                     <Grid item xs={6} key={index}>
-                        <div style={{padding: "10px", width: "100%"}}>
-                            <Controls.Button className={classes.linkBtn}>{item.title}</Controls.Button>
+                        <div style={{padding: "2px", width: "100%"}}>
+                            <Link to={item.url}>
+                                <Controls.Button style={{border: "1px solid rgba(154, 130, 98, 0.2)", borderBottom: "1px solid black",  borderRadius: "0"}} variant="outlined" fullWidth>{item.title}</Controls.Button>
+                            </Link>
                         </div>
                     </Grid>
                 ))}
             </Grid>
             <Grid container xs={12} className={classes.footer}>
-                <Grid xs={6}><Typography>WebSite by Webers</Typography></Grid>
-                <Grid xs={6} container direction="row"justify="flex-end">
-                    <Call/>
-                    <YouTube/>
-                    <Facebook/>
-                </Grid>
+                <Footer />
             </Grid>
         </Grid>
     );
 }
 
-export default GccFooter;
+export default React.memo(GccFooter);

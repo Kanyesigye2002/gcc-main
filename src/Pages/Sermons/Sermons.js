@@ -12,7 +12,7 @@ const Sermons = () => {
                 <Typography variant="h4">Church Sermons</Typography>
             </Grid>
             <Grid container direction="row">
-                <Grid item xs={12} sm={6} lg={4}>
+                <Grid item xs={12} sm={6} lg={4} container justify="center">
                     <Sermon/>
                 </Grid>
             </Grid>

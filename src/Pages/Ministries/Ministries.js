@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 
 import Grid from "@material-ui/core/Grid";
 
-import {Ministry, MinistryPage} from "../../Components";
+import {Controls, Ministry, MinistryPage} from "../../Components";
 import '../../Assets/CSS/Components/Overlay/Overlay.css'
 
 import profession from "../../Assets/Images/pastor001.jpg";
@@ -16,9 +16,59 @@ import men from "../../Assets/Images/Ministries/men/men.jpeg";
 import child from "../../Assets/Images/Ministries/chrildren/children2.jpeg";
 import youth from "../../Assets/Images/Ministries/youth/children.jpeg";
 import Paper from "@material-ui/core/Paper";
-import {Typography} from "@material-ui/core";
+import {createStyles, Dialog, DialogContent, DialogTitle, MenuItem, TextField, Typography} from "@material-ui/core";
+import {Add, AddAPhotoOutlined, Close, Remove} from "@material-ui/icons";
+import {makeStyles, Theme} from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles((theme: Theme) => createStyles({
+    root: {
+        display: "contents",
+        padding: "0"
+    },
+    gridList: {
+        height: "100%"
+    },
+    gridListRoot: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overFlow: 'hidden',
+        backGroundColor: theme.palette.background.paper,
+    },
+    dropZoneContainer: {
+        minHeight: 200,
+        background: "#efefef",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderStyle: "dashed",
+        borderColor: "#aaa",
+    },
+    dialogWrapper: {
+        padding: "40px 0",
+        position: 'absolute',
+        minWidth: "100%",
+        margin: "0",
+        display: "flex",
+        alignItems: "center"
+    },
+    dialogTitle: {
+        padding: '0 50px',
+        width: "98%",
+        maxWidth: "98%"
+    },
+    noPadding: {
+        padding: "0",
+        maxWidth: "90%"
+    }
+}));
 
 function Ministries(props) {
+    const classes = useStyles();
+
+    const [openPopup, setOpenPopup] = useState(false)
+    const [title, setTitle] = useState("Sermon Title")
 
     const ministries = [
         {
@@ -344,9 +394,11 @@ function Ministries(props) {
     /* Open when someone clicks on the span element */
     const openNav = (newContent) => {
         console.log(newContent)
+        setTitle(newContent.title)
         setScroll(<MinistryPage content={newContent} onClose={closeNav}/>)
-        document.getElementById("myNav").style.width = "100%";
-        document.body.classList.toggle("noScroll");
+        setOpenPopup(true)
+        // document.getElementById("myNav").style.width = "100%";
+        // document.body.classList.toggle("noScroll");
 
     }
 
@@ -363,16 +415,29 @@ function Ministries(props) {
             </div>
             <Grid container direction="column">
                 <Grid item>
-                    <Typography variant="h4" style={{textAlign: "center", padding: 5}}>Glorious church Ministries</Typography>
+                    <Typography color="primary" variant="h4" style={{textAlign: "center", padding: 5}}>Glorious church Ministries</Typography>
                 </Grid>
-                <Grid item container spacing={3}>
+                <Grid item spacing={3} container>
                     {ministries.map((ministry, index) => (
-                        <Grid key={index} item xs={12} sm={6} md={5} lg={4}>
+                        <Grid key={index} item xs={12} sm={6} md={5} lg={4} container justify="center">
                             <Ministry id={index} content={ministry} view={openNav}/>
                         </Grid>
                     ))}
                 </Grid>
             </Grid>
+            <Dialog open={openPopup} maxWidth="md" classes={{paper: classes.dialogWrapper}}>
+                <DialogTitle className={classes.dialogTitle}>
+                    <Grid container justify="space-between">
+                        <Typography variant="h6" component="div" style={{flexGrow: 1}}>{title}</Typography>
+                        <Controls.ActionButton style={{width: "30px", minWidth: "30px", height: "30px"}} color="secondary" onClick={() => {setOpenPopup(false)}}><Close/></Controls.ActionButton>
+                    </Grid>
+                </DialogTitle>
+                <DialogContent dividers className={classes.noPadding}>
+                    <div>
+                        {scroll}
+                    </div>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }

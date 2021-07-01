@@ -5,6 +5,7 @@ import './styles.css'
 
 import SimpleReactLightbox, {SRLWrapper} from "simple-react-lightbox";
 import {useSelector} from "react-redux";
+import Grid from "@material-ui/core/Grid";
 
 function ImageGridList() {
 
@@ -17,7 +18,7 @@ function ImageGridList() {
                     {
                         fetchedImages.map(images => {
                             return (
-                                <div>
+                                <Grid container justify="center">
                                     {
                                         images.images.length > 1 && (
                                             <>
@@ -51,7 +52,7 @@ function ImageGridList() {
                                             </>
                                         )
                                     }
-                                </div>
+                                </Grid>
                             )
                         })
                     }

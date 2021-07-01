@@ -7,7 +7,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 
 
-import {Sermons, ContactUs, Donate, Events, Gallery, Ministries, Home} from "./Pages";
+import {Sermons, ContactUs, Donate, Events, Gallery, Ministries, AboutUs, Home} from "./Pages";
 
 import {AppBarGcc} from './Components'
 
@@ -65,6 +65,7 @@ const App = () => {
                         <Paper className={classes.root}>
                             <Switch>
                                 <Route path="/sermons" name="Home" component={Sermons}/>
+                                <Route path="/aboutus" name="Home" component={AboutUs}/>
                                 <Route path="/contactUs" name="Home" component={ContactUs}/>
                                 <Route path="/donate" name="Home" component={Donate}/>
                                 <Route path="/events" name="Home" component={Events}/>

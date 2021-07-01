@@ -16,8 +16,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "99.2vw",
-        minHeight: "100vh",
-        backgroundColor: "#121212"
+        minHeight: "100vh"
     },
 
     appBar: {
@@ -26,20 +25,23 @@ const useStyles = makeStyles((theme) => ({
     menuButton: {
         marginRight: theme.spacing(2),
     },
-    h2: {
-        color: "#343212"
-    }
 }))
 
 const theme = createMuiTheme({
     palette: {
         type: "dark",
         primary: {
-            light: '#f6685e',
-            main: '#f44336',
-            dark: '#aa2e25',
+            light: '#90806a',
+            main: '#9a8262',
+            dark: '#c49556',
             contrastText: '#fff',
         },
+        // primary: {
+        //     light: '#f6685e',
+        //     main: '#f44336',
+        //     dark: '#aa2e25',
+        //     contrastText: '#fff',
+        // },
         secondary: {
             light: '#5393ff',
             main: '#2979ff',

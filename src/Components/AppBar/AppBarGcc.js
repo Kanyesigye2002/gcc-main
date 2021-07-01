@@ -1,17 +1,24 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Slide from '@material-ui/core/Slide';
-import {Drawer, List, ListItem, useMediaQuery, useTheme} from "@material-ui/core";
-import {MenuItems} from "../MenuItems/MenuItems";
 import {Link} from "react-router-dom";
-import {makeStyles} from "@material-ui/core/styles";
+import {
+    IconButton,
+    Drawer,
+    Slide,
+    useScrollTrigger,
+    CssBaseline,
+    Toolbar,
+    AppBar,
+    List,
+    ListItem,
+    useMediaQuery,
+    useTheme,
+    makeStyles,
+    Button
+} from "@material-ui/core";
+import {MenuItems} from "../MenuItems/MenuItems";
+import {Menu} from '@material-ui/icons'
 import logo from "../../Assets/Images/logos/logo-sm.png";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
 function HideOnScroll(props) {
     const {children, window} = props;
@@ -46,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
     list: {
         display: "flex",
     },
+    item: {
+        padding: "3px 0"
+    },
     drawerList: {
         margin: "20px 5px",
     },
@@ -53,15 +63,21 @@ const useStyles = makeStyles((theme) => ({
         width: 250,
     },
     linkBtn: {
+        borderRadius: 0,
         borderBottom: "0.5px solid #202020A2",
         marginLeft: "5px",
-        // "& :hover": {
-        //     borderBottom: "0.5px solid Red",
-        // }
+    },
+    linkBtn1: {
+        borderBottom: "0.5px solid #202020A2",
+        marginLeft: "5px",
+    },
+    btnList2: {
+        padding: "20px 0 0",
+        bottom: 2,
     }
 }));
 
-export default function AppBarGcc(props) {
+function AppBarGcc(props) {
 
     const classes = useStyles();
     const [drawer, setDrawer] = useState(false);
@@ -82,9 +98,27 @@ export default function AppBarGcc(props) {
                     <ListItem style={{marginBottom: 20}}>
                         <div className='menu-logo'><img src={logo} alt="" width="100%" height="100%"/></div>
                     </ListItem>
-                    {MenuItems.map((item, index) => (
-                        <ListItem button key={index} className={classes.linkBtn} style={{marginTop: 10, color: "#fff"}}> <Link to={item.url}>{item.title}</Link></ListItem>
-                    ))}
+
+                    {MenuItems.map((item, index) =>
+                        <>
+                            {item.title !== "Donate" && (<>
+                                <ListItem key={index} className={classes.item}>
+                                    <Link to={item.url} style={{width: "100%"}}>
+                                        <Button className={classes.linkBtn} fullWidth
+                                                variant="outlined">{item.title}</Button>
+                                    </Link>
+                                </ListItem>
+                            </>)
+
+                            }
+                        </>
+                    )}
+
+                    <ListItem className={classes.btnList2}>
+                        <Link to="/donate" style={{width: "100%"}}>
+                            <Button color="primary" variant="contained" fullWidth>Donate</Button>
+                        </Link>
+                    </ListItem>
                 </List>
             </div>
         </>
@@ -94,19 +128,31 @@ export default function AppBarGcc(props) {
         <>
             <CssBaseline/>
             <HideOnScroll {...props}>
-                <AppBar>
+                <AppBar color="#424242">
                     <Toolbar>
                         <div className='menu-logo'><img src={logo} alt="" width="100%" height="100%"/></div>
                         <div className={classes.grow}>
                             {isMobile ? (
                                 <IconButton onClick={() => tag(true)}>
-                                    <MenuIcon/>
+                                    <Menu/>
                                 </IconButton>
                             ) : (
                                 <List className={classes.list}>
-                                    {MenuItems.map((item, index) => (
-                                        <ListItem button className={classes.linkBtn} key={index}> <Link to={item.url}>{item.title}</Link></ListItem>
-                                    ))}
+                                    {MenuItems.map((item, index) =>
+                                        <>
+                                            {item.title !== "Donate" &&
+                                            (
+                                                <ListItem button className={classes.linkBtn1} key={index}> <Link
+                                                    to={item.url}>{item.title}</Link></ListItem>
+                                            )
+                                            }
+                                        </>
+                                    )}
+                                    <ListItem className={classes.btnList2}>
+                                        <Link to="/donate" style={{width: "100%"}}>
+                                            <Button color="primary" variant="contained" fullWidth>Donate</Button>
+                                        </Link>
+                                    </ListItem>
                                 </List>
                             )}
 
@@ -122,3 +168,6 @@ export default function AppBarGcc(props) {
         </>
     );
 }
+
+
+export default React.memo(AppBarGcc)

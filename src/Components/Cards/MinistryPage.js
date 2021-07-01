@@ -24,13 +24,7 @@ function EventPage(props) {
 
     return (
         <Grid container direction="row">
-            <Grid className="closebtn" container style={{padding: "0 10px"}}>
-                <h2>{props.content.title}</h2>
-                <span onClick={() => props.onClose()}><Cancel/></span>
-            </Grid>
-
             <div className="scrol">
-
                 <div className="overlay-content">
                     <Grid spacing={2} container direction="row" style={{padding: "0 10px"}}>
                         <img src={props.content.image} alt="Glorious Church" style={{width: "100%", borderRadius: 3}}/>
