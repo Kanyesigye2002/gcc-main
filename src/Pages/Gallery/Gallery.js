@@ -11,11 +11,11 @@ function Gallery(props) {
     return (
         <Grid>
             <Grid container direction="row" className="row">
-                <Grid xs={12} container justify="center">
+                <Grid item xs={12} container justify="center">
                     <h2>Welcome To the Church Gallery</h2>
                 </Grid>
             </Grid>
-            <Grid container direction="row" className="row">
+            <Grid container direction="row">
                 <ImageGridList/>
             </Grid>
         </Grid>

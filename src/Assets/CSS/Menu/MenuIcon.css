@@ -5,7 +5,7 @@
 
 .bar1, .bar2, .bar3 {
     height: 4px;
-    background-color: var(--primary);
+    background-color: #2414b5;
     margin: 6px 0;
     transition: 0.4s;
     border-radius: 8px;

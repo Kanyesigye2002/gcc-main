@@ -17,7 +17,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-import image from '../../Assets/Images/paella.jpg'
+import image from '../../Assets/Images/pastor001.jpg'
 
 const useStyles = makeStyles((theme) => ({
     root: {

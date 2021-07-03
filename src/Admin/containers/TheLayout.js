@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,10 +19,16 @@ import Typography from "@material-ui/core/Typography";
 import {Link} from "react-router-dom";
 import {Controls} from "../../Components";
 import Grid from "@material-ui/core/Grid";
+import {fetchUserData} from "../Admin/api/authenticationService";
+import Button from "@material-ui/core/Button";
+import logo from "../../Assets/Images/logos/logo-sm.png";
 
 const useStyles = makeStyles((theme) => ({
     list: {
         width: 250,
+    },
+    logo: {
+
     },
     fullList: {
         width: 'auto',
@@ -35,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function TheLayOut() {
+export default function TheLayOut(props) {
     const classes = useStyles();
 
     const dispatch = useDispatch()
@@ -51,40 +57,61 @@ export default function TheLayOut() {
     const list = (anchor) => (
         <div className={classes.list} role="presentation" onClick={toggleDrawer(anchor, false)}
              onKeyDown={toggleDrawer(anchor, false)}>
-            <IconButton onClick={toggleDrawer('left', true)} className={classes.menuButton}
-                        color="inherit" aria-label="menu">
-                <MenuIcon/> Sleepy head
-            </IconButton>
-            <Divider/>
-            <Grid container style={{padding: "0 20px"}}>
-                <Grid item xs={12}>
-                    <Link to="/admin" style={{textDecoration: "none"}}>
-                        <Controls.Button fullWidth type="button">Admin Dashboard</Controls.Button>
-                    </Link>
+            <Grid container justify="center">
+                <Grid item xs={12} container justify="center">
+                    <img src={logo} alt="" className={classes.logo}/>
                 </Grid>
-                <Grid item xs={12}>
-                    <Link to="/admin/EditHome" style={{textDecoration: "none"}}>
-                        <Controls.Button fullWidth type="button">Home</Controls.Button>
-                    </Link>
+                <Grid item xs={12} style={{marginBottom: 20}}>
+                    <Divider/>
                 </Grid>
-                <Grid item xs={12}>
-                    <Link to="/admin/ContactUs" style={{textDecoration: "none"}}>
-                        <Controls.Button fullWidth type="button">Messages</Controls.Button>
-                    </Link>
-                </Grid>
-                <Grid item xs={12}>
-                    <Link to="/admin/Events" style={{textDecoration: "none"}}>
-                        <Controls.Button fullWidth type="button">Events</Controls.Button>
-                    </Link>
-                </Grid>
-                <Grid item xs={12}>
-                    <Link to="/admin/AddImage" style={{textDecoration: "none"}}>
-                        <Controls.Button fullWidth type="button">Add Images</Controls.Button>
-                    </Link>
+                <Grid container style={{padding: "0 20px"}}>
+                    <Grid item xs={12}>
+                        <Link to="/admin" style={{textDecoration: "none"}}>
+                            <Controls.Button fullWidth type="button">Admin Dashboard</Controls.Button>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Link to="/admin/EditHome" style={{textDecoration: "none"}}>
+                            <Controls.Button fullWidth type="button">Home</Controls.Button>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Link to="/admin/ContactUs" style={{textDecoration: "none"}}>
+                            <Controls.Button fullWidth type="button">Messages</Controls.Button>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Link to="/admin/Events" style={{textDecoration: "none"}}>
+                            <Controls.Button fullWidth type="button">Events</Controls.Button>
+                        </Link>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Link to="/admin/AddImage" style={{textDecoration: "none"}}>
+                            <Controls.Button fullWidth type="button">Add Images</Controls.Button>
+                        </Link>
+                    </Grid>
                 </Grid>
             </Grid>
         </div>
     );
+
+    const [data, setData] = useState({});
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+            props.history.push('/admin/login');
+        })
+    }, [])
+
+    const logOut = () => {
+
+        localStorage.clear();
+        props.history.push('/admin/login');
+
+    }
 
     return (
         <>
@@ -96,8 +123,9 @@ export default function TheLayOut() {
                             <MenuIcon/>
                         </IconButton>
                         <Typography variant="h6" color="inherit">
-                            Photos
+                            Gcc Admin
                         </Typography>
+                        <Button type="button" onClick={() => logOut()}>Log Out</Button>
                     </Toolbar>
                 </AppBar>
             </div>

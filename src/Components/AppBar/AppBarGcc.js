@@ -19,6 +19,10 @@ import {
 import {MenuItems} from "../MenuItems/MenuItems";
 import {Menu} from '@material-ui/icons'
 import logo from "../../Assets/Images/logos/logo-sm.png";
+import logoBlue from "../../Assets/Images/logos/logo-sm-b.png";
+import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
+import MenuIcon from "./MenuIcon";
 
 function HideOnScroll(props) {
     const {children, window} = props;
@@ -54,12 +58,13 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
     },
     item: {
-        padding: "3px 0"
+        padding: "3px"
     },
     drawerList: {
         margin: "20px 5px",
     },
     drawer: {
+        paddingTop: 20,
         width: 250,
     },
     linkBtn: {
@@ -71,9 +76,8 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: "0.5px solid #202020A2",
         marginLeft: "5px",
     },
-    btnList2: {
-        padding: "20px 0 0",
-        bottom: 2,
+    draw: {
+        backgroundColor: "#585858",
     }
 }));
 
@@ -94,29 +98,33 @@ function AppBarGcc(props) {
     const list = () => (
         <>
             <div onClick={() => tag(false)} className={classes.drawer}>
+                <Grid container justify="center" spacing={2}>
+                    <Grid item xs={12} container justify="center">
+                        <img src={logo} alt="" className={classes.logo}/>
+                    </Grid>
+                    <Grid item xs={12} style={{marginBottom: 2}}>
+                        <Divider/>
+                    </Grid>
+                </Grid>
                 <List className={classes.drawerList}>
-                    <ListItem style={{marginBottom: 20}}>
-                        <div className='menu-logo'><img src={logo} alt="" width="100%" height="100%"/></div>
-                    </ListItem>
-
                     {MenuItems.map((item, index) =>
-                        <>
+                        <React.Fragment key={index}>
                             {item.title !== "Donate" && (<>
-                                <ListItem key={index} className={classes.item}>
+                                <ListItem className={classes.item}>
                                     <Link to={item.url} style={{width: "100%"}}>
                                         <Button className={classes.linkBtn} fullWidth
-                                                variant="outlined">{item.title}</Button>
+                                                variant="text">{item.title}</Button>
                                     </Link>
                                 </ListItem>
                             </>)
 
                             }
-                        </>
+                        </React.Fragment>
                     )}
 
-                    <ListItem className={classes.btnList2}>
+                    <ListItem className={classes.item}>
                         <Link to="/donate" style={{width: "100%"}}>
-                            <Button color="primary" variant="contained" fullWidth>Donate</Button>
+                            <Button fullWidth color="primary" variant="contained">Donate</Button>
                         </Link>
                     </ListItem>
                 </List>
@@ -128,29 +136,35 @@ function AppBarGcc(props) {
         <>
             <CssBaseline/>
             <HideOnScroll {...props}>
-                <AppBar color="#424242">
+                <AppBar color="primary">
                     <Toolbar>
-                        <div className='menu-logo'><img src={logo} alt="" width="100%" height="100%"/></div>
+                        <div style={{maxHeight: 50}}><img src={logoBlue} alt="" style={{maxHeight: 50}}/></div>
                         <div className={classes.grow}>
                             {isMobile ? (
-                                <IconButton onClick={() => tag(true)}>
-                                    <Menu/>
-                                </IconButton>
+                                <MenuIcon click={() => {
+                                    tag(true)
+                                    console.log("tag",drawer)
+                                }} open={drawer}/>
                             ) : (
                                 <List className={classes.list}>
                                     {MenuItems.map((item, index) =>
-                                        <>
+                                        <React.Fragment key={index}>
                                             {item.title !== "Donate" &&
                                             (
-                                                <ListItem button className={classes.linkBtn1} key={index}> <Link
-                                                    to={item.url}>{item.title}</Link></ListItem>
+                                                <ListItem className={classes.item}>
+                                                    <Link to={item.url}>
+                                                        <Button size="small" variant="outlined" style={{backgroundColor: "00000000"}}>
+                                                            {item.title}
+                                                        </Button>
+                                                    </Link>
+                                                </ListItem>
                                             )
                                             }
-                                        </>
+                                        </React.Fragment>
                                     )}
                                     <ListItem className={classes.btnList2}>
                                         <Link to="/donate" style={{width: "100%"}}>
-                                            <Button color="primary" variant="contained" fullWidth>Donate</Button>
+                                            <Button color="secondary" variant="contained" fullWidth>Donate</Button>
                                         </Link>
                                     </ListItem>
                                 </List>
@@ -161,7 +175,7 @@ function AppBarGcc(props) {
                 </AppBar>
 
             </HideOnScroll>
-            <Drawer anchor="left" onClose={() => tag(false)} open={drawer}>
+            <Drawer anchor="left" classes={{paper: classes.draw}} onClose={() => tag(false)} open={drawer}>
                 {list()}
             </Drawer>
             <Toolbar/>

@@ -15,7 +15,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: "99.2vw",
+        width: "100vw",
+        borderRadius: 0,
         minHeight: "100vh"
     },
 
@@ -29,13 +30,19 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
     palette: {
-        type: "dark",
+        type: "light",
         primary: {
-            light: '#90806a',
-            main: '#9a8262',
-            dark: '#c49556',
-            contrastText: '#fff',
+            light: '#ff7961',
+            main: '#f44336',
+            dark: '#ba000d',
+            contrastText: '#000',
         },
+        // primary: {
+        //     light: '#90806a',
+        //     main: '#9a8262',
+        //     dark: '#c49556',
+        //     contrastText: '#fff',
+        // },
         // primary: {
         //     light: '#f6685e',
         //     main: '#f44336',
@@ -44,17 +51,15 @@ const theme = createMuiTheme({
         // },
         secondary: {
             light: '#5393ff',
-            main: '#2979ff',
+            main: '#2414b5',
             dark: '#1c54b2',
-            contrastText: '#000',
+            contrastText: '#fff',
         },
     },
 })
 
 const Application = (props) => {
     const classes = useStyles(theme);
-
-    console.log(theme)
 
     const dispatch = useDispatch();
 

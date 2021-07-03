@@ -3,6 +3,7 @@ import S3FileUpload from 'react-s3';
 
 import {Url} from '../Url'
 import {config} from "../../Admin/Config";
+import {getToken} from "../AdminReducers/api/authenticationService";
 
 export const UploadHome = (files, formEventData) => async (dispatch, getState) => {
     console.log(files, formEventData)
@@ -26,48 +27,27 @@ export const UploadHome = (files, formEventData) => async (dispatch, getState) =
                         [name]: response.location
                     }
 
-                    const res = axios.post(Url + "/api/gcc/v1/home", data)
-
-                    console.log("Finished: ", res)
+                    axios({
+                        method:'POST',
+                        url:`${Url}/api/gcc/admin/v1/home`,
+                        headers:{
+                            'Authorization':'Bearer '+getToken()
+                        },
+                        data: data
+                    })
                 })
                 .catch(err => console.error(err));
         } else {
-            const res = axios.put(Url + "/api/gcc/v1/home/1", data)
+            axios({
+                method:'Put',
+                url:`${Url}/api/gcc/admin/v1/home/1`,
+                headers:{
+                    'Authorization':'Bearer '+getToken()
+                },
+                data: data
+            })
         }
     })
-
-    // files.map(async (file, index) => {
-    //
-    //
-    //     if (file !== undefined) {
-    //         const name = "image" + (index + 1)
-    //
-    //         const formData = new FormData();
-    //         formData.append("file", file);
-    //         const API_URL = Url + "/files";
-    //
-    //         const response = await axios.put(API_URL, formData);
-    //
-    //         data = {
-    //             ...data,
-    //             [name]: response.data.fileDownloadUri
-    //         }
-    //
-    //         console.log("Data: ", data)
-    //
-    //         const res = axios.post(Url + "/api/gcc/v1/home", data)
-    //
-    //         console.log("Finished: ", res)
-    //
-    //     } else {
-    //         console.log("Data: ", data)
-    //
-    //         const res = axios.put(Url + "/api/gcc/v1/home/1", data)
-    //
-    //         console.log("Finished: ", res)
-    //     }
-    // })
-
 }
 
 export const FetchHome = () => async (dispatch, getState) => {
@@ -99,3 +79,4 @@ export const FetchHome = () => async (dispatch, getState) => {
     }
 
 }
+

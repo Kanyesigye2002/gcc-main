@@ -58,6 +58,7 @@ function AddEvent(props) {
 
     const onSubmit = (event) => {
         event.preventDefault()
+        console.log(data, file)
         dispatch(UploadFile(file, data))
     }
 

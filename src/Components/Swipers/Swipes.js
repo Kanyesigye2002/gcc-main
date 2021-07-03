@@ -16,7 +16,7 @@ import SwiperCore, {
 import {useSelector} from "react-redux";
 
 // install Swiper modules
-SwiperCore.use([Autoplay,Pagination,Navigation]);
+SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 
 export default function App() {
@@ -38,15 +38,19 @@ export default function App() {
                     className="mySwiper swiper-container"
             >
 
-                {Images[0] === undefined ? <></> : (
+                {Images === undefined ? <></> : (
                     <>
-                        {Images[0].images.map((image, index) => (
-                            <SwiperSlide>
-                                <div style={{display: "flex", maxHeight: 160,}}>
-                                    <img src={image.image} alt="Glorious Church Ug" height="160px"/>
-                                </div>
-                            </SwiperSlide>
-                        ))}
+                        {Images[0] === undefined ? <></> : (
+                            <>
+                                {Images[0].images.map((image, index) => (
+                                    <SwiperSlide>
+                                        <div style={{display: "flex", maxHeight: 160,}}>
+                                            <img src={image.image} alt="Glorious Church Ug" height="160px"/>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </>
+                        )}
                     </>
                 )}
 

@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -49,8 +50,10 @@ export default function MediaCard(props) {
             </CardActionArea>
 
             <CardActions style={{justifyContent: "space-between"}}>
-                <Button variant="contained" size="small" color="primary">Support</Button>
-                <Button variant="contained" size="small" color="primary" onClick={() => props.view(props.content)}>Read More</Button>
+                <Link to="/donate">
+                    <Button variant="contained" size="small">Support</Button>
+                </Link>
+                <Button variant="contained" size="small" onClick={() => props.view(props.content)}>Read More</Button>
             </CardActions>
         </Card>
     );

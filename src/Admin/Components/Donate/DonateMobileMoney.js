@@ -136,7 +136,7 @@ function DonateMobileMoney(props) {
                                 </div>
                             </div>
                         </Grid>
-                        <Grid xs={12} sm={4}>
+                        <Grid item xs={12} sm={4}>
                             <Controls.Input
                                 label="Search Employees"
                                 className={classes.searchInput}

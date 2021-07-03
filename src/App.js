@@ -13,7 +13,6 @@ import {AppBarGcc} from './Components'
 
 import './Assets/CSS/style.css'
 import GccFooter from "./Components/Footer/GccFooter";
-import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#121212"
+        // backgroundColor: "#121212"
     },
     appBar: {
         flexGrow: 1,
@@ -51,8 +50,6 @@ const theme = createMuiTheme({
 
 const App = () => {
     const classes = useStyles(theme);
-
-    console.log(theme)
 
     return (
         <Router>

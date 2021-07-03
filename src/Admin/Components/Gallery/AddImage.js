@@ -5,7 +5,17 @@ import axios from "axios";
 
 import S3FileUpload from 'react-s3';
 
-import {createStyles, Dialog, DialogContent, DialogTitle, Grid, Typography, TextField, MenuItem} from '@material-ui/core'
+import {
+    createStyles,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    Grid,
+    Typography,
+    TextField,
+    MenuItem,
+    Button
+} from '@material-ui/core'
 import {makeStyles, Theme} from "@material-ui/core/styles";
 import {Close, AddAPhotoOutlined, Add, Remove} from "@material-ui/icons";
 
@@ -169,72 +179,6 @@ function AddImage() {
 
     };
 
-    const uploadFiles = (files) => {
-        try {
-            let newImages = images
-            files.map(async (file, index) => {
-                console.log(file)
-                try {
-                    const formData = new FormData();
-                    formData.append("file", file.file);
-                    const API_URL = Url + "/gcc/api/files/upload";
-
-                    const response = await axios.post(API_URL, formData, {
-                        onUploadProgress: (progressEvent) => {
-                            const percentCompleted = Math.round(
-                                (progressEvent.loaded * 100) / progressEvent.total
-                            );
-                            console.log(percentCompleted)
-                        },
-                    });
-
-                    const data = response.data
-                    console.log("File: ", data)
-
-                    const imageDat = {
-                        "galleryCategory": {
-                            name: selected,
-                            images: [
-                                {
-                                    image: data,
-                                    name: file.file.name,
-                                    date: new Date()
-                                }
-                            ]
-                        }
-                    }
-                    const API_URL_Data = Url + "/api/gcc/v1/gallery/" + selected;
-
-                    const responseData = await axios.put(API_URL_Data, imageDat);
-
-                    newImages.map(images => {
-                        if (images.name === selected) {
-                            images.images.push(
-                                {
-                                    image: data,
-                                    name: file.file.name,
-                                    date: new Date()
-                                }
-                            )
-                        }
-                    })
-
-                } catch (err) {
-                    console.log("Try1", err.message);
-                }
-            })
-            // dispatch(
-            //     {
-            //         type: "SetImages",
-            //         payload: newImages
-            //     }
-            // )
-        } catch (e) {
-            console.log("Try2", e.message);
-        }
-
-    };
-
     const {getRootProps, getInputProps} = useDropzone({multiple: true, onDrops});
     const {ref, ...rootProps} = getRootProps();
 
@@ -254,9 +198,9 @@ function AddImage() {
                             <div style={{flexGrow: "1", display: "flex", justifyContent: "center"}}>
                                 <Typography variant="h4">Gallery</Typography>
                             </div>
-                            <Controls.ActionButton color="primary" onClick={() => {setOpenPopup(true)}}>
+                            <Button variant="outlined" color="primary" onClick={() => {setOpenPopup(true)}}>
                                 <AddAPhotoOutlined/> Add Images
-                            </Controls.ActionButton>
+                            </Button>
 
                     </Grid>
                 </Grid>
@@ -277,23 +221,24 @@ function AddImage() {
                                 {imageCategories.map((opt, index) => (
                                     <MenuItem key={index} value={opt}>{opt}</MenuItem>))}
                             </TextField>
-                            <Controls.ActionButton style={{width: "30px", minWidth: "30px", height: "30px"}}
+                            <Button variant="outlined"  style={{width: "30px", minWidth: "30px", height: "30px"}}
                                                    color="secondary" onClick={() => {
                                 setOpenPopup(false)
-                            }}><Close/></Controls.ActionButton>
+                            }}><Close/></Button>
                         </div>
                         <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <ImageDrag drop={onDrops} prev={previews}/>
                             <div>
-                                <Controls.ActionButton style={{height: "30px", width: "100%"}} color="secondary"
+                                <Button variant="outlined"  style={{height: "30px", width: "100%"}} color="secondary"
                                                        onClick={() => uploadFile(previews)}
-                                                       disabled={previews.length === 0 && true}><Add/> UpLoad All</Controls.ActionButton>
-                                <Controls.ActionButton style={{height: "30px", width: "100%"}} color="secondary"
+                                                       disabled={previews.length === 0 && true}><Add/> UpLoad All
+                                </Button>
+                                <Button variant="outlined"  style={{height: "30px", width: "100%"}} color="secondary"
                                                        onClick={() => {
                                                            setPreviews([])
                                                        }}
-                                                       disabled={previews.length === 0 && true}><Remove/> Remove
-                                    All</Controls.ActionButton>
+                                                       disabled={previews.length === 0 && true}><Remove/> Remove All
+                                </Button>
                             </div>
                         </div>
                     </DialogTitle>
@@ -306,18 +251,14 @@ function AddImage() {
                                             <div className="pic">
                                                 <img src={image.img} alt={image.title}/>
                                                 <div className="over">
-                                                    <Controls.ActionButton style={{height: "30px"}} color="secondary"
+                                                    <Button variant="outlined"  style={{height: "30px"}} color="secondary"
                                                                            onClick={() => {
                                                                                const newPreviews = []
-                                                                               previews.map((newImage, index) => {
-                                                                                   if (newImage !== image) {
-                                                                                       newPreviews.push(newImage)
-                                                                                   }
-                                                                               })
+                                                                               previews.map((newImage, index) => {if (newImage !== image) {newPreviews.push(newImage)}})
                                                                                setPreviews(newPreviews)
                                                                            }}>
                                                         <Remove/>
-                                                    </Controls.ActionButton>
+                                                    </Button>
                                                 </div>
                                             </div>
                                         </div>

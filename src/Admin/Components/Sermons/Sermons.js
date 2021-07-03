@@ -57,7 +57,7 @@ function Sermons(props) {
                         alignItems="center"
                         spacing={2}
                     >
-                        <Grid xs={12} sm={8} direction="column" style={{marginBottom: "20px"}}>
+                        <Grid item xs={12} sm={8} direction="column" style={{marginBottom: "20px"}}>
                             <div style={{display: "inline-flex"}}>
                                 <Card className={classes.pageIcon}>
                                     <EventAvailableOutlined fontSize="large"/>

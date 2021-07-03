@@ -106,7 +106,7 @@ function Events(props) {
             >
                 {
                     events.map((event, index) => (
-                        <Grid key={index} xs={12} sm={6} md={4} lg={4} xl={2}>
+                        <Grid item key={index} xs={12} sm={6} md={4} lg={4} xl={2}>
                             <CardMedia event={event} setEvent={setEvent} setOpenPopup={setOpenPopup}/>
                         </Grid>
                     ))

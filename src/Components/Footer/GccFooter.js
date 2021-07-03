@@ -1,7 +1,7 @@
 import React from 'react';
 import {Grid, ListItem, makeStyles, Typography} from '@material-ui/core'
 import {MenuItems} from '../MenuItems/MenuItems.js';
-import logo from "../../Assets/Images/logos/logo-sm.png";
+import logo from "../../Assets/Images/logos/logo-sm-b.png";
 import Controls from '../Controls'
 import Footer from "./Footer";
 import {Link} from "react-router-dom";
@@ -24,7 +24,7 @@ function GccFooter(props) {
         <Grid container  style={{marginTop: "20px", borderTop: "1px solid burlywood"}}>
             <Grid item container spacing={3} xs={12} sm={6} direction="row" justify="center" alignItems="center">
                 <Grid item xs={7} container alignContent="center" justify="center">
-                    <img src={logo}/>
+                    <img src={logo} style={{maxHeight: 70}}/>
                 </Grid>
                 <Grid item xs={12} container alignContent="center" justify="center">
                     <Typography>Welcome to Glorious Church</Typography>
@@ -45,16 +45,16 @@ function GccFooter(props) {
             <Grid item container xs={12} sm={6} spacing={2}>
 
                 {MenuItems.map((item, index) => (
-                    <Grid item xs={6} key={index}>
+                    <Grid item xs={6} key={index} style={{padding: "0 8px"}}>
                         <div style={{padding: "2px", width: "100%"}}>
                             <Link to={item.url}>
-                                <Controls.Button style={{border: "1px solid rgba(154, 130, 98, 0.2)", borderBottom: "1px solid black",  borderRadius: "0"}} variant="outlined" fullWidth>{item.title}</Controls.Button>
+                                <Controls.Button color="secondary" style={{border: "1px solid rgba(154, 130, 98, 0.2)", borderBottom: "1px solid black",  borderRadius: "0"}} variant="outlined" fullWidth>{item.title}</Controls.Button>
                             </Link>
                         </div>
                     </Grid>
                 ))}
             </Grid>
-            <Grid container xs={12} className={classes.footer}>
+            <Grid item container xs={12} className={classes.footer}>
                 <Footer />
             </Grid>
         </Grid>

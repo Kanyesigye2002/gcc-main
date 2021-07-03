@@ -27,7 +27,7 @@ function EventPage(props) {
             <div className="scrol">
                 <div className="overlay-content">
                     <Grid spacing={2} container direction="row" style={{padding: "0 10px"}}>
-                        <img src={props.content.image} alt="Glorious Church" style={{width: "100%", borderRadius: 3}}/>
+                        <img src={props.content.image} alt="Glorious Church" style={{width: "100%", borderRadius: 2}}/>
                     </Grid>
                     <div style={{paddingTop: "3rem"}}>
                         {

@@ -21,10 +21,13 @@ SwiperCore.use([Lazy, Pagination, Navigation]);
 
 export default function App(props) {
 
+    const [images, setImages] = useState([])
+
+
 
     return (
         <>
-            {props.images[0] !== undefined && (
+            {images[0] !== undefined && (
                 <Swiper style={{'--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff'}} lazy={true}
                         pagination={{
                             "clickable": true
@@ -35,7 +38,7 @@ export default function App(props) {
 
 
                     {
-                        props.images.map((item, index) => (
+                        images.map((item, index) => (
                             <>
                                 {item !== undefined && (
                                     <SwiperSlide>

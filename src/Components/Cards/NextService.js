@@ -43,14 +43,10 @@ const NextService = (props) => {
 
     const startTimer = () => {
 
-        let date = props.date
+        let date = new Date().getTime();
 
-        if (date === undefined)
-            date = new Date().getTime();
-
-
-
-        console.log("Date: ",date)
+        if (props.date.needAdditionalPass !== undefined)
+            date = props.date.nextService
 
         const countdownDate = new Date(date).getTime();
 
@@ -149,8 +145,8 @@ const NextService = (props) => {
 
             <Grid container justify="center">
                 <CardActions style={{ width: "100%", justifyContent: "space-between"}}>
-                    <Button size="small" color="primary">Get Reminder</Button>
-                    <Button size="small" color="primary">View All events</Button>
+                    <Button size="small" color="secondary">Get Reminder</Button>
+                    <Button size="small" color="secondary">View All events</Button>
                 </CardActions>
             </Grid>
 

@@ -20,17 +20,17 @@ export default function Footer(props) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a href="#home" className={classes.block}>
-                <Call/>
+                <Call color="secondary"/>
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a href="#company" className={classes.block}>
-                <YouTube/>
+                <YouTube color="secondary"/>
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a href="#portfolio" className={classes.block}>
-                <Facebook/>
+                <Facebook color="secondary"/>
               </a>
             </ListItem>
           </List>
