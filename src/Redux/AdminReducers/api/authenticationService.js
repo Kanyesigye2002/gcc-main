@@ -11,9 +11,12 @@ export const userLogin=(authRequest)=>{
     console.log("Request Data: ", authRequest)
 
     return axios({
-        'method':'POST',
-        'url':`${process.env.hostUrl||'http://localhost:8080'}/api/v1/auth/login`,
-        'data':authRequest
+        method:'POST',
+        url:`${process.env.hostUrl||'http://localhost:8080'}/api/v1/auth/login`,
+        'data':authRequest,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
     })
 }
 

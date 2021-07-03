@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import {Link} from "react-router-dom";
 
 
 const useStyles = makeStyles({
@@ -45,7 +46,7 @@ const NextService = (props) => {
 
         let date = new Date().getTime();
 
-        if (props.date.needAdditionalPass !== undefined)
+        if (props.date.nextService !== undefined)
             date = props.date.nextService
 
         const countdownDate = new Date(date).getTime();
@@ -146,7 +147,7 @@ const NextService = (props) => {
             <Grid container justify="center">
                 <CardActions style={{ width: "100%", justifyContent: "space-between"}}>
                     <Button size="small" color="secondary">Get Reminder</Button>
-                    <Button size="small" color="secondary">View All events</Button>
+                    <Link to="/events"><Button size="small" color="secondary">View All events</Button></Link>
                 </CardActions>
             </Grid>
 

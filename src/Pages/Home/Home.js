@@ -15,13 +15,15 @@ function Home(props) {
 
     const home = useSelector(state => state.homeData)
 
+    const images = [ home.image1, home.image2, home.image3 ]
+
     useEffect(() => {
         dispatch(fetchData())
     }, [])
 
     return (
         <Paper>
-            <Carousels images={home}/>
+            <Carousels images={images}/>
             <Grid container justify="center">
                 <NextService date={home}/>
             </Grid>

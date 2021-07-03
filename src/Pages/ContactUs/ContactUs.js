@@ -12,8 +12,8 @@ import {Typography} from "@material-ui/core";
 const useStyles = makeStyles({
     root: {
         padding: 3,
-        // backgroundColor: "#000000de",
-        // color: "#fff"
+        backgroundColor: "#000000de",
+        color: "#fff"
     },
     media: {
         height: 300,

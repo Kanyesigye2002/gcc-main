@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -21,12 +21,11 @@ SwiperCore.use([Lazy, Pagination, Navigation]);
 
 export default function App(props) {
 
-    const [images, setImages] = useState([])
-
-
+    const {images} = props
 
     return (
         <>
+            {console.log(images)}
             {images[0] !== undefined && (
                 <Swiper style={{'--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff'}} lazy={true}
                         pagination={{
@@ -34,7 +33,6 @@ export default function App(props) {
                         }}
                         navigation={false}
                         className="mySwiper1">
-
 
 
                     {
