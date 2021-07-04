@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Grid from "@material-ui/core/Grid";
 import {YouTube} from "@material-ui/icons"
 import {useDispatch, useSelector} from "react-redux";
@@ -22,7 +22,7 @@ function Home(props) {
     }, [])
 
     return (
-        <Paper>
+        <Paper style={{backgroundColor: "#00000000"}}>
             <Carousels images={images}/>
             <Grid container justify="center">
                 <NextService date={home}/>

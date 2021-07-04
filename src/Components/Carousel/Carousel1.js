@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -25,7 +25,6 @@ export default function App(props) {
 
     return (
         <>
-            {console.log(images)}
             {images[0] !== undefined && (
                 <Swiper style={{'--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff'}} lazy={true}
                         pagination={{
@@ -37,9 +36,9 @@ export default function App(props) {
 
                     {
                         images.map((item, index) => (
-                            <>
+                            <React.Fragment key={index}>
                                 {item !== undefined && (
-                                    <SwiperSlide>
+                                    <SwiperSlide key={index}>
                                         <img data-src={item}
                                              style={{width: "100%", display: "block", objectFit: "cover"}}
                                              alt="Glorious Church" className="swiper-lazy"/>
@@ -47,7 +46,7 @@ export default function App(props) {
                                     </SwiperSlide>
                                 )}
 
-                            </>
+                            </React.Fragment>
                         ))
                     }
                 </Swiper>

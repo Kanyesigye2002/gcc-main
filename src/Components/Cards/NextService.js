@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
@@ -9,6 +8,7 @@ import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import {Link} from "react-router-dom";
+import Divider from "@material-ui/core/Divider";
 
 
 const useStyles = makeStyles({
@@ -60,16 +60,16 @@ const NextService = (props) => {
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            if (days<10) {
+            if (days < 10) {
                 days = "0" + days;
             }
-            if (hours<10) {
+            if (hours < 10) {
                 hours = "0" + hours;
             }
-            if (minutes<10) {
+            if (minutes < 10) {
                 minutes = "0" + minutes;
             }
-            if (seconds<10) {
+            if (seconds < 10) {
                 seconds = "0" + seconds;
             }
 
@@ -107,34 +107,42 @@ const NextService = (props) => {
                         </Grid>
                         <Grid container spacing={4} direction="row" justify="center">
                             <Grid item>
-                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     Days
                                 </Typography>
-                                <Typography  style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     {timerDays}
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     Hours
                                 </Typography>
-                                <Typography style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     {timerHours}
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     Min
                                 </Typography>
-                                <Typography style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     {timerMinutes}
                                 </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     Sec
                                 </Typography>
-                                <Typography style={{textAlign: "center"}}  variant="h6" color="textSecondary" component="p">
+                                <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
+                                            component="p">
                                     {timerSeconds}
                                 </Typography>
                             </Grid>
@@ -145,10 +153,15 @@ const NextService = (props) => {
             </CardActionArea>
 
             <Grid container justify="center">
-                <CardActions style={{ width: "100%", justifyContent: "space-between"}}>
-                    <Button size="small" color="secondary">Get Reminder</Button>
-                    <Link to="/events"><Button size="small" color="secondary">View All events</Button></Link>
-                </CardActions>
+                <Grid item xs={12}><Divider/></Grid>
+                <Grid item xs={12}>
+                    <CardActions style={{width: "100%", justifyContent: "space-between"}}>
+                        <Button size="small" color="secondary">Get Reminder</Button>
+                        <Link to="/events"><Button size="small" color="secondary">View All events</Button></Link>
+                    </CardActions>
+                </Grid>
+
+
             </Grid>
 
 

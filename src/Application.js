@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: "100vw",
         borderRadius: 0,
-        minHeight: "100vh"
+        minHeight: "100vh",
+        backgroundColor: "#252525"
     },
 
     appBar: {
@@ -51,7 +52,7 @@ const theme = createMuiTheme({
         // },
         secondary: {
             light: '#5393ff',
-            main: '#2414b5',
+            main: '#3a76dc',
             dark: '#1c54b2',
             contrastText: '#fff',
         },

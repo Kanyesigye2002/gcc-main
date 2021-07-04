@@ -6,8 +6,6 @@ import Grid from "@material-ui/core/Grid";
 
 function Gallery(props) {
 
-    const images = useSelector(state => state.Images)
-
     return (
         <Grid>
             <Grid container direction="row" className="row">

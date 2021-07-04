@@ -5,8 +5,6 @@ const defaultFont = {
   lineHeight: "1.5em",
 };
 
-const grayColor = ["#999", "#777", "#3C4858", "#AAAAAA", "#D2D2D2", "#DDD", "#b4b4b4", "#555555", "#333", "#a9afbb", "#eee", "#e7e7e7",];
-
 const container = {
   paddingRight: "10px",
   paddingLeft: "10px",

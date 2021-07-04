@@ -20,7 +20,6 @@ import {makeStyles, Theme} from "@material-ui/core/styles";
 import {Close, AddAPhotoOutlined, Add, Remove} from "@material-ui/icons";
 
 import ImageDrag from "./ImageDrag";
-import {Controls} from "../../../Components";
 import ImageGridList from "./ImageGridList";
 import {Url} from "../../../Redux/Url";
 
@@ -103,21 +102,21 @@ function AddImage() {
         setOpenPopup(true);
     };
 
-    const uploadFiled = async (files) => {
-        try {
-            const response = await S3FileUpload
-                .uploadFile(files[0].file, config)
-                .then(data => {
-                    console.log(data)
-                })
-                .catch(err => console.error(err))
-
-            console.log(config)
-            console.log("Response",response)
-        } catch (e) {
-            console.log(e)
-        }
-    }
+    // const uploadFiled = async (files) => {
+    //     try {
+    //         const response = await S3FileUpload
+    //             .uploadFile(files[0].file, config)
+    //             .then(data => {
+    //                 console.log(data)
+    //             })
+    //             .catch(err => console.error(err))
+    //
+    //         console.log(config)
+    //         console.log("Response",response)
+    //     } catch (e) {
+    //         console.log(e)
+    //     }
+    // }
 
     const uploadFile = (files) => {
         try {

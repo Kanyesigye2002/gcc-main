@@ -4,8 +4,6 @@ import DateFnsUtils from "@date-io/date-fns";
 
 function DateAndTimes(props) {
 
-    const [dates, setDate] = useState(new Date())
-
     const convertToDefEventPara = (name, value) => ({
         target: {
             name, value

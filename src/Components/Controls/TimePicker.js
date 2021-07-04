@@ -4,15 +4,9 @@ import DateFnsUtils from "@date-io/date-fns";
 
 export default function TimePick(props) {
 
-    const {name, label, value, onChange} = props
+    const {name, label} = props
 
     const [dates, setDate] = useState(new Date())
-
-    const convertToDefEventPara = (name, value) => ({
-        target: {
-            name, value
-        }
-    })
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>

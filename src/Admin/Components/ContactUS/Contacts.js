@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {Card, Grid, makeStyles, Paper, Typography, TableRow, TableCell, TableBody, InputAdornment, Toolbar} from "@material-ui/core";
+import {Card, Grid, makeStyles, Paper, Typography, TableRow, TableCell, TableBody, InputAdornment} from "@material-ui/core";
 import {MessageOutlined, Search} from "@material-ui/icons";
 
 import useTable from '../Tables/useTable'
 import {Controls} from "../../../Components";
-import {useSelector} from "react-redux";
-import {FetchEvents, FetchHome, FetchImages, FetchMessages} from "../../../Redux/MiddleWare";
+// import {useSelector} from "react-redux";
+// import {FetchEvents, FetchHome, FetchImages, FetchMessages} from "../../../Redux/MiddleWare";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {

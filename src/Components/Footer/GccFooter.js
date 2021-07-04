@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, ListItem, makeStyles, Typography} from '@material-ui/core'
+import {Grid, makeStyles, Typography} from '@material-ui/core'
 import {MenuItems} from '../MenuItems/MenuItems.js';
 import logo from "../../Assets/Images/logos/logo-sm-b.png";
 import Controls from '../Controls'
@@ -24,7 +24,7 @@ function GccFooter(props) {
         <Grid container  style={{marginTop: "20px", borderTop: "1px solid burlywood"}}>
             <Grid item container spacing={3} xs={12} sm={6} direction="row" justify="center" alignItems="center">
                 <Grid item xs={7} container alignContent="center" justify="center">
-                    <img src={logo} style={{maxHeight: 70}}/>
+                    <img alt="Glorious Church ug" src={logo} style={{maxHeight: 70}}/>
                 </Grid>
                 <Grid item xs={12} container alignContent="center" justify="center">
                     <Typography>Welcome to Glorious Church</Typography>

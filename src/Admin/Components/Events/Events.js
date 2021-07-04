@@ -50,10 +50,10 @@ function Events(props) {
 
     const events = useSelector(state => state.Events)
 
-    const addOrEdit = (resetForm) => {
-        resetForm()
-        setOpenPopup(false)
-    }
+    // const addOrEdit = (resetForm) => {
+    //     resetForm()
+    //     setOpenPopup(false)
+    // }
 
     return (
         <div>

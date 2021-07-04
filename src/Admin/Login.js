@@ -4,7 +4,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import {AccountCircle, Lock, LockOutlined} from '@material-ui/icons'
 import {
     Paper,
-    withStyles,
     Avatar,
     Typography,
     Grid,
@@ -86,16 +85,14 @@ const Login = ({loading, error, ...props}) => {
         }));
     };
 
-    console.log("Loading ", loading);
+    const user = localStorage.getItem("USER_KEY")
 
-    const [open, setOpen] = React.useState(false);
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const handleToggle = () => {
-        setOpen(!open);
-    };
-
+    React.useEffect(() => {
+        if (user!==null) {
+            localStorage.clear();
+            props.history.push('/admin');
+        }
+    }, [])
 
     const classes = useStyles()
 
@@ -167,14 +164,6 @@ const Login = ({loading, error, ...props}) => {
                                         <Button type="submit" variant="outlined" size="large" color="primary"
                                                 style={{textTransform: "none"}}>
                                             Login
-                                            {loading && (
-                                                <CircularProgress
-                                                    variant="determinate"
-                                                    size={20}
-                                                    thickness={4}
-                                                    value={100}
-                                                />
-                                            )}
                                         </Button>
                                     </Grid>
                                     <Grid item container justify="center">
@@ -192,7 +181,6 @@ const Login = ({loading, error, ...props}) => {
     );
 
 }
-
 
 const mapStateToProps = ({auth}) => {
     console.log("state ", auth)

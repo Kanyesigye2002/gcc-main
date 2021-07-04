@@ -4,17 +4,7 @@ import '../../Assets/CSS/Menu/MenuIcon.css'
 
 function MenuIcon(props) {
 
-    const [status, setClass] = useState(props.open?"change":"containers")
-
-    const set = () => {
-        console.log(props.onToggle)
-        if (status === "containers") {
-            setClass("change")
-        } else {
-            setClass("containers")
-        }
-    }
-
+    const [status] = useState(props.open?"change":"containers")
 
     return (
         <div onClick={props.click}>

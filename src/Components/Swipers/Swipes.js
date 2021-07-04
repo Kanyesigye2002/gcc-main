@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -43,7 +43,7 @@ export default function App() {
                         {Images[0] === undefined ? <></> : (
                             <>
                                 {Images[0].images.map((image, index) => (
-                                    <SwiperSlide>
+                                    <SwiperSlide key={index}>
                                         <div style={{display: "flex", maxHeight: 160,}}>
                                             <img src={image.image} alt="Glorious Church Ug" height="160px"/>
                                         </div>

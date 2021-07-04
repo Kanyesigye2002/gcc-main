@@ -40,7 +40,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function Sermons(props) {
-    const items = {title: "Memorial Day", message: "The biggest battle was, as Africans, are facing today is the battle for the very soul of our nation", contributed: "Chris Beam", date : "May 21, 2015", scripture: "Daniel 5:1-31"}
 
     const classes = useStyles();
 

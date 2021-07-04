@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import {useDispatch, useSelector} from "react-redux";
-import {Button, Grid, TextField} from "@material-ui/core";
+import { Grid, TextField} from "@material-ui/core";
 import ImageDrag from "./ImageDrag";
 import {Controls} from "../../../Components";
 import {UploadHome} from "../../../Redux/MiddleWare";

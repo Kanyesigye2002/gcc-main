@@ -45,9 +45,6 @@
 .scrol {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 94%;
-    width: 100%;
-    top: 60px;
     position: relative;
 }
 

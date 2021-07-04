@@ -8,7 +8,7 @@ import {
     TableRow,
     TableCell,
     TableBody,
-    InputAdornment, Toolbar
+    InputAdornment
 } from "@material-ui/core";
 import {MobileFriendlyOutlined, Search} from "@material-ui/icons";
 

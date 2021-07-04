@@ -15,11 +15,10 @@ import intersection from "../../Assets/Images/Ministries/Intercessory/Intercesso
 import men from "../../Assets/Images/Ministries/men/men.jpeg";
 import child from "../../Assets/Images/Ministries/chrildren/children2.jpeg";
 import youth from "../../Assets/Images/Ministries/youth/children.jpeg";
-import Paper from "@material-ui/core/Paper";
-import {createStyles, Dialog, DialogContent, DialogTitle, MenuItem, TextField, Typography} from "@material-ui/core";
-import {Add, AddAPhotoOutlined, Close, Remove} from "@material-ui/icons";
-import {makeStyles, Theme} from "@material-ui/core/styles";
 
+import {createStyles, Dialog, DialogContent, DialogTitle, Typography} from "@material-ui/core";
+import {Close} from "@material-ui/icons";
+import {makeStyles, Theme} from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         borderColor: "#aaa",
     },
     dialogWrapper: {
-        padding: "40px 0",
+        padding: "20px 0",
         position: 'absolute',
         minWidth: "100%",
         margin: "0",

@@ -1,14 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import {useDispatch, useSelector} from "react-redux";
 import {TheContent} from "./index";
 import AppBar from "@material-ui/core/AppBar";
@@ -19,9 +13,10 @@ import Typography from "@material-ui/core/Typography";
 import {Link} from "react-router-dom";
 import {Controls} from "../../Components";
 import Grid from "@material-ui/core/Grid";
-import {fetchUserData} from "../Admin/api/authenticationService";
 import Button from "@material-ui/core/Button";
 import logo from "../../Assets/Images/logos/logo-sm.png";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Backdrop from "@material-ui/core/Backdrop";
 
 const useStyles = makeStyles((theme) => ({
     list: {
@@ -95,15 +90,14 @@ export default function TheLayOut(props) {
         </div>
     );
 
-    const [data, setData] = useState({});
+    const user = localStorage.getItem("USER_KEY")
 
     React.useEffect(() => {
-        fetchUserData().then((response) => {
-            setData(response.data);
-        }).catch((e) => {
+
+        if (user===null) {
             localStorage.clear();
             props.history.push('/admin/login');
-        })
+        }
     }, [])
 
     const logOut = () => {
@@ -115,7 +109,12 @@ export default function TheLayOut(props) {
 
     return (
         <>
-            <div className={classes.appBar}>
+            {user===null? <>
+                <Backdrop className={classes.backdrop} open={true}>
+                    <CircularProgress color="inherit"/>
+                </Backdrop>
+            </>:<>
+                <div className={classes.appBar}>
                 <AppBar position="static">
                     <Toolbar variant="dense">
                         <IconButton edge="start" onClick={toggleDrawer('left', true)} className={classes.menuButton}
@@ -129,10 +128,12 @@ export default function TheLayOut(props) {
                     </Toolbar>
                 </AppBar>
             </div>
-            <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-                {list('left')}
-            </Drawer>
-            <TheContent/>
+                <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+                    {list('left')}
+                </Drawer>
+                <TheContent/>
+                </>}
+
         </>
     );
 }
