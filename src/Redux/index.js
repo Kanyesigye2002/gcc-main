@@ -10,13 +10,14 @@ import thunk from 'redux-thunk'
 //     )
 // )
 
+const store = createStore(
+    rootReducer, applyMiddleware(thunk)
+)
+
 store.subscribe(() => {
     saveState(store.getState())
 })
 
-const store = createStore(
-    rootReducer, applyMiddleware(thunk)
-)
 export default store
 
 // const loadState = () => {

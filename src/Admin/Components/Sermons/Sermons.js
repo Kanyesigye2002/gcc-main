@@ -6,6 +6,8 @@ import {Controls} from "../../../Components";
 import AddIcon from "@material-ui/icons/Add";
 import Popup from "../Forms/Popup";
 import AddSermon from "./AddSermon";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 
 
 const useStyles = makeStyles(theme => ({
@@ -44,7 +46,16 @@ function Sermons(props) {
     const classes = useStyles();
 
     const [openPopup, setOpenPopup] = useState(false)
-    
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
+
     return (
         <div style={{width: "100%"}}>
             <Paper elevation={0} square className={classes.root}>

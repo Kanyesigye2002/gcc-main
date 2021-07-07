@@ -8,7 +8,7 @@ const initialState={
 
 
 
-const auth=(state=initialState,action)=>{
+export const auth = (state=initialState,action)=>{
     switch(action.type){
         case AUTH_REQ:
             return {...state,error:'',loading:true};
@@ -26,5 +26,24 @@ const auth=(state=initialState,action)=>{
     }
 }
 
+export const Users = (state = [], action) => {
 
-export default auth;
+    switch (action.type) {
+        case "SetUsers":
+            return action.payload;
+        default:
+            return state
+    }
+
+}
+
+export const Admins = (state = [], action) => {
+
+    switch (action.type) {
+        case "SetAdmin":
+            return action.payload;
+        default:
+            return state
+    }
+
+}

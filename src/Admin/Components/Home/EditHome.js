@@ -5,6 +5,8 @@ import { Grid, TextField} from "@material-ui/core";
 import ImageDrag from "./ImageDrag";
 import {Controls} from "../../../Components";
 import {UploadHome} from "../../../Redux/MiddleWare";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 
 const useStyles = makeStyles((theme) => ({
     text_field: {
@@ -28,6 +30,15 @@ function EditHome(props) {
     const [preview3, setPreview3] = React.useState();
 
     const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
 
     const onDrop = (acceptedFiles, setPreview, setFile) => {
         const fileDropped = acceptedFiles[0];

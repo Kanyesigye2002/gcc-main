@@ -5,6 +5,8 @@ import {makeStyles} from "@material-ui/core/styles";
 
 import {Controls} from "../../../Components";
 import {UploadFile} from "../../../Redux/MiddleWare";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +41,15 @@ function AddSermon(props) {
     //     if (fieldValues === data)
     //         return Object.values(temp).every(x => x === "")
     // }
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
 
     const onChange = (event) => {
         setData({

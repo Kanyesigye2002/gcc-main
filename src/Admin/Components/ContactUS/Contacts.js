@@ -1,9 +1,22 @@
 import React, {useState} from 'react';
-import {Card, Grid, makeStyles, Paper, Typography, TableRow, TableCell, TableBody, InputAdornment} from "@material-ui/core";
+import {
+    Card,
+    Grid,
+    makeStyles,
+    Paper,
+    Typography,
+    TableRow,
+    TableCell,
+    TableBody,
+    InputAdornment
+} from "@material-ui/core";
 import {MessageOutlined, Search} from "@material-ui/icons";
 
 import useTable from '../Tables/useTable'
 import {Controls} from "../../../Components";
+import {useSelector} from "react-redux";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 // import {useSelector} from "react-redux";
 // import {FetchEvents, FetchHome, FetchImages, FetchMessages} from "../../../Redux/MiddleWare";
 
@@ -11,10 +24,11 @@ const useStyles = makeStyles(theme => ({
     pageContent: {
         margin: theme.spacing(1),
         padding: theme.spacing(1),
-        width: "100%"
+        minWidth: "max-content"
     },
     grid: {
-
+        maxWidth: "100%",
+        overflow: "overlay"
     },
     header: {
         '& .container-fluid': {
@@ -61,7 +75,7 @@ function Contacts(props) {
         }
     })
 
-    const [messages, setMessages] = useState([])
+    // const [messages, setMessages] = useState([])
 
     const headerCell = [
         {id: 'id', label: 'ID'},
@@ -70,6 +84,17 @@ function Contacts(props) {
         {id: 'subject', label: 'Subject'},
         {id: 'content', label: 'Content'},
     ]
+
+    const messages = useSelector(state => state.messagesData)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
 
     const {
         TblContainer,
@@ -142,25 +167,27 @@ function Contacts(props) {
                 justify="center"
                 alignItems="center"
             >
-                <Paper className={classes.pageContent}>
-                    <TblContainer>
-                        <TblHead/>
-                        <TableBody>
-                            {
-                                recordsAfterPagingAndSorting().map(item => (
-                                    <TableRow key={item.id}>
-                                        <TableCell>{item.id}</TableCell>
-                                        <TableCell>{item.name}</TableCell>
-                                        <TableCell>{item.email}</TableCell>
-                                        <TableCell>{item.subject}</TableCell>
-                                        <TableCell>{item.content}</TableCell>
-                                    </TableRow>
-                                ))
-                            }
-                        </TableBody>
-                    </TblContainer>
-                    <TblPagination/>
-                </Paper>
+                <Grid item xs={12}>
+                    <Paper className={classes.pageContent}>
+                        <TblContainer>
+                            <TblHead/>
+                            <TableBody>
+                                {
+                                    recordsAfterPagingAndSorting().map(item => (
+                                        <TableRow key={item.id}>
+                                            <TableCell>{item.id}</TableCell>
+                                            <TableCell>{item.name}</TableCell>
+                                            <TableCell>{item.email}</TableCell>
+                                            <TableCell>{item.subject}</TableCell>
+                                            <TableCell>{item.content}</TableCell>
+                                        </TableRow>
+                                    ))
+                                }
+                            </TableBody>
+                        </TblContainer>
+                        <TblPagination/>
+                    </Paper>
+                </Grid>
             </Grid>
         </div>
     );

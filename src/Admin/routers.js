@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+const Administrators = React.lazy(() => import('./Components/Users/Users'));
+
 const Events = React.lazy(() => import('./Components/Events/Events'));
 const AddEvent = React.lazy(() => import('./Components/Events/AddEvent'));
 
@@ -40,6 +42,8 @@ const routes = [
 
     { path: '/admin/Sermons/AddSermon', name: 'Add Sermon', component: AddSermon },
     { path: '/admin/Sermons', name: 'Sermons', component: Sermons },
+
+    { path: '/admin/administrators', name: 'Administrators', component: Administrators },
 
 ];
 

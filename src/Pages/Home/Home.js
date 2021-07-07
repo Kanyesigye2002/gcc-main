@@ -8,6 +8,7 @@ import {NextService, Carousels, Iframe, Swipes} from '../../Components'
 import {fetchData} from '../../Redux/Actions'
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import {Reveal} from "react-reveal";
 
 function Home(props) {
 
@@ -39,6 +40,9 @@ function Home(props) {
             </Grid>
             <Iframe data={home}/>
             <Swipes/>
+            <Reveal effect="fadeInUp">
+                <h1>React Reveal</h1>
+            </Reveal>
         </Paper>
     );
 }

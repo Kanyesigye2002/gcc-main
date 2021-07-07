@@ -5,6 +5,7 @@ import { Close } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
     dialogWrapper: {
+        margin: "32px 5px",
         padding: theme.spacing(2),
         position: 'absolute',
         top: theme.spacing(1)

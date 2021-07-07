@@ -6,6 +6,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import ImageDrag from "../DragUpload/ImageDrag";
 import {Controls} from "../../../Components";
 import {UploadFile} from "../../../Redux/MiddleWare";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -63,9 +65,17 @@ function AddEvent(props) {
         setData({})
     }
 
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
+
     return (
         <>
-            {console.log(props.event)}
             <div style={{width: "100%"}}>
                 <form onSubmit={onSubmit} className={classes.root} noValidate autoComplete="off">
                     <Grid spacing={5} container direction="row" justify="center" alignItems="center">
@@ -93,7 +103,6 @@ function AddEvent(props) {
                     </Grid>
                 </form>
             </div>
-
         </>
     );
 }

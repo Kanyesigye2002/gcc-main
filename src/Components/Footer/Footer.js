@@ -43,7 +43,7 @@ export default function Footer(props) {
               target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              Weber's Task
             </a>
           </span>
         </p>

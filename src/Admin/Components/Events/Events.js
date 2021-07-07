@@ -9,9 +9,16 @@ import {Controls} from "../../../Components";
 import Popup from "../Forms/Popup";
 import AddEvent from "./AddEvent";
 import {useSelector} from "react-redux";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 
 
 const useStyles = makeStyles(theme => ({
+    root: {
+
+    },
     grid: {
         margin: "0px"
     },
@@ -21,7 +28,7 @@ const useStyles = makeStyles(theme => ({
         transition: '2s'
     },
     pageHeader: {
-        padding: "10px 0 50px 0",
+        padding: "5px 0 10px 0",
         display: 'flex',
         marginBottom: theme.spacing(2)
     },
@@ -55,6 +62,15 @@ function Events(props) {
     //     setOpenPopup(false)
     // }
 
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
+
     return (
         <div>
             <Paper elevation={0} square className={classes.root}>
@@ -62,15 +78,34 @@ function Events(props) {
                     <Grid
                         className={classes.grid}
                         container
-                        justify="flex-start"
+                        justify="space-between"
                         alignItems="center"
                         spacing={2}
+                        direction="row"
                     >
-                        <div style={{display: "inline-flex"}}>
-                            <Card className={classes.pageIcon}>
-                                <EventAvailableOutlined fontSize="large"/>
-                            </Card>
-                            <div className={classes.pageTitle} style={{flexGrow: "1"}}>
+                        {/*<div style={{display: "inline-flex"}}>*/}
+                        {/*    <Card className={classes.pageIcon}>*/}
+                        {/*        <EventAvailableOutlined fontSize="large"/>*/}
+                        {/*    </Card>*/}
+                        {/*    <div className={classes.pageTitle} style={{flexGrow: "1"}}>*/}
+                        {/*        <Typography*/}
+                        {/*            variant="h6"*/}
+                        {/*            component="div">*/}
+                        {/*            Church Events*/}
+                        {/*        </Typography>*/}
+                        {/*        <Typography*/}
+                        {/*            variant="subtitle2"*/}
+                        {/*            component="div">*/}
+                        {/*            Events to be held Soon*/}
+                        {/*        </Typography>*/}
+                        {/*    </div>*/}
+                        {/*    <IconButton color="primary"onClick={() => {setOpenPopup(true)}} aria-label="upload picture" component="span">*/}
+                        {/*        <AddIcon />*/}
+                        {/*    </IconButton>*/}
+                        {/*</div>*/}
+                        <Grid item xs={8} container direction="row">
+                            <EventAvailableOutlined fontSize="large"/>
+                            <div className={classes.pageTitle}>
                                 <Typography
                                     variant="h6"
                                     component="div">
@@ -82,16 +117,12 @@ function Events(props) {
                                     Events to be held Soon
                                 </Typography>
                             </div>
-                            <Controls.Button
-                                text="Add New"
-                                variant="outlined"
-                                startIcon={<AddIcon/>}
-                                className={classes.newButton}
-                                onClick={() => {
-                                    setOpenPopup(true)
-                                }}
-                            />
-                        </div>
+                        </Grid>
+                        <Grid item>
+                            <IconButton color="primary"onClick={() => {setOpenPopup(true)}} aria-label="upload picture" component="span">
+                                <AddIcon />
+                            </IconButton>
+                        </Grid>
 
                     </Grid>
                 </div>
@@ -103,6 +134,7 @@ function Events(props) {
                 direction="row"
                 justify="flex-start"
                 alignItems="flex-start"
+                style={{width: "100%"}}
             >
                 {
                     events.map((event, index) => (

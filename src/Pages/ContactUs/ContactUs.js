@@ -76,11 +76,11 @@ function ContactUs(props) {
 
     const handleClose = () => {
 
-        // axios({
-        //     "method":'POST',
-        //     "url":`${Url}/api/gcc/v1/message`,
-        //     'data': data
-        // })
+        axios({
+            "method":'POST',
+            "url":`${Url}/api/gcc/v1/message`,
+            'data': data
+        })
 
         setOpen(false);
     };

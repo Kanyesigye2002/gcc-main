@@ -73,8 +73,6 @@ const App = () => {
                         </Paper>
                     </Box>
                 </Container>
-
-
                 <GccFooter/>
 
             </React.Suspense>

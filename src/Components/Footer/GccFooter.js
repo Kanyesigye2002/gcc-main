@@ -54,9 +54,6 @@ function GccFooter(props) {
                     </Grid>
                 ))}
             </Grid>
-            <Grid item container xs={12} className={classes.footer}>
-                <Footer />
-            </Grid>
         </Grid>
     );
 }

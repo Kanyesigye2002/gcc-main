@@ -17,7 +17,7 @@ import {
     Button
 } from "@material-ui/core";
 import {MenuItems} from "../MenuItems/MenuItems";
-import {Menu} from '@material-ui/icons'
+import {Menu, MoreVert} from '@material-ui/icons'
 import logo from "../../Assets/Images/logos/logo-sm.png";
 import logoBlue from "../../Assets/Images/logos/logo-sm-b.png";
 import Grid from "@material-ui/core/Grid";
@@ -48,11 +48,18 @@ HideOnScroll.propTypes = {
 };
 
 const useStyles = makeStyles((theme) => ({
-    grow: {
+    appBar: {
         flexGrow: 1,
-        display: "flex",
-        justifyContent: "flex-end",
-        alignItems: "center",
+        color: "#fff",
+        backgroundColor:
+            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    },
+    grow: {
+        // padding: "0 30px",
+        // flexGrow: 1,
+        // display: "flex",
+        // justifyContent: "flex-end",
+        // alignItems: "center",
     },
     list: {
         display: "flex",
@@ -136,41 +143,63 @@ function AppBarGcc(props) {
         <>
             <CssBaseline/>
             <HideOnScroll {...props}>
-                <AppBar color="primary">
+                <AppBar className={classes.appBar}>
                     <Toolbar>
-                        <div style={{maxHeight: 50}}><img src={logoBlue} alt="" style={{maxHeight: 50}}/></div>
-                        <div className={classes.grow}>
-                            {isMobile ? (
-                                <MenuIcon click={() => {
-                                    tag(true)
-                                    console.log("tag",drawer)
-                                }} open={drawer}/>
-                            ) : (
-                                <List className={classes.list}>
-                                    {MenuItems.map((item, index) =>
-                                        <React.Fragment key={index}>
-                                            {item.title !== "Donate" &&
-                                            (
-                                                <ListItem className={classes.item}>
-                                                    <Link to={item.url}>
-                                                        <Button size="small" variant="outlined" style={{backgroundColor: "00000000"}}>
-                                                            {item.title}
-                                                        </Button>
-                                                    </Link>
-                                                </ListItem>
-                                            )
-                                            }
-                                        </React.Fragment>
-                                    )}
-                                    <ListItem className={classes.btnList2}>
-                                        <Link to="/donate" style={{width: "100%"}}>
-                                            <Button color="secondary" variant="contained" fullWidth>Donate</Button>
-                                        </Link>
-                                    </ListItem>
-                                </List>
-                            )}
+                        <Grid container direction="row" justify="space-between">
+                            <Grid item>
+                                <div style={{maxHeight: 50}}><img src={logoBlue} alt="" style={{maxHeight: 50}}/></div>
+                            </Grid>
+                            <Grid item>
 
-                        </div>
+                                <div className={classes.grow}>
+                                    {isMobile ? (
+
+                                        <>
+                                            {/*<MenuIcon click={() => {*/}
+                                            {/*    tag(true)*/}
+                                            {/*    console.log("tag",drawer)*/}
+                                            {/*}} open={drawer}/>*/}
+                                            <IconButton
+                                                aria-label="more"
+                                                aria-controls="long-menu"
+                                                aria-haspopup="true"
+                                                color="primary"
+                                                onClick={() => {tag(true)}}
+                                            >
+                                                <MoreVert />
+                                            </IconButton>
+                                            {/*<IconButton onClick={() => {tag(true)}} color="primary" aria-label="upload picture" component="span">*/}
+                                            {/*    <Menu />*/}
+                                            {/*</IconButton>*/}
+                                        </>
+                                    ) : (
+                                        <List className={classes.list}>
+                                            {MenuItems.map((item, index) =>
+                                                <React.Fragment key={index}>
+                                                    {item.title !== "Donate" &&
+                                                    (
+                                                        <ListItem className={classes.item}>
+                                                            <Link to={item.url}>
+                                                                <Button size="small" variant="outlined" style={{backgroundColor: "00000000"}}>
+                                                                    {item.title}
+                                                                </Button>
+                                                            </Link>
+                                                        </ListItem>
+                                                    )
+                                                    }
+                                                </React.Fragment>
+                                            )}
+                                            <ListItem className={classes.btnList2}>
+                                                <Link to="/donate" style={{width: "100%"}}>
+                                                    <Button color="secondary" variant="contained" fullWidth>Donate</Button>
+                                                </Link>
+                                            </ListItem>
+                                        </List>
+                                    )}
+
+                                </div>
+                            </Grid>
+                        </Grid>
                     </Toolbar>
                 </AppBar>
 
