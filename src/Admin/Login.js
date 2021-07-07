@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 import {AccountCircle, Lock, LockOutlined} from '@material-ui/icons'
 import {
     Paper,
@@ -17,10 +17,12 @@ import {userLogin} from "../Redux/AdminReducers/api/authenticationService";
 import {authenticate, authFailure, authSuccess} from "../Redux/AdminReducers/authActions";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@material-ui/core/Alert';
+import { createTheme } from '@material-ui/core/styles';
 
+const theme = createTheme();
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         overflow: "hidden",
         height: "100vh"
@@ -101,21 +103,21 @@ const Login = ({loading, error, ...props}) => {
             <Backdrop className={classes.backdrop} open={loading? true : false}>
                 <CircularProgress color="inherit"/>
             </Backdrop>
-            <Grid container justify="center" alignItems="center" className={classes.root}>
-                <Grid item xs={12} container justify="center" alignItems="center">
+            <Grid container justifyContent="center" alignItems="center" className={classes.root}>
+                <Grid item xs={12} container justifyContent="center" alignItems="center">
                     <Paper className={classes.loginPaper} style={{padding: "50px 10px"}}>
-                        <Grid container justify="center" spacing={2}>
-                            <Grid item container justify="center">
+                        <Grid container justifyContent="center" spacing={2}>
+                            <Grid item container justifyContent="center">
                                 <Avatar className={classes.avatar}>
                                     <LockOutlined/>
                                 </Avatar>
                             </Grid>
-                            <Grid item container justify="center">
+                            <Grid item container justifyContent="center">
                                 <Typography component="h1" variant="h5">
                                     Glorious Church Ug
                                 </Typography>
                             </Grid>
-                            <Grid item container justify="center">
+                            <Grid item container justifyContent="center">
                                 <Typography component="p" variant="subtitle1">
                                     Administrators only
                                 </Typography>
@@ -144,8 +146,8 @@ const Login = ({loading, error, ...props}) => {
                                                    required/>
                                     </Grid>
                                 </Grid>
-                                <Grid item container alignItems="center" justify="space-between">
-                                    <Grid item container justify="center">
+                                <Grid item container alignItems="center" justifyContent="space-between">
+                                    <Grid item container justifyContent="center">
                                         <Divider orientation="horizontal" flexItem color="primary"
                                                  style={{height: "1px", width: "100%"}}/>
                                     </Grid>
@@ -160,13 +162,13 @@ const Login = ({loading, error, ...props}) => {
                                         <Button style={{textTransform: "none"}} variant="text" color="primary">Forgot
                                             password ?</Button>
                                     </Grid>
-                                    <Grid item container justify="center">
+                                    <Grid item container justifyContent="center">
                                         <Button type="submit" variant="outlined" size="large" color="primary"
                                                 style={{textTransform: "none"}}>
                                             Login
                                         </Button>
                                     </Grid>
-                                    <Grid item container justify="center">
+                                    <Grid item container justifyContent="center">
                                         {error &&
                                         <><Alert severity="error">{error}</Alert></>
                                         }

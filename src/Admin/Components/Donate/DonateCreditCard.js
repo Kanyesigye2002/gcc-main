@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
     Card,
     Grid,
-    makeStyles,
     Paper,
     Typography,
     TableRow,
@@ -10,12 +9,15 @@ import {
     TableBody,
     InputAdornment
 } from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles"
 import {CreditCardOutlined, Search} from "@material-ui/icons";
 
 import useTable from '../Tables/useTable'
 import {Controls} from "../../../Components";
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     pageContent: {
         margin: theme.spacing(1),
         padding: theme.spacing(1),
@@ -119,7 +121,7 @@ function DonateCreditCard(props) {
                     <Grid
                         className={classes.grid}
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         spacing={2}
                     >
@@ -161,7 +163,7 @@ function DonateCreditCard(props) {
                 className={classes.grid}
                 container
                 direction="row"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <Paper className={classes.pageContent}>

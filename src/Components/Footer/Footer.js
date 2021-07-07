@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/styles";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
 // core components
@@ -43,7 +43,7 @@ export default function Footer(props) {
               target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              Weber's Task
             </a>
           </span>
         </p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -17,8 +17,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import image from '../../../Assets/Images/paella.jpg'
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     root: {
         maxWidth: 345,
     },

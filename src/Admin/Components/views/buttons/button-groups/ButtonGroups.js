@@ -86,7 +86,7 @@ const ButtonGroups = () => {
                 <CInput placeholder="Input group example" />
               </CInputGroup>
             </CButtonToolbar>
-            <CButtonToolbar justify="between">
+            <CButtonToolbar justifyContent="between">
               <CButtonGroup>
                 <CButton color="secondary">1</CButton>
                 <CButton color="secondary">2</CButton>

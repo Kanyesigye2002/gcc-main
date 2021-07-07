@@ -1,12 +1,14 @@
 import React, { useState} from 'react';
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 import {useDispatch, useSelector} from "react-redux";
 import { Grid, TextField} from "@material-ui/core";
 import ImageDrag from "./ImageDrag";
 import {Controls} from "../../../Components";
 import {UploadHome} from "../../../Redux/MiddleWare";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     text_field: {
         width: '100%'
     }
@@ -28,6 +30,15 @@ function EditHome(props) {
     const [preview3, setPreview3] = React.useState();
 
     const dispatch = useDispatch();
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
 
     const onDrop = (acceptedFiles, setPreview, setFile) => {
         const fileDropped = acceptedFiles[0];
@@ -58,7 +69,7 @@ function EditHome(props) {
             {console.log("home Data : ",datas)}
             <div style={{margin: "10px"}}>
                 <form className={classes.root} onSubmit={onSubmit}>
-                    <Grid spacing={5} container direction="row" justify="center" alignItems="center">
+                    <Grid spacing={5} container direction="row" justifyContent="center" alignItems="center">
                         <Grid item xs={12} sm={4}>
                             <Grid item xs={12} sm={12}>
                                 <ImageDrag drop={onDrop} prev={preview1} prevSet={setPreview1} setFiles={setFile1} image={data.image1}/>
@@ -80,7 +91,7 @@ function EditHome(props) {
                         <Grid item xs={12} sm={10}>
                             <TextField label="Latest Video" type="text" name="latestVideo" value={data.latestVideo} onChange={onChange} variant="outlined" fullWidth/>
                         </Grid>
-                        <Grid item xs={12} sm={12} container justify="center" alignItems="center">
+                        <Grid item xs={12} sm={12} container justifyContent="center" alignItems="center">
                             <Controls.Button type="submit">Update Home</Controls.Button>
                         </Grid>
                     </Grid>

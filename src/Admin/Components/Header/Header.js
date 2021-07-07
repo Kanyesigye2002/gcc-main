@@ -1,5 +1,6 @@
 import React from 'react'
-import {AppBar, Toolbar, Grid, InputBase, IconButton, Badge, makeStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, InputBase, IconButton, Badge} from '@material-ui/core'
+import {makeStyles} from "@material-ui/styles"
 import {
     PowerOffOutlined,
     NotificationsNoneOutlined,
@@ -8,9 +9,11 @@ import {
     MenuOutlined
 } from '@material-ui/icons';
 import {useDispatch, useSelector} from "react-redux";
+import { createTheme } from '@material-ui/core/styles';
 
+const theme = createTheme();
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     root: {
         backgroundColor: '#fff',
 

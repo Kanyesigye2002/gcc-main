@@ -2,7 +2,7 @@ import React from 'react';
 
 import {LocationOn, Mood, Call, Mail} from "@material-ui/icons";
 
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 
@@ -19,7 +19,7 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles({
     root: {
         padding: 3,
-        backgroundColor: "#000000de",
+        // backgroundColor: "#000000de",
         color: "#fff"
     },
     media: {
@@ -76,11 +76,11 @@ function ContactUs(props) {
 
     const handleClose = () => {
 
-        // axios({
-        //     "method":'POST',
-        //     "url":`${Url}/api/gcc/v1/message`,
-        //     'data': data
-        // })
+        axios({
+            "method":'POST',
+            "url":`${Url}/api/gcc/v1/message`,
+            'data': data
+        })
 
         setOpen(false);
     };
@@ -93,7 +93,7 @@ function ContactUs(props) {
                     <p style={{marginBottom: "70px", textAlign: "center"}}>We are here to help you out <Mood/></p>
                     <Grid container style={{border: "1px solid burlywood", borderRadius: "5px"}}>
                         <form onSubmit={onSubmit} className={classes.root} noValidate autoComplete="off">
-                            <Grid spacing={5} container direction="row" justify="center" alignItems="center">
+                            <Grid spacing={5} container direction="row" justifyContent="center" alignItems="center">
                                 <Grid item xs={12}>
                                     <Controls.Input type="text" name="subject" label="Subject" value={data.host} onChange={onChange}/>
                                 </Grid>
@@ -120,7 +120,7 @@ function ContactUs(props) {
                 <Grid item xs={12} md={4} style={{ marginBottom: "30px"}}>
                     <Card className={classes.root} style={{height: "100%"}}>
                         <Grid container spacing={3}>
-                            <Grid item xs={12} container justify="space-between" alignItems="center">
+                            <Grid item xs={12} container justifyContent="space-between" alignItems="center">
                                 <iframe title="Church Location"
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.776094264171!2d32.54391671475331!3d0.2636038998076775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd4f3d32d995%3A0x444bed85639cbda8!2sGLORIOUS%20CHURCH%20OF%20CHRIST!5e0!3m2!1sen!2sug!4v1624952809594!5m2!1sen!2sug"
                                         frameBorder="0"
@@ -134,7 +134,7 @@ function ContactUs(props) {
                                         allowFullScreen=""/>
                             </Grid>
                             <Grid item xs={12}>
-                                <Grid item container justify="space-between" alignItems="center">
+                                <Grid item container justifyContent="space-between" alignItems="center">
                                     <Typography variant="subtitle1">Location: </Typography>
                                     <LocationOn/>
                                 </Grid>
@@ -142,14 +142,14 @@ function ContactUs(props) {
                                     Road</Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Grid item container justify="space-between" alignItems="center">
+                                <Grid item container justifyContent="space-between" alignItems="center">
                                     <Typography variant="subtitle1" className="">Email Us: </Typography>
                                     <Mail/>
                                 </Grid>
                                 <Typography variant="subtitle2">gloriouschurch@gcc.com</Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Grid item container justify="space-between" alignItems="center">
+                                <Grid item container justifyContent="space-between" alignItems="center">
                                     <Typography variant="subtitle1" className="">Call Us: </Typography>
                                     <Call/>
                                 </Grid>

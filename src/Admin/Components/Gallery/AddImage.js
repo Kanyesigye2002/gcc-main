@@ -16,15 +16,22 @@ import {
     MenuItem,
     Button
 } from '@material-ui/core'
-import {makeStyles, Theme} from "@material-ui/core/styles";
+import {makeStyles, Theme} from "@material-ui/styles";
 import {Close, AddAPhotoOutlined, Add, Remove} from "@material-ui/icons";
 
 import ImageDrag from "./ImageDrag";
 import ImageGridList from "./ImageGridList";
 import {Url} from "../../../Redux/Url";
+import {fetchUserData, getToken} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
+import {FetchImages} from "../../../Redux/MiddleWare";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Backdrop from "@material-ui/core/Backdrop";
+import { createTheme } from '@material-ui/core/styles';
 
+const theme = createTheme();
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles(() => createStyles({
     root: {
         display: "contents",
         padding: "0"
@@ -75,7 +82,6 @@ const config = {
 }
 
 
-
 function AddImage() {
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -83,10 +89,10 @@ function AddImage() {
     const [selected, setSelected] = React.useState("Church");
     const [openPopup, setOpenPopup] = useState(false)
     const [previews, setPreviews] = useState([]);
-
-    const images = useSelector(state => state.Images)
+    const [loading, setLoading] = useState(false);
 
     const onDrops = (acceptedFiles) => {
+        setLoading(false)
         const pre = [];
         acceptedFiles.map((image, index) => {
             const previewUrl = URL.createObjectURL(image);
@@ -102,35 +108,29 @@ function AddImage() {
         setOpenPopup(true);
     };
 
-    // const uploadFiled = async (files) => {
-    //     try {
-    //         const response = await S3FileUpload
-    //             .uploadFile(files[0].file, config)
-    //             .then(data => {
-    //                 console.log(data)
-    //             })
-    //             .catch(err => console.error(err))
-    //
-    //         console.log(config)
-    //         console.log("Response",response)
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // }
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
 
     const uploadFile = (files) => {
+
+        // const newFiles = files;
+        // setLoading(true)
+
         try {
-            let newImages = images
             files.map(async (file, index) => {
                 try {
                     S3FileUpload
                         .uploadFile(files[0].file, config)
-                        .then(response =>  {
-                            console.log(response)
+                        .then(response => {
                             const data = response.location
-                            console.log("File: ", data)
 
-                            const imageDat = {
+                            const imageData = {
                                 "galleryCategory": {
                                     name: selected,
                                     images: [
@@ -143,35 +143,31 @@ function AddImage() {
                                 }
                             }
 
-                            const API_URL_Data = Url + "/api/gcc/v1/gallery/" + selected;
-
-                            console.log(API_URL_Data)
-
-                            axios.put(API_URL_Data, imageDat);
-
-                            newImages.map(images => {
-                                if (images.name === selected) {
-                                    images.images.push(
-                                        {
-                                            image: data,
-                                            name: file.file.name,
-                                            date: new Date()
-                                        }
-                                    )
-                                }
+                            axios({
+                                method: 'PUT',
+                                url: `${Url}/api/gcc/admin/v1/gallery/${selected}`,
+                                headers: {
+                                    'Authorization': 'Bearer ' + getToken()
+                                },
+                                'data': imageData
                             })
+
+                            // let array = [...previews]; // make a separate copy of the array
+                            // if (index !== -1) {
+                            //     array.splice(index, 1);
+                            //     setPreviews(array);
+                            // }
+
+                            // files.remove
+
+                            dispatch(FetchImages())
+
                         })
                         .catch(err => console.error(err))
                 } catch (err) {
                     console.log("Try1", err.message);
                 }
             })
-            dispatch(
-                {
-                    type: "SetImages",
-                    payload: newImages
-                }
-            )
         } catch (e) {
             console.log("Try2", e.message);
         }
@@ -189,17 +185,27 @@ function AddImage() {
 
     return (
         <>
+            {
+                <>
+                    <Backdrop className={classes.backdrop} open={previews.length > 0 && loading ? true : false}>
+                        <Typography variant="h4">Uploading {previews.length} images</Typography>
+                        <CircularProgress color="inherit"/>
+                    </Backdrop>
+                </>
+            }
             <Grid container className={classes.root}>
-                <Grid spacing={5} container direction="row" justify="center" alignItems="center"
+                <Grid spacing={5} container direction="row" justifyContent="center" alignItems="center"
                       style={{padding: "0 0px"}}>
-                    <Grid item xs={12} container alignItems="center" justify="center">
+                    <Grid item xs={12} container alignItems="center" justifyContent="center">
 
-                            <div style={{flexGrow: "1", display: "flex", justifyContent: "center"}}>
-                                <Typography variant="h4">Gallery</Typography>
-                            </div>
-                            <Button variant="outlined" color="primary" onClick={() => {setOpenPopup(true)}}>
-                                <AddAPhotoOutlined/> Add Images
-                            </Button>
+                        <div style={{flexGrow: "1", display: "flex", justifyContent: "center"}}>
+                            <Typography variant="h4">Gallery</Typography>
+                        </div>
+                        <Button variant="outlined" color="primary" onClick={() => {
+                            setOpenPopup(true)
+                        }}>
+                            <AddAPhotoOutlined/> Add Images
+                        </Button>
 
                     </Grid>
                 </Grid>
@@ -220,50 +226,51 @@ function AddImage() {
                                 {imageCategories.map((opt, index) => (
                                     <MenuItem key={index} value={opt}>{opt}</MenuItem>))}
                             </TextField>
-                            <Button variant="outlined"  style={{width: "30px", minWidth: "30px", height: "30px"}}
-                                                   color="secondary" onClick={() => {
+                            <Button variant="outlined" style={{width: "30px", minWidth: "30px", height: "30px"}}
+                                    color="secondary" onClick={() => {
                                 setOpenPopup(false)
                             }}><Close/></Button>
                         </div>
                         <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <ImageDrag drop={onDrops} prev={previews}/>
                             <div>
-                                <Button variant="outlined"  style={{height: "30px", width: "100%"}} color="secondary"
-                                                       onClick={() => uploadFile(previews)}
-                                                       disabled={previews.length === 0 && true}><Add/> UpLoad All
+                                <Button variant="outlined" style={{height: "30px", width: "100%"}} color="secondary"
+                                        onClick={() => uploadFile(previews)}
+                                        disabled={previews.length === 0 && true}><Add/> UpLoad All
                                 </Button>
-                                <Button variant="outlined"  style={{height: "30px", width: "100%"}} color="secondary"
-                                                       onClick={() => {
-                                                           setPreviews([])
-                                                       }}
-                                                       disabled={previews.length === 0 && true}><Remove/> Remove All
+                                <Button variant="outlined" style={{height: "30px", width: "100%"}} color="secondary"
+                                        onClick={() => {
+                                            setPreviews([])
+                                        }}
+                                        disabled={previews.length === 0 && true}><Remove/> Remove All
                                 </Button>
                             </div>
                         </div>
                     </DialogTitle>
                     <DialogContent dividers className={classes.noPadding}>
-                        <div>
-                            <div>
-                                <div className="gallery">
-                                    {previews.map((image, index) => (
-                                        <div key={index} style={{padding: "3px"}}>
-                                            <div className="pic">
-                                                <img src={image.img} alt={image.title}/>
-                                                <div className="over">
-                                                    <Button variant="outlined"  style={{height: "30px"}} color="secondary"
-                                                                           onClick={() => {
-                                                                               const newPreviews = []
-                                                                               previews.map((newImage, index) => {if (newImage !== image) {newPreviews.push(newImage)}})
-                                                                               setPreviews(newPreviews)
-                                                                           }}>
-                                                        <Remove/>
-                                                    </Button>
-                                                </div>
-                                            </div>
+                        <div className="gallery">
+                            {previews.map((image, index) => (
+                                <div key={index} style={{padding: "3px"}}>
+                                    <div className="pic">
+                                        <img src={image.img} alt={image.title}/>
+                                        <div className="over">
+                                            <Button variant="outlined" style={{height: "30px"}}
+                                                    color="secondary"
+                                                    onClick={() => {
+                                                        const newPreviews = []
+                                                        previews.map((newImage, index) => {
+                                                            if (newImage !== image) {
+                                                                newPreviews.push(newImage)
+                                                            }
+                                                        })
+                                                        setPreviews(newPreviews)
+                                                    }}>
+                                                <Remove/>
+                                            </Button>
                                         </div>
-                                    ))}
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </DialogContent>
                 </Dialog>

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
+import {makeStyles} from "@material-ui/styles"
 import {
     Card,
     Grid,
-    makeStyles,
     Paper,
     Typography,
     TableRow,
@@ -14,8 +14,10 @@ import {MobileFriendlyOutlined, Search} from "@material-ui/icons";
 
 import useTable from '../Tables/useTable'
 import {Controls} from "../../../Components";
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     pageContent: {
         margin: theme.spacing(1),
         padding: theme.spacing(1),
@@ -113,7 +115,7 @@ function DonateMobileMoney(props) {
                     <Grid
                         className={classes.grid}
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         spacing={2}
                     >
@@ -155,7 +157,7 @@ function DonateMobileMoney(props) {
                 className={classes.grid}
                 container
                 direction="row"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <Paper className={classes.pageContent}>

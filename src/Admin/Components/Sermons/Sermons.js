@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
-import { Card, Grid, makeStyles, Paper, Typography} from "@material-ui/core";
+import { Card, Grid, Paper, Typography} from "@material-ui/core";
 import Sermon from "./Sermon";
+import {makeStyles} from "@material-ui/styles"
 import {EventAvailableOutlined} from "@material-ui/icons";
 import {Controls} from "../../../Components";
 import AddIcon from "@material-ui/icons/Add";
 import Popup from "../Forms/Popup";
 import AddSermon from "./AddSermon";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
+import { createTheme } from '@material-ui/core/styles';
 
+const theme = createTheme();
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     grid: {
         margin: "0px"
     },
@@ -44,7 +49,16 @@ function Sermons(props) {
     const classes = useStyles();
 
     const [openPopup, setOpenPopup] = useState(false)
-    
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
+
     return (
         <div style={{width: "100%"}}>
             <Paper elevation={0} square className={classes.root}>
@@ -52,7 +66,7 @@ function Sermons(props) {
                     <Grid
                         className={classes.grid}
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         spacing={2}
                     >
@@ -94,7 +108,7 @@ function Sermons(props) {
                 spacing={5}
                 container
                 direction="row"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <Grid xs={12} md={6} lg={4}>

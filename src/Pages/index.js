@@ -5,6 +5,7 @@ import Events from './Events/Events'
 import Gallery from './Gallery/Gallery'
 import Ministries from './Ministries/Ministries'
 import AboutUs from './AboutUs/AboutUs'
+import Programs from './Programs/Programs'
 import Home from './Home/Home'
 
 export {
@@ -15,5 +16,6 @@ export {
     Gallery,
     AboutUs,
     Ministries,
+    Programs,
     Home
 }

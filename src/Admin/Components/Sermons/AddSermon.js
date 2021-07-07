@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux'
 import {Grid, Button} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 
 import {Controls} from "../../../Components";
 import {UploadFile} from "../../../Redux/MiddleWare";
+import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import Redirect from "react-router-dom/es/Redirect";
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     text_field: {
         width: '100%'
     }
@@ -40,6 +42,15 @@ function AddSermon(props) {
     //         return Object.values(temp).every(x => x === "")
     // }
 
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            console.log("Logged in")
+        }).catch((e) => {
+            localStorage.clear();
+            return <Redirect to='/admin/login'/>;
+        })
+    }, [])
+
     const onChange = (event) => {
         setData({
             ...data,
@@ -57,7 +68,7 @@ function AddSermon(props) {
             {console.log(props.event)}
             <div style={{width: "100%"}}>
                 <form onSubmit={onSubmit} className={classes.root} noValidate autoComplete="off">
-                    <Grid spacing={5} container direction="row" justify="center" alignItems="center">
+                    <Grid spacing={5} container direction="row" justifyContent="center" alignItems="center">
 
                         <Grid item xs={12} sm={6}>
                             <Controls.Input name="host" label="Host Name" value={data.host} onChange={onChange} error={errors.host}/>

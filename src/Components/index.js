@@ -1,7 +1,7 @@
 import {Sermon, MinistryPage, EventPage, Event, Ministry, NextService} from './Cards'
 import NavBar from './NavBar/Navbar'
-import Carousels1 from "./Carousel/Carousel";
-import Carousels from "./Carousel/Carousel1";
+import Carousels from "./Carousel/Carousel";
+import Carousels1 from "./Carousel/Carousel1";
 import Iframe from './IFrames/Iframe'
 import Controls from "./Controls";
 import AppBarGcc from './AppBar/AppBarGcc'

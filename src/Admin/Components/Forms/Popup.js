@@ -1,10 +1,14 @@
 import React from 'react'
-import { Dialog, DialogTitle, DialogContent, makeStyles, Typography } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, Typography } from '@material-ui/core';
 import {Controls} from "../../../Components";
+import {makeStyles} from "@material-ui/styles"
 import { Close } from '@material-ui/icons'
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     dialogWrapper: {
+        margin: "32px 5px",
         padding: theme.spacing(2),
         position: 'absolute',
         top: theme.spacing(1)

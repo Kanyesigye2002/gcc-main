@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import {Link} from "react-router-dom";
 import Divider from "@material-ui/core/Divider";
@@ -99,13 +99,13 @@ const NextService = (props) => {
         <Card className={classes.root}>
             <CardActionArea className={classes.buttonRoot}>
                 <CardContent style={{position: "absolute", top: 0, width: "100%"}}>
-                    <Grid container spacing={1} direction="row" justify="center">
-                        <Grid item xs={12} container justify="center" style={{margin: 0}}>
+                    <Grid container spacing={1} direction="row" justifyContent="center">
+                        <Grid item xs={12} container justifyContent="center" style={{margin: 0}}>
                             <Typography gutterBottom variant="h4" component="h2">
                                 Next Service starts
                             </Typography>
                         </Grid>
-                        <Grid container spacing={4} direction="row" justify="center">
+                        <Grid container spacing={4} direction="row" justifyContent="center">
                             <Grid item>
                                 <Typography style={{textAlign: "center"}} variant="h6" color="textSecondary"
                                             component="p">
@@ -152,7 +152,7 @@ const NextService = (props) => {
                 </CardContent>
             </CardActionArea>
 
-            <Grid container justify="center">
+            <Grid container justifyContent="center">
                 <Grid item xs={12}><Divider/></Grid>
                 <Grid item xs={12}>
                     <CardActions style={{width: "100%", justifyContent: "space-between"}}>

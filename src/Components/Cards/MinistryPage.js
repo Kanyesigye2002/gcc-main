@@ -1,11 +1,11 @@
 import React from 'react';
 import Grid from "@material-ui/core/Grid";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 
 const useStyles = makeStyles({
     root: {
         padding: 3,
-        backgroundColor: "#000000de",
+        // backgroundColor: "#000000de",
         color: "#fff"
     },
     media: {

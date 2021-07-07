@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import {useDispatch, useSelector} from "react-redux";
@@ -17,24 +17,60 @@ import Button from "@material-ui/core/Button";
 import logo from "../../Assets/Images/logos/logo-sm.png";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
+import {fetchUserData} from "../../Redux/AdminReducers/api/authenticationService";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import {Call, Facebook, YouTube} from "@material-ui/icons";
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     list: {
         width: 250,
     },
-    logo: {
-
-    },
+    logo: {},
     fullList: {
         width: 'auto',
     },
     appBar: {
+        margin: "0 0 25px",
         flexGrow: 1,
+        color: "#fff",
+        backgroundColor:
+            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        // marginRight: theme.spacing(2),
+    },
+    footer: {
+        padding: theme.spacing(3, 2),
+        marginTop: 'auto',
+        backgroundColor:
+            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+        boxShadow: "1px -5px 7px -1px rgb(0 0 0 / 20%), 0px -3px 5px 0px rgb(0 0 0 / 14%), 1px -3px 10px 0px rgb(0 0 0 / 12%)"
+    },
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+    },
+    main: {
+        padding: " 5px 0"
     },
 }));
+
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" style={{textAlign: "end"}}>
+            {'Copyright © '}
+            <Link color="inherit" href="https://gloriousch.org/">
+                Glorious Church
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
 
 export default function TheLayOut(props) {
     const classes = useStyles();
@@ -52,8 +88,8 @@ export default function TheLayOut(props) {
     const list = (anchor) => (
         <div className={classes.list} role="presentation" onClick={toggleDrawer(anchor, false)}
              onKeyDown={toggleDrawer(anchor, false)}>
-            <Grid container justify="center">
-                <Grid item xs={12} container justify="center">
+            <Grid container justifyContent="center">
+                <Grid item xs={12} container justifyContent="center">
                     <img src={logo} alt="" className={classes.logo}/>
                 </Grid>
                 <Grid item xs={12} style={{marginBottom: 20}}>
@@ -85,6 +121,11 @@ export default function TheLayOut(props) {
                             <Controls.Button fullWidth type="button">Add Images</Controls.Button>
                         </Link>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Link to="/admin/administrators" style={{textDecoration: "none"}}>
+                            <Controls.Button fullWidth type="button">Root Admin</Controls.Button>
+                        </Link>
+                    </Grid>
                 </Grid>
             </Grid>
         </div>
@@ -92,9 +133,19 @@ export default function TheLayOut(props) {
 
     const user = localStorage.getItem("USER_KEY")
 
-    React.useEffect(() => {
+    const [data, setData] = useState({});
 
-        if (user===null) {
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+            props.history.push('/admin/login');
+        })
+    }, [])
+
+    React.useEffect(() => {
+        if (user === null) {
             localStorage.clear();
             props.history.push('/admin/login');
         }
@@ -109,30 +160,39 @@ export default function TheLayOut(props) {
 
     return (
         <>
-            {user===null? <>
+            {user === null ? <>
                 <Backdrop className={classes.backdrop} open={true}>
                     <CircularProgress color="inherit"/>
                 </Backdrop>
-            </>:<>
-                <div className={classes.appBar}>
-                <AppBar position="static">
-                    <Toolbar variant="dense">
-                        <IconButton edge="start" onClick={toggleDrawer('left', true)} className={classes.menuButton}
-                                    color="inherit" aria-label="menu">
-                            <MenuIcon/>
-                        </IconButton>
-                        <Typography variant="h6" color="inherit">
-                            Gcc Admin
-                        </Typography>
-                        <Button type="button" onClick={() => logOut()}>Log Out</Button>
-                    </Toolbar>
-                </AppBar>
-            </div>
+            </> : <>
+                <div>
+                    <AppBar position="static" className={classes.appBar}>
+                        <Toolbar variant="dense">
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center">
+                                <Grid item xs={4} container direction="row" alignItems="center" justifyContent="flex-start">
+                                    <IconButton edge="start" onClick={toggleDrawer('left', true)}
+                                                className={classes.menuButton}
+                                                color="inherit" aria-label="menu">
+                                        <MenuIcon/>
+                                    </IconButton>
+                                    <Typography variant="h6" color="inherit">
+                                        {data.userName}
+                                        {console.log("user: ", data)}
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Button type="button" color="inherit" onClick={() => logOut()}>Log Out</Button>
+                                </Grid>
+                            </Grid>
+                        </Toolbar>
+                    </AppBar>
+                </div>
                 <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
                     {list('left')}
                 </Drawer>
                 <TheContent/>
-                </>}
+
+            </>}
 
         </>
     );

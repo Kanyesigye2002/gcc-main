@@ -9,7 +9,7 @@ function Gallery(props) {
     return (
         <Grid>
             <Grid container direction="row" className="row">
-                <Grid item xs={12} container justify="center">
+                <Grid item xs={12} container justifyContent="center">
                     <h2>Welcome To the Church Gallery</h2>
                 </Grid>
             </Grid>

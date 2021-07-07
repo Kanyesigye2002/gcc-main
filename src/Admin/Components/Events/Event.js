@@ -1,25 +1,114 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {makeStyles} from '@material-ui/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import {useDispatch, useSelector} from "react-redux";
+import Axios from "axios";
+import {Url} from "../../../Redux/Url";
+import axios from "axios";
+import {getToken} from "../../../Redux/AdminReducers/api/authenticationService";
+import {FetchEvents} from "../../../Redux/MiddleWare";
+import Divider from "@material-ui/core/Divider";
 
-import image from '../../../Assets/images/jpics/pastor2.jpeg'
-import {CButton, CCardFooter} from "@coreui/react";
-import CIcon from "@coreui/icons-react";
+const useStyles = makeStyles({
+    root: {
+        maxWidth: 345,
+        minWidth: 345,
 
-function Event(props) {
+        maxHeight: 300,
+        minHeight: 300,
+    },
+    media: {
+        height: 140,
+    },
+    buttonRoot: {
+        overflow: "hidden",
+        height: 250
+    }
+});
+
+export default function Event(props) {
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+    const [status, setStatus] = useState(true)
+    const events = useSelector(state => state.Events)
+
+    const {title, description, fileName, date} = props.event
+
+    const remove = () => {
+        // let eventsNew = []
+        // events.map((event) => {
+        //     if (event !== props.event) {
+        //         eventsNew.push(event)
+        //     }
+        // })
+        // dispatch(
+        //     {
+        //         type: "SetEvents",
+        //         payload: eventsNew
+        //     }
+        // )
+        const response = axios({
+            method:'DELETE',
+            url:`${Url}/api/gcc/admin/v1/events/${props.event.id}`,
+            headers:{
+                'Authorization':'Bearer '+getToken()
+            }
+        }).then(() => {
+            dispatch(FetchEvents())
+        })
+
+        console.log("Request: ", response)
+    }
+
+    useEffect(() => {
+        const countdownDate = new Date(date).getTime();
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+        if (distance > 100) {
+            setStatus(false)
+        }
+    },[])
+
+    const edit =()=> {
+        props.setEvent(props.event)
+        props.setOpenPopup(true)
+    }
+
     return (
-        <div className="card border-light mb-5 mx-auto" style={{maxWidth: "300px"}}>
-            <div className="card-body">
-                {console.log(props.event)}
-                <h5 className="card-title pb-0 mb-0">{props.event.title}</h5>
-                <p className="card-text small pt-0 mt-0 text-muted">Event Date by <span className="text-primary">{props.event.contributed}</span> on {props.event.date}</p>
-                <p className="card-text small text-left">{props.event.message} <button onClick={props.clicked} className="link- text-black">... continue reading</button></p>
-                <img src={image} className="card-img-top" alt="..."/>
-                <CCardFooter>
-                    <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber"/> Edit Event</CButton>
-                    <CButton type="reset" size="sm" color="danger"><CIcon name="cil-ban"/> Delete Event</CButton>
-                </CCardFooter>
-            </div>
-        </div>
+        <Card className={classes.root}>
+            <CardActionArea className={classes.buttonRoot}>
+                <CardMedia
+                    className={classes.media}
+                    image={fileName}
+                    title="Contemplative Reptile"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        {title}
+                    </Typography>
+                    <div>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {description}
+                        </Typography>
+                    </div>
+                    <Divider/>
+                    <Typography variant="body1" color="textSecondary" component="p">
+                        {status? "Already happened" : "Coming soon"}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+
+            <CardActions style={{justifyContent: "space-between"}}>
+                <Button size="small" color="primary" onClick={() => remove()}>Remove</Button>
+                <Button size="small" color="primary" onClick={() => edit()}>Edit Event</Button>
+            </CardActions>
+        </Card>
     );
 }
-
-export default Event;

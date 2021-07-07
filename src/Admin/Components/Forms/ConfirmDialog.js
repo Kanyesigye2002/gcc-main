@@ -1,8 +1,11 @@
 import React from 'react'
-import { Dialog, DialogTitle, DialogContent, DialogActions, Typography, makeStyles, IconButton } from '@material-ui/core'
+import { Dialog, DialogTitle, DialogContent, DialogActions, Typography, IconButton } from '@material-ui/core'
 import {Controls} from "../../../Components";
+import {makeStyles} from "@material-ui/styles"
 import NotListedLocationIcon from '@material-ui/icons/NotListedLocation';
+import { createTheme } from '@material-ui/core/styles';
 
+const theme = createTheme();
 
 const useStyles = makeStyles(theme => ({
     dialog: {

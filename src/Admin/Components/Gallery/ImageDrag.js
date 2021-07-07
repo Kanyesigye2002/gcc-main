@@ -1,10 +1,11 @@
 import React from 'react';
-import RootRef from "@material-ui/core/RootRef";
 import {Paper, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 import {useDropzone} from "react-dropzone";
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     dropzoneContainer: {
         minHeight: 80,
         background: "#efefef",
@@ -42,12 +43,12 @@ function ImageDrag(props) {
 
     return (
         <>
-            <RootRef rootRef={ref}>
-                <Paper {...rootProps} elevation={0} className={classes.dropzoneContainer}>
+            <>
+                <Paper ref={ref} {...rootProps} elevation={0} className={classes.dropzoneContainer}>
                     <input {...getInputProps()} />
                     <Typography>Drag 'n' drop some files here, or click to select files</Typography>
                 </Paper>
-            </RootRef>
+            </>
         </>
     );
 }

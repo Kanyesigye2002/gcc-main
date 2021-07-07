@@ -10,13 +10,14 @@ import thunk from 'redux-thunk'
 //     )
 // )
 
+const store = createStore(
+    rootReducer, applyMiddleware(thunk)
+)
+
 store.subscribe(() => {
     saveState(store.getState())
 })
 
-const store = createStore(
-    rootReducer, applyMiddleware(thunk)
-)
 export default store
 
 // const loadState = () => {
@@ -35,7 +36,7 @@ export default store
 const saveState = (state) => {
     try {
         const JState = JSON.stringify(state)
-        localStorage.setItem("state", state)
+        localStorage.setItem("state", JState)
     } catch (e) {
         console.log(e)
     }

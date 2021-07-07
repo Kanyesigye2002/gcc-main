@@ -7,10 +7,14 @@
     text-align: center;
     font-size: 18px;
     background: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.mySwiper1 img {
-    display: block;
-    width: 100%;
-    object-fit: cover;
-}
+/*.mySwiper1 img {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    object-fit: cover;*/
+/*}*/

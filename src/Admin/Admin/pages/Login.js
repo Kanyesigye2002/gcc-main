@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
+import {withStyles} from "@material-ui/styles"
 import {
     Paper,
-    withStyles,
     Avatar,
     Typography,
     Grid,
@@ -16,7 +16,10 @@ import {userLogin} from "../api/authenticationService";
 import {Form} from "../../Components/Forms/useForm";
 import {authenticate, authFailure, authSuccess} from "../redux/authActions";
 import {connect} from "react-redux";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
+import { createTheme } from '@material-ui/core/styles';
+
+const theme = createTheme();
 
 const styles = theme => ({
     margin: {
@@ -91,16 +94,16 @@ const Login = ({loading, error, ...props}) => {
     const classes = useStyles()
 
     return (
-        <Grid container justify="center" alignItems="center" className={classes.root} >
+        <Grid container justifyContent="center" alignItems="center" className={classes.root} >
             <Grid item xs={12} md={6} lg={5}>
                 <Paper className={classes.padding}>
-                    <Grid container justify="center" spacing={2}>
-                        <Grid item container justify="center">
+                    <Grid container justifyContent="center" spacing={2}>
+                        <Grid item container justifyContent="center">
                             <Avatar className={classes.avatar}>
                                 <LockOutlined/>
                             </Avatar>
                         </Grid>
-                        <Grid item container justify="center">
+                        <Grid item container justifyContent="center">
                             <Typography component="h1" variant="h5">
                                 Sign in
                             </Typography>
@@ -124,7 +127,7 @@ const Login = ({loading, error, ...props}) => {
                                     <TextField id="password" type="password" className="form-control" minLength={8} value={values.password} onChange={handleChange} name="password" fullWidth required/>
                                 </Grid>
                             </Grid>
-                            <Grid container alignItems="center" justify="space-between">
+                            <Grid container alignItems="center" justifyContent="space-between">
                                 <Grid item>
                                     <FormControlLabel control={
                                         <Checkbox
@@ -138,7 +141,7 @@ const Login = ({loading, error, ...props}) => {
                             </Grid>
                             <Divider orientation="horizontal" flexItem
                                      style={{height: "2px", backgroundColor: "#202020A2"}}/>
-                            <Grid container justify="center" style={{marginTop: '10px'}}>
+                            <Grid container justifyContent="center" style={{marginTop: '10px'}}>
                                 <Button type="submit"  variant="outlined" color="primary" style={{textTransform: "none"}}>Login</Button>
                             </Grid>
                         </div>

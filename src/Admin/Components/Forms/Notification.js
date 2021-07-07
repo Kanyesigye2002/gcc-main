@@ -1,8 +1,11 @@
 import React from 'react'
-import { Snackbar, makeStyles } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { Snackbar } from '@material-ui/core';
+import {makeStyles} from "@material-ui/styles";
+import Alert from '@material-ui/core/Alert';
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     root: {
         top: theme.spacing(9)
     }

@@ -18,7 +18,7 @@ function ImageGridList() {
                     {
                         fetchedImages.map(images => {
                             return (
-                                <Grid container justify="center">
+                                <Grid container justifyContent="center">
                                     {
                                         images.images.length > 1 && (
                                             <>

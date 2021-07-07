@@ -36,6 +36,12 @@ const _nav =  [
     to: '/admin/Events',
     icon: 'cil-star',
   },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Administrators',
+    to: '/admin/administrators',
+    icon: 'cil-star',
+  },
 
 ]
 

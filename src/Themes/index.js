@@ -1,12 +1,9 @@
 import React from 'react';
-import {createMuiTheme} from '@material-ui/core/styles'
-import red from "@material-ui/core/colors/red";
-import blue from "@material-ui/core/colors/blue";
-import ThemeProvider from "react-bootstrap/ThemeProvider";
+import {createTheme, ThemeProvider} from '@material-ui/core/styles'
 
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
-        type: "dark",
+        mode: "dark",
         primary: {
             light: '#f6685e',
             main: '#f44336',
@@ -23,7 +20,7 @@ const theme = createMuiTheme({
 })
 
 const Theme = (props) => {
-    console.log(theme)
+    console.log()
     const {children} = props
     return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }

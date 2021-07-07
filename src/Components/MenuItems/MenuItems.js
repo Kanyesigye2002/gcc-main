@@ -20,8 +20,8 @@ export const MenuItems = [
         cName: 'nav-Link'
     },
     {
-        title: 'Sermons',
-        url: '/sermons',
+        title: 'Programs',
+        url: '/Programs',
         cName: 'nav-Link'
     },
     {

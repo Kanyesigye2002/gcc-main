@@ -3,11 +3,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import makeStyles from "@material-ui/styles/makeStyles";
+import {createTheme} from "@material-ui/core/styles";
 
 
-import {Sermons, ContactUs, Donate, Events, Gallery, Ministries, AboutUs, Home} from "./Pages";
+import {Sermons, ContactUs, Donate, Events, Gallery, Ministries, AboutUs, Home, Programs} from "./Pages";
 
 import {AppBarGcc} from './Components'
 
@@ -16,10 +16,9 @@ import GccFooter from "./Components/Footer/GccFooter";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         width: "100%",
-        minHeight: "100vh",
         backgroundColor: "#12121200"
     },
     appBar: {
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         type: "dark",
         primary: {
@@ -49,7 +48,7 @@ const theme = createMuiTheme({
 })
 
 const App = () => {
-    const classes = useStyles(theme);
+    const classes = useStyles();
 
     return (
         <Router>
@@ -61,7 +60,7 @@ const App = () => {
                     <Box>
                         <Paper className={classes.root}>
                             <Switch>
-                                <Route path="/sermons" name="Home" component={Sermons}/>
+                                <Route path="/programs" name="Home" component={Programs}/>
                                 <Route path="/aboutus" name="Home" component={AboutUs}/>
                                 <Route path="/contactUs" name="Home" component={ContactUs}/>
                                 <Route path="/donate" name="Home" component={Donate}/>
@@ -73,8 +72,6 @@ const App = () => {
                         </Paper>
                     </Box>
                 </Container>
-
-
                 <GccFooter/>
 
             </React.Suspense>

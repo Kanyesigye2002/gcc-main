@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import {useDispatch, useSelector} from "react-redux";
 import Axios from "axios";
 import {Url} from "../../../Redux/Url";
+import axios from "axios";
+import {getToken} from "../../../Redux/AdminReducers/api/authenticationService";
+import {FetchEvents} from "../../../Redux/MiddleWare";
 
 const useStyles = makeStyles({
     root: {
@@ -37,22 +40,30 @@ export default function MediaCard(props) {
     const {title, description, fileName} = props.event
 
     const remove = () => {
-        let eventsNew = []
-        events.map((event) => {
-            if (event !== props.event) {
-                eventsNew.push(event)
+        // let eventsNew = []
+        // events.map((event) => {
+        //     if (event !== props.event) {
+        //         eventsNew.push(event)
+        //     }
+        // })
+        // dispatch(
+        //     {
+        //         type: "SetEvents",
+        //         payload: eventsNew
+        //     }
+        // )
+        const response = axios({
+            method:'DELETE',
+            url:`${Url}/api/gcc/admin/v1/events/${props.event.id}`,
+            headers:{
+                'Authorization':'Bearer '+getToken()
             }
+        }).then(() => {
+            dispatch(FetchEvents())
         })
-        dispatch(
-            {
-                type: "SetEvents",
-                payload: eventsNew
-            }
-        )
-        const API_URL = Url + "/api/gcc/v1/events/" + props.event.id;
-        const response = Axios.delete(API_URL)
 
-        console.log(API_URL, response)
+
+        console.log("Request: ", response)
 
 
     }
@@ -82,7 +93,7 @@ export default function MediaCard(props) {
                 </CardContent>
             </CardActionArea>
 
-            <CardActions>
+            <CardActions style={{justifyContent: "space-between"}}>
                 <Button size="small" color="primary" onClick={() => remove()}>Remove</Button>
                 <Button size="small" color="primary" onClick={() => edit()}>Edit Event</Button>
             </CardActions>

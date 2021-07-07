@@ -8,8 +8,6 @@ import "swiper/components/lazy/lazy.min.css"
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
 
-import "./styles.css";
-
 
 // import Swiper core and required modules
 import SwiperCore, {

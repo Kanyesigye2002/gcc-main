@@ -13,17 +13,19 @@ import {
     ListItem,
     useMediaQuery,
     useTheme,
-    makeStyles,
     Button
 } from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles"
 import {MenuItems} from "../MenuItems/MenuItems";
-import {Menu} from '@material-ui/icons'
+import {Menu, MoreVert} from '@material-ui/icons'
 import logo from "../../Assets/Images/logos/logo-sm.png";
 import logoBlue from "../../Assets/Images/logos/logo-sm-b.png";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import MenuIcon from "./MenuIcon";
+import { createTheme } from '@material-ui/core/styles';
 
+const theme = createTheme();
 function HideOnScroll(props) {
     const {children, window} = props;
     // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -47,12 +49,19 @@ HideOnScroll.propTypes = {
     window: PropTypes.func,
 };
 
-const useStyles = makeStyles((theme) => ({
-    grow: {
+const useStyles = makeStyles(() => ({
+    appBar: {
         flexGrow: 1,
-        display: "flex",
-        justifyContent: "flex-end",
-        alignItems: "center",
+        color: "#fff",
+        backgroundColor:
+            theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    },
+    grow: {
+        // padding: "0 30px",
+        // flexGrow: 1,
+        // display: "flex",
+        // justifyContent: "flex-end",
+        // alignItems: "center",
     },
     list: {
         display: "flex",
@@ -86,9 +95,9 @@ function AppBarGcc(props) {
     const classes = useStyles();
     const [drawer, setDrawer] = useState(false);
 
-    const theme = useTheme()
+    const theme = createTheme()
 
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
     const tag = (open) => {
         console.log(drawer)
@@ -98,8 +107,8 @@ function AppBarGcc(props) {
     const list = () => (
         <>
             <div onClick={() => tag(false)} className={classes.drawer}>
-                <Grid container justify="center" spacing={2}>
-                    <Grid item xs={12} container justify="center">
+                <Grid container justifyContent="center" spacing={2}>
+                    <Grid item xs={12} container justifyContent="center">
                         <img src={logo} alt="" className={classes.logo}/>
                     </Grid>
                     <Grid item xs={12} style={{marginBottom: 2}}>
@@ -136,41 +145,62 @@ function AppBarGcc(props) {
         <>
             <CssBaseline/>
             <HideOnScroll {...props}>
-                <AppBar color="primary">
+                <AppBar className={classes.appBar}>
                     <Toolbar>
-                        <div style={{maxHeight: 50}}><img src={logoBlue} alt="" style={{maxHeight: 50}}/></div>
-                        <div className={classes.grow}>
-                            {isMobile ? (
-                                <MenuIcon click={() => {
-                                    tag(true)
-                                    console.log("tag",drawer)
-                                }} open={drawer}/>
-                            ) : (
-                                <List className={classes.list}>
-                                    {MenuItems.map((item, index) =>
-                                        <React.Fragment key={index}>
-                                            {item.title !== "Donate" &&
-                                            (
-                                                <ListItem className={classes.item}>
-                                                    <Link to={item.url}>
-                                                        <Button size="small" variant="outlined" style={{backgroundColor: "00000000"}}>
-                                                            {item.title}
-                                                        </Button>
-                                                    </Link>
-                                                </ListItem>
-                                            )
-                                            }
-                                        </React.Fragment>
-                                    )}
-                                    <ListItem className={classes.btnList2}>
-                                        <Link to="/donate" style={{width: "100%"}}>
-                                            <Button color="secondary" variant="contained" fullWidth>Donate</Button>
-                                        </Link>
-                                    </ListItem>
-                                </List>
-                            )}
+                        <Grid container direction="row" justifyContent="space-between">
+                            <Grid item container alignItems="center" style={{width: "fit-content"}}>
+                                <div style={{maxHeight: 50}}><img src={logo} alt="" style={{maxHeight: 50, opacity: "0.8"}}/></div>
+                            </Grid>
+                            <Grid item>
+                                <div className={classes.grow}>
+                                    {isMobile ? (
 
-                        </div>
+                                        <>
+                                            {/*<MenuIcon click={() => {*/}
+                                            {/*    tag(true)*/}
+                                            {/*    console.log("tag",drawer)*/}
+                                            {/*}} open={drawer}/>*/}
+                                            <IconButton
+                                                aria-label="more"
+                                                aria-controls="long-menu"
+                                                aria-haspopup="true"
+                                                color="primary"
+                                                onClick={() => {tag(true)}}
+                                            >
+                                                <MoreVert />
+                                            </IconButton>
+                                            {/*<IconButton onClick={() => {tag(true)}} color="primary" aria-label="upload picture" component="span">*/}
+                                            {/*    <Menu />*/}
+                                            {/*</IconButton>*/}
+                                        </>
+                                    ) : (
+                                        <List className={classes.list}>
+                                            {MenuItems.map((item, index) =>
+                                                <React.Fragment key={index}>
+                                                    {item.title !== "Donate" &&
+                                                    (
+                                                        <ListItem style={{padding: "2px 2px"}}>
+                                                            <Link to={item.url}>
+                                                                <Button size="small" variant="outlined" style={{backgroundColor: "00000000"}}>
+                                                                    {item.title}
+                                                                </Button>
+                                                            </Link>
+                                                        </ListItem>
+                                                    )
+                                                    }
+                                                </React.Fragment>
+                                            )}
+                                            <ListItem className={classes.btnList2}>
+                                                <Link to="/donate" style={{width: "100%"}}>
+                                                    <Button color="primary" variant="contained" fullWidth>Donate</Button>
+                                                </Link>
+                                            </ListItem>
+                                        </List>
+                                    )}
+
+                                </div>
+                            </Grid>
+                        </Grid>
                     </Toolbar>
                 </AppBar>
 

@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel } from '@material-ui/core'
+import { Table, TableHead, TableRow, TableCell, TablePagination, TableSortLabel } from '@material-ui/core'
+import {makeStyles} from "@material-ui/styles"
+import { createTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const theme = createTheme();
+const useStyles = makeStyles(() => ({
     table: {
         marginTop: theme.spacing(3),
         '& thead th': {
