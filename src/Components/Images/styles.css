@@ -1,0 +1,90 @@
+.gallery {
+    width: 100%;
+    column-width: 200px;
+    /*column-count: 2;*/
+    column-gap: 4px;
+    padding: 0 2px;
+}
+
+
+@media (max-width: 500px) {
+    .gallery {
+        column-count: 2;
+        column-width: 50px;
+    }
+    .MuiDialog-paper {
+        margin: 5px 2px;
+    }
+}
+
+.pic {
+    transition: all 500ms ease;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0px;
+    border-radius: 4px;
+
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+.over {
+    left: 0;
+    right: 0;
+    height: 48px;
+    display: -webkit-flex;
+    display: flex;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.0);
+    -webkit-align-items: center;
+    align-items: flex-start;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    top: 0;
+    justify-content: flex-end;
+}
+
+.over button{
+    margin: 1px;
+    padding: 0;
+    height: 5px;
+}
+
+.gallery .pic:hover {
+    /*filter: opacity(.9);*/
+}
+
+.pic .info {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.pic:hover img {
+    transform: scale(1.1);
+    opacity: .6;
+}
+
+.pic img {
+    width: 100%;
+    transition: all 350ms ease;
+    transform: scale(1.06);
+}
+
+
+

@@ -1,0 +1,21 @@
+// Import CoreUI styles
+//@import "node_modules/@coreui/coreui/scss/coreui";
+@import "node_modules/@coreui/coreui/scss/functions";
+@import "variables";
+@import "node_modules/@coreui/coreui/scss/mixins";
+@import "reboot";
+
+// Utility classes
+@import "node_modules/@coreui/coreui/scss/utilities";
+
+// Custom Properties support for Internet Explorer
+@import "node_modules/@coreui/coreui/scss/ie-custom-properties";
+
+// Vendors
+@import "node_modules/@coreui/coreui/scss/vendors";
+
+// Components
+@import "node_modules/@coreui/coreui/scss/sidebar";
+@import "node_modules/@coreui/coreui/scss/transitions";
+
+@import "node_modules/@coreui/coreui/scss/layouts";

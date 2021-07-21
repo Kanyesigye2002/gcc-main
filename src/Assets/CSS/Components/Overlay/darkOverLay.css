@@ -1,0 +1,51 @@
+.dark-contaoner {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 30px;
+    width: 30px;
+    position: fixed; /* Stay in place */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 5px;
+    bottom: 10%;
+    z-index: 1020;
+    border-radius: 100%;
+    color: #ffffff;
+    opacity: 0.6;
+    background-color: rgba(16, 16, 16, 0.9); /* Black w/opacity */
+    transition: 1s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.hide {
+    height: 0px;
+    width: 0px;
+    opacity: 0;
+}
+
+.dark-contaoner:hover {
+    opacity: 1;
+}
+
+
+.btn-settings {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    opacity: 0.6;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    position: fixed; /* Stay in place */
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 5%;
+    z-index: 1020;
+    border-radius: 100%;
+    color: #ffffff;
+    background-color: rgba(16, 16, 16, 0.9); /* Black w/opacity */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.btn-settings:hover {
+    opacity: 1;
+}
