@@ -102,14 +102,14 @@ function Programs() {
                 <Typography variant="h4" mt={2}>Church Programs</Typography>
             </Grid>
             <Grid item mt={4} container justifyContent="center" spacing={2}>
-                {console.log(isThursday(new Date()), new Date().getHours() < 18, new Date().getHours())}
+                {console.log(isThursday(new Date()), new Date().getHours() >= 18, new Date().getHours())}
                 {/*<Grid item xs={12}><Program newDate={nextSunday(new Date())} time={10} title="Evening Service"/></Grid>*/}
-                {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() > 13 ? <>{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}</> : <></>}
-                {isTuesday(new Date()) && new Date().getHours() < 18 || isMonday(new Date()) && new Date().getHours() > 18 ? <>{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}{Monday}</> : <></>}
-                {isWednesday(new Date()) && new Date().getHours() < 18 || isTuesday(new Date()) && new Date().getHours() > 18 ? <>{Wednesday}{Thursday}{Friday}{Sunday}{Monday}{Tuesday}</> : <></>}
-                {isThursday(new Date()) && new Date().getHours() < 18 || isWednesday(new Date()) && new Date().getHours() > 18 ? <>{Thursday}{Friday}{Sunday}{Monday}{Tuesday}{Wednesday}</> : <></>}
-                {isFriday(new Date()) && new Date().getHours() < 18 || isThursday(new Date()) && new Date().getHours() > 18 ? <>{Friday}{Sunday}{Monday}{Tuesday}{Wednesday}{Thursday}</> : <></>}
-                {isSaturday(new Date()) || isSunday(new Date()) && new Date().getHours() < 13  || isFriday(new Date()) && new Date().getHours() > 18 ? <>{Sunday}{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}</> : <></>}
+                {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() >= 13 ? <>{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}</> : <></>}
+                {isTuesday(new Date()) && new Date().getHours() < 18 || isMonday(new Date()) && new Date().getHours() >= 18 ? <>{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}{Monday}</> : <></>}
+                {isWednesday(new Date()) && new Date().getHours() < 18 || isTuesday(new Date()) && new Date().getHours() >= 18 ? <>{Wednesday}{Thursday}{Friday}{Sunday}{Monday}{Tuesday}</> : <></>}
+                {isThursday(new Date()) && new Date().getHours() < 18 || isWednesday(new Date()) && new Date().getHours() >= 18 ? <>{Thursday}{Friday}{Sunday}{Monday}{Tuesday}{Wednesday}</> : <></>}
+                {isFriday(new Date()) && new Date().getHours() < 18 || isThursday(new Date()) && new Date().getHours() >= 18 ? <>{Friday}{Sunday}{Monday}{Tuesday}{Wednesday}{Thursday}</> : <></>}
+                {isSaturday(new Date()) || isSunday(new Date()) && new Date().getHours() < 13  || isFriday(new Date()) && new Date().getHours() >= 18 ? <>{Sunday}{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}</> : <></>}
             </Grid>
         </Grid>
     );

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="Mac Progs" />
+    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="Programs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/NextService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/NextService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Programs/Programs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Programs/Programs.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +99,7 @@
       <workItem from="1626850094902" duration="10567000" />
       <workItem from="1626874836302" duration="2774000" />
       <workItem from="1626921565581" duration="14374000" />
-      <workItem from="1626964270565" duration="1331000" />
+      <workItem from="1626964270565" duration="2240000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -118,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626964401727</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Mac Progs">
+      <created>1626966370278</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626966370278</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +157,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <MESSAGE value="Mac Prog" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mac Prog" />
+    <MESSAGE value="Mac Progs" />
+    <MESSAGE value="Programs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Programs" />
   </component>
 </project>

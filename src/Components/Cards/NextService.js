@@ -100,12 +100,12 @@ const NextService = () => {
     return (
         <>
             <Grid item mt={4} container justifyContent="center" spacing={2}>
-                {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() > 13 ? <>{Monday}{Sunday}</> : <></>}
-                {isTuesday(new Date()) && new Date().getHours() < 18 || isMonday(new Date()) && new Date().getHours() > 18 ? <>{Tuesday}{Sunday}</> : <></>}
-                {isWednesday(new Date()) && new Date().getHours() < 18 || isTuesday(new Date()) && new Date().getHours() > 18 ? <>{Wednesday}{Sunday}</> : <></>}
-                {isThursday(new Date()) && new Date().getHours() < 18 || isWednesday(new Date()) && new Date().getHours() > 18 ? <>{Thursday}{Sunday}</> : <></>}
-                {isFriday(new Date()) && new Date().getHours() < 18 || isThursday(new Date()) && new Date().getHours() > 18 ? <>{Friday}{Sunday}</> : <></>}
-                {isSaturday(new Date()) || isSunday(new Date()) && new Date().getHours() < 13  || isFriday(new Date()) && new Date().getHours() > 18 ? <>{Sunday}{Monday}</> : <></>}
+                {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() >= 13 ? <>{Monday}{Sunday}</> : <></>}
+                {isTuesday(new Date()) && new Date().getHours() < 18 || isMonday(new Date()) && new Date().getHours() >= 18 ? <>{Tuesday}{Sunday}</> : <></>}
+                {isWednesday(new Date()) && new Date().getHours() < 18 || isTuesday(new Date()) && new Date().getHours() >= 18 ? <>{Wednesday}{Sunday}</> : <></>}
+                {isThursday(new Date()) && new Date().getHours() < 18 || isWednesday(new Date()) && new Date().getHours() >= 18 ? <>{Thursday}{Sunday}</> : <></>}
+                {isFriday(new Date()) && new Date().getHours() < 18 || isThursday(new Date()) && new Date().getHours() >= 18 ? <>{Friday}{Sunday}</> : <></>}
+                {isSaturday(new Date()) || isSunday(new Date()) && new Date().getHours() < 13  || isFriday(new Date()) && new Date().getHours() >= 18 ? <>{Sunday}{Monday}</> : <></>}
             </Grid>
         </>
     );
