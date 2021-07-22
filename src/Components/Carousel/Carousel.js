@@ -66,7 +66,7 @@ const Carousels = (props) => {
                 <SwiperSlide>
                     <Zoom>
                         <div className={"swiper-slide"} style={{
-                            backgroundImage: `url(${images.image1 === undefined? images.image1 : image})`,
+                            backgroundImage: `url(${images.image1 !== undefined? images.image1 : image})`,
                             backgroundSize: "cover",
                             backgroundPositionX: "center",
                             backgroundPositionY: "top"
@@ -78,7 +78,7 @@ const Carousels = (props) => {
                 <SwiperSlide>
                     <Zoom>
                         <div className={"swiper-slide"} style={{
-                            backgroundImage: `url(${images.image2 === undefined? images.image2 : image})`,
+                            backgroundImage: `url(${images.image2 !== undefined? images.image2 : image})`,
                             backgroundSize: "cover",
                             backgroundPositionX: "center",
                             backgroundPositionY: "top"
@@ -110,7 +110,7 @@ const Carousels = (props) => {
                 <SwiperSlide>
                     <Zoom>
                         <div className={"swiper-slide"} style={{
-                            backgroundImage: `url(${images.image3 === undefined? images.image3 : image})`,
+                            backgroundImage: `url(${images.image3 !== undefined? images.image3 : image})`,
                             backgroundSize: "cover",
                             backgroundPositionX: "center",
                             backgroundPositionY: "top"
