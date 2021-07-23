@@ -14,6 +14,7 @@ import {config} from "../../Config";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
 import EventSwiper from "../../../Components/Swipers/EventSwiper";
+import {isFuture} from "date-fns";
 
 function AddEvent(props) {
 
@@ -52,12 +53,7 @@ function AddEvent(props) {
 
     const checkStatus = () => {
         if (data.date !== undefined) {
-            const countdownDate = new Date(data.date).getTime();
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-            if (distance < -10000) {
-                setStatus(false)
-            }
+            setStatus(isFuture(new Date(data.date)))
         }
     }
 
