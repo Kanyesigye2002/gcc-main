@@ -67,7 +67,7 @@ const Events = () => {
                 <Grid item xs={12} container justifyContent="center" style={{padding: "30px 0 10px"}}>
                     <Typography variant="h4" color="primary">UpComing Events</Typography>
                 </Grid>
-                <Grid item xs={12} container direction="row" justifyContent="center">
+                <Grid item xs={12} container justifyContent="center" spacing={2}>
                     {events.length > 0 ? (
                         events.map((event, index) => {
                             if (isFuture(new Date(event.date))) {
@@ -85,7 +85,7 @@ const Events = () => {
                 <Grid item xs={12} container justifyContent="center" style={{padding: "30px 0 10px"}}>
                     <Typography variant="h4" color="primary">Successful Events</Typography>
                 </Grid>
-                <Grid item xs={12} container direction="row" justifyContent="center">
+                <Grid item xs={12} container justifyContent="center" spacing={2}>
                     {events.length > 0 ? (
                         events.map((event, index) =>
                             {
