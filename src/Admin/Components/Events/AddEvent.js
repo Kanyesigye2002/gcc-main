@@ -97,18 +97,16 @@ function AddEvent(props) {
             S3FileUpload
                 .uploadFile(file.file, config)
                 .then(response => {
-                    const data = response.location
+                    const dataI = response.location
 
                     const newImages = [
                         ...images,
                         {
-                            image: data,
+                            image: dataI,
                             name: file.file.name,
                             date: new Date()
                         }
                     ]
-
-                    console.log("Response: ", response)
 
                     setImages(newImages)
 
@@ -119,6 +117,8 @@ function AddEvent(props) {
                         setData({})
                     } else {
                         uploadFile(previews[index], index + 1)
+                        setData({...data, "images": images})
+                        dispatch(UploadFile(file, data))
                     }
                 })
                 .catch(err => {
@@ -208,7 +208,6 @@ function AddEvent(props) {
                                 </div>
                             </Grid>
                             <Grid item xs={12} container justifyContent="center">
-                                {console.log("Event: ",data)}
                                 <EventSwiper Images={data.images}/>
                             </Grid>
                         </> : <></>}
