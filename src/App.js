@@ -28,8 +28,10 @@ const useStyles = makeStyles(() => ({
     },
 }))
 
-const App = () => {
+const App = (props) => {
     const classes = useStyles();
+
+    const {checked, setChecked} = props
 
     return (
         <Router>
@@ -38,7 +40,7 @@ const App = () => {
             }>
                 <Paper style={{backgroundColor: "#12121200"}}>
                     <div className={classes.rootFooter}>
-                        <AppBarGcc/>
+                        <AppBarGcc checked={checked} setChecked={setChecked}/>
                         <CssBaseline/>
                         <Grid container justifyContent="center">
                             <Grid item xs={12} p={2}>

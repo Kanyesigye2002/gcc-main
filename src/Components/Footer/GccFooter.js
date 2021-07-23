@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
         padding: theme.spacing(2, 2),
         marginTop: 'auto',
         backgroundColor:
-            theme.palette.mode === 'dark' ? theme.palette.grey[200] : "#272727",
+            theme.palette.mode === 'light' ? "#101010cc" : theme.palette.grey[800],
         boxShadow: "1px -5px 7px -1px rgb(0 0 0 / 20%), 0px -3px 5px 0px rgb(0 0 0 / 14%), 1px -3px 10px 0px rgb(0 0 0 / 12%)"
     },
     linkBtn: {
@@ -26,6 +26,7 @@ const useStyles = makeStyles(() => ({
 function GccFooter() {
 
     const classes = useStyles();
+    const theme = createTheme()
 
     return (
         <>

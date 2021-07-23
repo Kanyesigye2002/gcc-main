@@ -3,6 +3,7 @@ import React from 'react';
 import {Grid} from "@material-ui/core";
 import {Call, Facebook, Twitter, YouTube} from "@material-ui/icons";
 import Typography from "@material-ui/core/Typography";
+import {createTheme} from "@material-ui/core/styles";
 
 function Copyright() {
     return (
@@ -17,7 +18,7 @@ function Copyright() {
 }
 
 const Application = () => {
-
+    const theme = createTheme()
     return (
         <>
 

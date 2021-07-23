@@ -26,8 +26,6 @@ export const ImagesUpLoadData = (state = [], action) => {
             let image = []
             let newState = []
 
-            console.log("State: ", state)
-
             state.map((category) => {
                     if (category.name === action.payload.category) {
                         image = category.images
@@ -42,8 +40,6 @@ export const ImagesUpLoadData = (state = [], action) => {
                 action.payload.image
 
             ]
-
-            console.log("All Images: ", all)
 
             const category = {
                 name: action.payload.category,

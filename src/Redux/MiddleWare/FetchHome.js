@@ -6,7 +6,6 @@ import {config} from "../../Admin/Config";
 import {getToken} from "../AdminReducers/api/authenticationService";
 
 export const UploadHome = (files, formEventData) => async (dispatch, getState) => {
-    console.log(files, formEventData)
 
     let data = {
         ...formEventData
@@ -14,8 +13,6 @@ export const UploadHome = (files, formEventData) => async (dispatch, getState) =
 
     files.map((file, index) => {
         if (file !== undefined) {
-            console.log(file)
-            console.log(file.file)
             S3FileUpload
                 .uploadFile(file, config)
                 .then(response => {
@@ -61,7 +58,6 @@ export const FetchHome = () => async (dispatch, getState) => {
                 }
             )
         })
-        console.log(response.data)
         dispatch(
             {
                 type: "SetHome",
@@ -69,7 +65,6 @@ export const FetchHome = () => async (dispatch, getState) => {
             }
         )
     } catch (e) {
-        console.log(e)
         dispatch(
             {
                 type: "SetHome",

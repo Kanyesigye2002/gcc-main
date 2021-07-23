@@ -76,7 +76,7 @@ const Carousels = (props) => {
                             backgroundPositionX: "center",
                             backgroundPositionY: "top"
                         }}>
-                            <Zoom when={show}><Typography variant="h4">Glorious Church of Christ</Typography></Zoom>
+                            <Zoom when={show}><Typography color="#fff" variant="h4">Glorious Church of Christ</Typography></Zoom>
                         </div>
                     </Zoom>
                 </SwiperSlide>
@@ -91,20 +91,22 @@ const Carousels = (props) => {
                             <div className={"swiper-slide"} style={{background: "#2020207A", alignItems: "start", paddingTop: "60px"}}>
                                 <Grid container justifyContent="center">
                                     <Grid item xs={8}>
-                                        <Typography variant="subtitle1">Glorious Church Of Christ</Typography>
+                                        <Typography color="#fff" variant="subtitle1">Glorious Church Of Christ</Typography>
                                     </Grid>
                                     <Grid item xs={10}>
                                         <Divider style={{height: 2}} flexItem/>
                                     </Grid>
                                     <Grid item xs={10} container alignItems="flex-start" spacing={2} direction="column">
                                         <Grid item>
-                                            <Typography variant="h4">CHURCH ONLINE</Typography>
+                                            <Typography color="#fff" variant="h4">CHURCH ONLINE</Typography>
                                         </Grid>
                                         <Grid item style={{width: "fit-content"}}>
-                                            <Typography variant="h6" style={{letterSpacing: "0.25em}"}}>We are Live Now !!!!!!!!</Typography>
+                                            <Typography color="#fff" variant="h6" style={{letterSpacing: "0.25em}"}}>We are Live Now !!!!!!!!</Typography>
                                         </Grid>
                                         <Grid item style={{width: "fit-content"}}>
-                                            <Button variant="contained" color="primary" endIcon={<Tv />}>Watch Now</Button>
+                                            <a href={`https://www.youtube.com/watch?v=${props.data.latestVideo}`}>
+                                                 <Button variant="contained" color="primary" endIcon={<Tv />}>Watch Now</Button>
+                                            </a>
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -123,34 +125,37 @@ const Carousels = (props) => {
                             <div className={"swiper-slide"}  style={{background: "#2020207A", alignItems: "start", paddingTop: "60px"}}>
                                 <Grid container justifyContent="center">
                                     <Grid item xs={8}>
-                                        <Typography variant="subtitle1">Glorious Church Of Christ</Typography>
+                                        <Typography color="#fff" variant="subtitle1">Glorious Church Of Christ</Typography>
                                     </Grid>
                                     <Grid item xs={10} p={2}>
                                         <Divider style={{height: 2}} flexItem/>
                                     </Grid>
                                     <Grid item xs={10} container alignItems="flex-start" spacing={2} direction="column">
                                         <Grid item>
-                                            <Typography variant="h4">GIVE ONLINE</Typography>
+                                            <Typography color="#fff" variant="h4">GIVE ONLINE</Typography>
                                         </Grid>
                                         <Grid item style={{width: "fit-content"}} container justifyContent="center">
                                             <Grid item>
                                                 <Chip
+                                                    style={{color: "#fff"}}
                                                     label="Secure"
-                                                    icon={<Security />}
+                                                    icon={<Security color="#fff"/>}
                                                     variant="outlined"
                                                 />
                                             </Grid>
                                             <Grid item>
                                                 <Chip
+                                                    style={{color: "#fff"}}
                                                     label="Fast"
-                                                    icon={<Speed />}
+                                                    icon={<Speed color="#fff"/>}
                                                     variant="outlined"
                                                 />
                                             </Grid>
                                             <Grid item>
                                                 <Chip
+                                                    style={{color: "#fff"}}
                                                     label="Easy"
-                                                    icon={<CodeOff />}
+                                                    icon={<CodeOff color="#fff"/>}
                                                     variant="outlined"
                                                 />
                                             </Grid>

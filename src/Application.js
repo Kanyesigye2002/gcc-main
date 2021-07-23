@@ -11,13 +11,7 @@ import Admin from "./Admin/Admin";
 import './Assets/CSS/style.css'
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
-import {createTheme} from '@material-ui/core/styles';
 
-const theme = createTheme();
-
-const background = {
-    backgroundColor: theme.palette.mode === 'dark' ? "#000" : "#000",
-}
 const useStyles = makeStyles(() => ({
     root: {
         width: "100vw",
@@ -27,18 +21,20 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
+const Application = (props) => {
 
-const Application = () => {
+    const {checked, setChecked} = props
+
     const classes = useStyles();
 
-
+    const background = {
+        backgroundColor: props.theme.palette.mode === 'dark' ? "#000" : "#fff",
+    }
 
     return (
         <>
             <Router>
-                {console.log("Mode", theme.palette.mode === 'dark' ? "#000" : "#fff")}
-                {console.log("Mode", theme.palette.mode)}
-                {console.log("Mode", theme)}
+                {console.log("Mode: ", props.theme.palette.mode === 'dark' ? "#000" : "#fff")}
                 <React.Suspense fallback={
                     <Backdrop open={true}>
                         <CircularProgress color="inherit"/>
@@ -48,7 +44,7 @@ const Application = () => {
                         <Switch>
                             <Route path="/admin" name="Home" component={Admin}/>
                             <Route path="/test" name="Home" component={test}/>
-                            <Route path="/" name="Home" render={props => <App {...props}/>}/>
+                            <Route path="/" name="Home" render={props => <App {...props} checked={checked} setChecked={setChecked}/>}/>
                         </Switch>
                     </Paper>
                 </React.Suspense>

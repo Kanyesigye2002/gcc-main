@@ -14,7 +14,6 @@ export const FetchEvents = () => async (dispatch, getState) => {
             }
         )
     } catch (e) {
-        console.log(e)
         dispatch(
             {
                 type: "SetEvents",

@@ -12,7 +12,6 @@ export const homeForm = (state = {}, action) => {
         case "SetHome":
             return action.payload
         case "CHANGE":
-            console.log("Res", state)
             return {
                 ...state,
                 [action.payload.target.name]: action.payload.target.value

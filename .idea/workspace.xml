@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Switcher/Switcher.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Gallery/AddImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Gallery/AddImage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Gallery/ImageGridList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Gallery/ImageGridList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AppBar/AppBarGcc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AppBar/AppBarGcc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Carousel/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Carousel/Carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Images/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Images/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/MiddleWare/UploadFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/MiddleWare/UploadFile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Footer/GccFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/GccFooter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Swipers/Swipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Swipers/Swipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchEvents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/Images.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/Images.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Theme.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +82,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -107,7 +125,8 @@
       <workItem from="1626874836302" duration="2774000" />
       <workItem from="1626921565581" duration="14374000" />
       <workItem from="1626964270565" duration="3453000" />
-      <workItem from="1627013159119" duration="8411000" />
+      <workItem from="1627013159119" duration="8868000" />
+      <workItem from="1627040294182" duration="5831000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -151,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626968319435</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Morning Code">
+      <created>1627023468342</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1627023468342</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +210,7 @@
     <MESSAGE value="Mac Progs" />
     <MESSAGE value="Programs" />
     <MESSAGE value="home images" />
-    <option name="LAST_COMMIT_MESSAGE" value="home images" />
+    <MESSAGE value="Morning Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Morning Code" />
   </component>
 </project>

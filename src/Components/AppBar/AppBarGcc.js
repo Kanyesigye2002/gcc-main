@@ -21,6 +21,7 @@ import logo from "../../Assets/Images/logos/logo-sm.png";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import { createTheme } from '@material-ui/core/styles';
+import {MUISwitch} from "../Switcher/Switcher";
 
 const theme = createTheme();
 function HideOnScroll(props) {
@@ -50,8 +51,6 @@ const useStyles = makeStyles(() => ({
     appBar: {
         flexGrow: 1,
         color: "#fff",
-        backgroundColor:
-            theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
     },
     grow: {
         // padding: "0 30px",
@@ -88,6 +87,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 function AppBarGcc(props) {
+
+    const {checked, setChecked} = props
 
     const classes = useStyles();
     const [drawer, setDrawer] = useState(false);
@@ -142,9 +143,12 @@ function AppBarGcc(props) {
         <>
             <CssBaseline/>
             <HideOnScroll {...props}>
-
-                <AppBar className={classes.appBar}>
-                    <Toolbar>{console.log(theme)}
+                <AppBar className={classes.appBar} style={{
+                    backgroundColor:
+                        theme.palette.mode === 'light' ? "#101010cc" : theme.palette.grey[800],
+                }}
+                >
+                    <Toolbar>
                         <Grid container direction="row" justifyContent="space-between">
                             <Grid item container alignItems="center" style={{width: "fit-content"}}>
                                 <div style={{maxHeight: 50}}><img src={logo} alt="" style={{maxHeight: 50, opacity: "0.8"}}/></div>
@@ -153,11 +157,8 @@ function AppBarGcc(props) {
                                 <div className={classes.grow}>
                                     {isMobile ? (
 
-                                        <>
-                                            {/*<MenuIcon click={() => {*/}
-                                            {/*    tag(true)*/}
-                                            {/*    console.log("tag",drawer)*/}
-                                            {/*}} open={drawer}/>*/}
+                                        <div style={{display: "flex"}}>
+                                            <MUISwitch checked={checked} onChange={setChecked}/>
                                             <IconButton
                                                 aria-label="more"
                                                 aria-controls="long-menu"
@@ -170,7 +171,7 @@ function AppBarGcc(props) {
                                             {/*<IconButton onClick={() => {tag(true)}} color="primary" aria-label="upload picture" component="span">*/}
                                             {/*    <Menu />*/}
                                             {/*</IconButton>*/}
-                                        </>
+                                        </div>
                                     ) : (
                                         <List className={classes.list}>
                                             {MenuItems.map((item, index) =>

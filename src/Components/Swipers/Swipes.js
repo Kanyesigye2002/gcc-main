@@ -34,6 +34,10 @@ export default function App() {
                     pagination={{
                         "clickable": true
                     }}
+                    style={{
+                        height: "auto",
+                        marginTop: 20
+                    }}
                     navigation={true}
                     className="mySwiper swiper-container"
             >
