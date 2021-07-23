@@ -98,10 +98,9 @@ function AddEvent(props) {
         setOpen(true)
         try {
             S3FileUpload
-                .uploadFile(file, config)
+                .uploadFile(file.file, config)
                 .then(response => {
                     const data = response.location
-
 
                     const newImages = [
                         ...images,

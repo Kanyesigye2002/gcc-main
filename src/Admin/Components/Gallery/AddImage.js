@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 
 import S3FileUpload from 'react-s3';
-import S3 from 'react-aws-s3';
 
 import {
     createStyles,
@@ -29,6 +28,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
 import { createTheme } from '@material-ui/core/styles';
 import {config} from "../../Config";
+import IconButton from "@material-ui/core/IconButton";
 
 const theme = createTheme();
 
@@ -115,10 +115,19 @@ function AddImage() {
         setOpen(true)
         try {
 
+            console.log(file.file, index)
+            // if (previews.length === index) {
+            //                 setOpen(false)
+            //             } else {
+            //                 uploadFile(previews[index], index + 1)
+            //             }
+
             S3FileUpload
-                .uploadFile(file, config)
+                .uploadFile(file.file, config)
                 .then(response => {
                     const data = response.location
+
+                    console.log("Response: ", response)
 
                     const imageData = {
                         "galleryCategory": {
@@ -160,61 +169,6 @@ function AddImage() {
             console.log("Try1", err.message);
         }
     }
-
-    // const uploadFiles = (files) => {
-    //
-    //     setMessage(`Uploading 0 / ${files.length}`)
-    //
-    //     try {
-    //         files.map(async (file, index) => {
-    //             setMessage(`Uploading ${index + 1} / ${files.length}`)
-    //             try {
-    //                 S3FileUpload
-    //                     .uploadFile(file, config)
-    //                     .then(response => {
-    //                         const data = response.location
-    //
-    //                         const imageData = {
-    //                             "galleryCategory": {
-    //                                 name: selected,
-    //                                 images: [
-    //                                     {
-    //                                         image: data,
-    //                                         name: file.file.name,
-    //                                         date: new Date()
-    //                                     }
-    //                                 ]
-    //                             }
-    //                         }
-    //
-    //                         axios({
-    //                             method: 'PUT',
-    //                             url: `${Url}/api/gcc/admin/v1/gallery/${selected}`,
-    //                             headers: {
-    //                                 'Authorization': 'Bearer ' + getToken()
-    //                             },
-    //                             'data': imageData
-    //                         })
-    //
-    //                         dispatch(FetchImages())
-    //
-    //                         if (files.length === index + 1) {
-    //                             setOpen(false)
-    //                         }
-    //
-    //                     })
-    //                     .catch(err => console.error(err))
-    //             } catch (err) {
-    //                 setOpen(false)
-    //                 console.log("Try1", err.message);
-    //             }
-    //         })
-    //     } catch (e) {
-    //         setOpen(false)
-    //         console.log("Try2", e.message);
-    //     }
-    //
-    // };
 
     const onChange = (event) => {
         setSelected(event.target.value)
@@ -282,7 +236,7 @@ function AddImage() {
                                     <div className="pic">
                                         <img src={image.img} alt={image.title}/>
                                         <div className="over">
-                                            <Button variant="outlined" style={{height: "30px"}}
+                                            <IconButton variant="outlined" style={{height: "30px"}}
                                                     color="secondary"
                                                     onClick={() => {
                                                         const newPreviews = []
@@ -294,7 +248,7 @@ function AddImage() {
                                                         setPreviews(newPreviews)
                                                     }}>
                                                 <Remove/>
-                                            </Button>
+                                            </IconButton>
                                         </div>
                                     </div>
                                 </div>
