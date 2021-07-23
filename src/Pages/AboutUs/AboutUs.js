@@ -108,7 +108,7 @@ function AboutUs(props) {
                         <Card>
                             <CardActionArea>
                                 <CardContent>
-                                    <Typography variant="h5">2020 Theme</Typography>
+                                    <Typography variant="h5">{new Date().getFullYear()} Theme</Typography>
                                     <Typography variant="subtitle2">Be diligent to present yourself approved to God, a
                                         worker who does not need to be ashamed, rightly dividing the word of the truth
                                         (2
@@ -118,7 +118,7 @@ function AboutUs(props) {
                         </Card>
                     </Grid>
                     <Grid item xs={12}>
-                        <Hidden xsDown>
+                        <Hidden mdDown>
                             <Grid container justifyContent="center" spacing={2}>
                                 <Grid item xs={12}><Divider/></Grid>
                                 <Grid item xs={12} container justifyContent="center" alignItems="flex-start" spacing={2}>
@@ -148,7 +148,7 @@ function AboutUs(props) {
                                                 and the Lord has blessed them with Mwesigwa Timothy, Tandeka Samuel,
                                                 Mulungi Jordan,
                                                 and
-                                                Kituuka Issac (JR).</Typography>
+                                                Kituuka Isaac (JR).</Typography>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="subtitle2">
@@ -204,7 +204,7 @@ function AboutUs(props) {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="subtitle2">
-                                                Pastor. Ssozi Joram Gladys FX
+                                                Pastor Isaac and Prossy Kituuka
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -269,7 +269,7 @@ function AboutUs(props) {
                         </Hidden>
                     </Grid>
                     <Grid item xs={12}>
-                        <Hidden smUp>
+                        <Hidden mdDown={false}>
                             <Grid item xs={12}><Divider/></Grid>
                             <Grid item container direction="row" justifyContent="space-evenly">
                                 <Grid item xs={12} sm={12} container justifyContent="center">
@@ -380,7 +380,7 @@ function AboutUs(props) {
                                                         <Avatar aria-label="recipe">S</Avatar>
                                                     }
                                                     title="Leadership"
-                                                    subheader="Pastor. Ssozi Joram Gladys FX"
+                                                    subheader="Pastor Isaac and Prossy Kituuka"
                                                 />
                                                 <CardMedia component="img" alt="Contemplative Reptile" height="240"
                                                     // style={{maxWidth: 500}}
@@ -388,7 +388,7 @@ function AboutUs(props) {
                                                 />
                                                 <CardContent>
                                                     <Typography variant="body2" color="textSecondary" component="p">
-                                                        TMr. Ssozi Joram Gladys FX is a Director of support Functions at
+                                                        TMr. Pastor Isaac and Prossy Kituuka is a Director of support Functions at
                                                         G.C.C
                                                         He was born on 29th May 1974 is married to Namata Pauline and
                                                         God has

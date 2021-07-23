@@ -101,7 +101,7 @@ const Carousels = (props) => {
                                             <Typography color="#fff" variant="h4">CHURCH ONLINE</Typography>
                                         </Grid>
                                         <Grid item style={{width: "fit-content"}}>
-                                            <Typography color="#fff" variant="h6" style={{letterSpacing: "0.25em}"}}>We are Live Now !!!!!!!!</Typography>
+                                            <Typography color="#fff" variant="h6" style={{letterSpacing: "0.25em}"}}>Watch us on Youtube !</Typography>
                                         </Grid>
                                         <Grid item style={{width: "fit-content"}}>
                                             <a href={`https://www.youtube.com/watch?v=${props.data.latestVideo}`}>
