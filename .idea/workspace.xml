@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="" />
+    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +117,7 @@
       <workItem from="1626964270565" duration="3453000" />
       <workItem from="1627013159119" duration="8868000" />
       <workItem from="1627040294182" duration="5917000" />
-      <workItem from="1627050249361" duration="1790000" />
+      <workItem from="1627050249361" duration="2899000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -186,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627052060519</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Afternoon Code Events Admin">
+      <created>1627052181966</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1627052181966</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

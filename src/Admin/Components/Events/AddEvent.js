@@ -108,12 +108,13 @@ function AddEvent(props) {
                         }
                     ]
 
+                    console.log("Response: ", response)
+
                     setImages(newImages)
 
                     if (previews.length === index) {
                         setOpen(false)
                         setData({...data, "images": images})
-                        console.log(data, file)
                         dispatch(UploadFile(file, data))
                         setData({})
                     } else {
@@ -132,11 +133,10 @@ function AddEvent(props) {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log(data, file)
+        console.log("Submitting: ", data, file)
         if(previews.length > 0) {
             uploadFile(previews[0], 1)
         } else {
-            console.log(data, file)
             dispatch(UploadFile(file, data))
             setData({})
         }
