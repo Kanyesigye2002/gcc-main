@@ -23,8 +23,6 @@ function AddEvent(props) {
     const [preview, setPreview] = React.useState(props.event.fileName);
     const [errors, setErrors] = useState({});
 
-    const [images, setImages] = useState([]);
-
     const [status, setStatus] = useState(true)
     const [previews, setPreviews] = useState([]);
     const [opens, setOpen] = useState(false)
@@ -90,6 +88,8 @@ function AddEvent(props) {
         })
     }
 
+    let imgs = []
+
     const uploadFile = (file, index) => {
         setMessage(`Uploading ${index} / ${previews.length}`)
         setOpen(true)
@@ -99,8 +99,10 @@ function AddEvent(props) {
                 .then(response => {
                     const dataI = response.location
 
-                    const newImages = [
-                        ...images,
+                    console.log("images old: ", imgs)
+
+                    imgs = [
+                        ...imgs,
                         {
                             image: dataI,
                             name: file.file.name,
@@ -108,17 +110,16 @@ function AddEvent(props) {
                         }
                     ]
 
-                    setImages(newImages)
-
                     if (previews.length === index) {
                         setOpen(false)
-                        setData({...data, "images": images})
-                        dispatch(UploadFile(file, data))
+                        setData({...data, "images": imgs})
+                        console.log("Data: ", {...data, "images": imgs})
+                        dispatch(UploadFile(file, {...data, "images": imgs}))
                         setData({})
                     } else {
                         uploadFile(previews[index], index + 1)
-                        setData({...data, "images": images})
-                        dispatch(UploadFile(file, data))
+                        // setData({...data, "images": imgs})
+                        // dispatch(UploadFile(file, data))
                     }
                 })
                 .catch(err => {
@@ -129,20 +130,34 @@ function AddEvent(props) {
             setOpen(false)
             console.log("Try1", err.message);
         }
+
     }
 
     const onSubmit = (event) => {
+
         event.preventDefault()
-        console.log("Submitting: ", data, file)
-        if(previews.length > 0) {
+        try {
+            imgs = props.event.images
+        } catch (e) {
+
+        }
+
+        if (previews.length > 0) {
+            console.log("Submitting images: ", data, file)
             uploadFile(previews[0], 1)
         } else {
+            console.log("Submitting without images: ", data, file)
             dispatch(UploadFile(file, data))
             setData({})
         }
     }
 
     React.useEffect(() => {
+        try {
+            imgs = props.event.images
+        } catch (e) {
+
+        }
         fetchUserData().then(() => {
         }).catch(() => {
             localStorage.clear();

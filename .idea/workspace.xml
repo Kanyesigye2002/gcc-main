@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="" />
+    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Swipers/EventSwiper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Swipers/EventSwiper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Url.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +119,7 @@
       <workItem from="1626964270565" duration="3453000" />
       <workItem from="1627013159119" duration="8868000" />
       <workItem from="1627040294182" duration="5917000" />
-      <workItem from="1627050249361" duration="3114000" />
+      <workItem from="1627050249361" duration="9115000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -200,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627053427379</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Afternoon Code Events Admin errors solved">
+      <created>1627053933215</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1627053933215</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +250,7 @@
     <MESSAGE value="Afternoon Code Events" />
     <MESSAGE value="Afternoon Code Events Admin" />
     <MESSAGE value="Afternoon Code Events Admin errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Afternoon Code Events Admin errors" />
+    <MESSAGE value="Afternoon Code Events Admin errors solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Afternoon Code Events Admin errors solved" />
   </component>
 </project>

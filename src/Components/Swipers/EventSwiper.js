@@ -41,17 +41,14 @@ export default function EventSwiper(props) {
                         navigation={true}
                         className="mySwiper swiper-container"
                 >
-                    {Images[0] === undefined ? <></> : (
-                        <>
-                            {Images[0].images.map((image, index) => (
+                    {Images.map((image, index) => (
                                 <SwiperSlide key={index}>
                                     <div style={{display: "flex", maxHeight: 160,}}>
                                         <img src={image.image} alt="Glorious Church Ug" height="160px"/>
                                     </div>
                                 </SwiperSlide>
-                            ))}
-                        </>
-                    )}
+                            ))
+                    }
                 </Swiper>
             }
         </>
