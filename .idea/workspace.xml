@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Switcher/Switcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Swipers/EventSwiper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/AppBar/AppBarGcc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AppBar/AppBarGcc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Carousel/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Carousel/Carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Footer/GccFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/GccFooter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Swipers/Swipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Swipers/Swipes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchEvents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/MiddleWare/FetchHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Reducers/Images.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Reducers/Images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Events/AddEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/EventPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/EventPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Events/Events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Events/Events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +74,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,7 +120,8 @@
       <workItem from="1626921565581" duration="14374000" />
       <workItem from="1626964270565" duration="3453000" />
       <workItem from="1627013159119" duration="8868000" />
-      <workItem from="1627040294182" duration="5831000" />
+      <workItem from="1627040294182" duration="5917000" />
+      <workItem from="1627050249361" duration="1490000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -177,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627023468342</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Afternoon Code">
+      <created>1627049097503</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1627049097503</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +213,7 @@
     <MESSAGE value="Programs" />
     <MESSAGE value="home images" />
     <MESSAGE value="Morning Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Morning Code" />
+    <MESSAGE value="Afternoon Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Afternoon Code" />
   </component>
 </project>

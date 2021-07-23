@@ -13,6 +13,7 @@ import S3FileUpload from "react-s3";
 import {config} from "../../Config";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
+import EventSwiper from "../../../Components/Swipers/EventSwiper";
 
 function AddEvent(props) {
 
@@ -209,6 +210,10 @@ function AddEvent(props) {
                                         </div>
                                     ))}
                                 </div>
+                            </Grid>
+                            <Grid item xs={12} container justifyContent="center">
+                                {console.log("Event: ",data)}
+                                <EventSwiper Images={data.images}/>
                             </Grid>
                         </> : <></>}
                         <Grid item xs={12}>

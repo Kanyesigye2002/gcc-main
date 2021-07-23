@@ -5,11 +5,13 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/styles";
 
-import { Call, Today} from "@material-ui/icons";
+import {Call, Today} from "@material-ui/icons";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Divider from "@material-ui/core/Divider";
 import {Typography} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
+import {isFuture} from "date-fns";
+import EventSwiper from "../Swipers/EventSwiper";
 
 const useStyles = makeStyles({
     root: {
@@ -56,27 +58,37 @@ const EventPage = (props) => {
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={12} container justifyContent="space-between">
-                                        <Grid item>
-                                            <Typography variant="h6">Date </Typography>
+                                        <Grid item xs={12} container justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="h6">Date </Typography>
+                                            </Grid>
+                                            <Grid item>
+                                                <span className="badge rounded-pill"><Today/></span>
+                                            </Grid>
                                         </Grid>
-                                        <Grid item>
-                                            <span className="badge rounded-pill"><Today/></span>
+                                        <Grid item xs={12}>
+                                            <p>{props.event.date}</p>
+                                        </Grid>
+                                        <Grid item xs={12} container justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="h6">Call </Typography>
+                                            </Grid>
+                                            <Grid item>
+                                                <span className="badge rounded-pill"><Call/></span>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <p>+256-782 325564</p>
                                         </Grid>
                                     </Grid>
-                                    <Grid item xs={12}>
-                                        <p>{props.event.date}</p>
-                                    </Grid>
-                                    <Grid item xs={12} container justifyContent="space-between">
-                                        <Grid item>
-                                            <Typography variant="h6">Call </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <span className="badge rounded-pill"><Call/></span>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <p>+256-782 325564</p>
-                                    </Grid>
+                                    {isFuture(new Date(props.event.date)) ? <></> :
+                                        <>
+                                            <Grid item xs={12} container justifyContent="center">
+                                                {console.log("Event: ",props.event)}
+                                                <EventSwiper Images={props.event.images}/>
+                                            </Grid>
+                                        </>
+                                    }
                                 </Grid>
                             </CardContent>
                         </CardActionArea>

@@ -23,7 +23,7 @@ function Home() {
 
     return (
         <>
-            <Carousels images={images}/>
+            <Carousels images={images}  data={home}/>
             <Grid container justifyContent="center">
                 <NextService date={home}/>
             </Grid>

@@ -8,6 +8,7 @@ import {createStyles, Dialog, DialogContent, DialogTitle, Typography} from "@mat
 import {Close} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import IconButton from "@material-ui/core/IconButton";
+import {isFuture} from "date-fns";
 
 
 const useStyles = makeStyles(() => createStyles({
@@ -58,7 +59,6 @@ const Events = () => {
         const now = new Date().getTime();
         const distance = countdownDate - now;
         return distance <= 10000;
-
     }
 
     return (
@@ -70,7 +70,7 @@ const Events = () => {
                 <Grid item xs={12} container direction="row">
                     {events.length > 0 ? (
                         events.map((event, index) => {
-                            if (checkStatus(event.date)) {
+                            if (isFuture(new Date(event.date))) {
                                 return <Grid item xs={12} sm={6} lg={4}>
                                     <Event key={index} event={event} view={openNav}/>
                                 </Grid>
@@ -89,7 +89,7 @@ const Events = () => {
                     {events.length > 0 ? (
                         events.map((event, index) =>
                             {
-                                if (!checkStatus(event.date)) {
+                                if (!isFuture(new Date(event.date))) {
                                     return <Grid item xs={12} sm={6} lg={4}>
                                         <Event key={index} event={event} view={openNav}/>
                                     </Grid>
