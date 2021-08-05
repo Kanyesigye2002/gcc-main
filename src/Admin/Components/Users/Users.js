@@ -6,13 +6,12 @@ import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Popup from "../Forms/Popup";
 import AddAdmin from "./AddAdmin";
-import Administrator from "./Administrator";
 import {useSelector} from "react-redux";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
 import {Link} from "react-router-dom";
 import {Controls} from "../../../Components";
 import {fetchUserData} from "../../../Redux/AdminReducers/api/authenticationService";
+import AdministratorEdit from "./AdministratorEdit";
 
 
 function Users() {
@@ -58,7 +57,7 @@ function Users() {
                                     {
                                         admins.map((admin, index) => (
                                             <Grid key={index} item xs={12} sm={6} lg={4} style={{marginTop: 15}}>
-                                                <Administrator setData={setData} setOpenPopup={setOpenPopup} admin={admin} disable={true}/>
+                                                <AdministratorEdit setData={setData} setOpenPopup={setOpenPopup} admin={admin} disable={true}/>
                                             </Grid>
                                         ))
                                     }
