@@ -6,20 +6,30 @@ import Grid from "@material-ui/core/Grid";
 import { Ministry, MinistryPage} from "../../Components";
 import '../../Assets/CSS/Components/Overlay/Overlay.css'
 
-import profession from "../../Assets/Images/pastor001.jpg";
-import Marriage from "../../Assets/Images/Ministries/married/married.jpg";
-import outreach from "../../Assets/Images/Ministries/out-reach/outreach.jpg";
-import inReach from "../../Assets/Images/Ministries/in-reach/IMG_8770-1000x600.jpg";
-import women from "../../Assets/Images/Ministries/women/women.jpeg";
-import intersection from "../../Assets/Images/Ministries/Intercessory/Intercessory.jpeg";
-import men from "../../Assets/Images/Ministries/men/men.jpeg";
-import child from "../../Assets/Images/Ministries/chrildren/children2.jpeg";
-import youth from "../../Assets/Images/Ministries/youth/children.jpeg";
-
 import {createStyles, Dialog, DialogContent, DialogTitle, Typography} from "@material-ui/core";
 import {Close} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import IconButton from "@material-ui/core/IconButton";
+
+// import profession from "../../Assets/Images/pastor001.jpg";
+// import Marriage from "../../Assets/Images/Ministries/married/married.jpg";
+// import outreach from "../../Assets/Images/Ministries/out-reach/outreach.jpg";
+// import inReach from "../../Assets/Images/Ministries/in-reach/IMG_8770-1000x600.jpg";
+// import women from "../../Assets/Images/Ministries/women/women.jpeg";
+// import intersection from "../../Assets/Images/Ministries/Intercessory/Intercessory.jpeg";
+// import men from "../../Assets/Images/Ministries/men/men.jpeg";
+// import child from "../../Assets/Images/Ministries/chrildren/children2.jpeg";
+// import youth from "../../Assets/Images/Ministries/youth/children.jpeg";
+
+const profession = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/pastor001.jpg";
+const Marriage = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/married/married.jpg";
+const outreach = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/out-reach/outreach.jpg";
+const inReach = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/in-reach/IMG_8770-1000x600.jpg";
+const women = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/women/women.jpeg";
+const intersection = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/Intercessory/Intercessory.jpeg";
+const men = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/men/men.jpeg";
+const child = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/chrildren/children2.jpeg";
+const youth = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/Ministries/youth/children.jpeg";
 
 const useStyles = makeStyles(() => createStyles({
     root: {

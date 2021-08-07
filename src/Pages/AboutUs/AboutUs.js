@@ -6,8 +6,8 @@ import Divider from "@material-ui/core/Divider";
 import {makeStyles} from "@material-ui/styles"
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-
-import image1 from '../../Assets/Images/AE538FD2-3FF9-4730-BF27-C582B7DFE4F8.jpeg'
+//https://gcc-store.s3.us-east-2.amazonaws.com/Images/AE538FD2-3FF9-4730-BF27-C582B7DFE4F8.jpeg
+// import image1 from 'https://gcc-store.s3.us-east-2.amazonaws.com/Images/AE538FD2-3FF9-4730-BF27-C582B7DFE4F8.jpeg'
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
@@ -19,6 +19,8 @@ import Collapse from "@material-ui/core/Collapse";
 import red from "@material-ui/core/colors/red";
 import clsx from "clsx";
 import { createTheme } from '@material-ui/core/styles';
+
+const image1 = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/AE538FD2-3FF9-4730-BF27-C582B7DFE4F8.jpeg"
 
 const theme = createTheme();
 const useStyles = makeStyles(() => ({
