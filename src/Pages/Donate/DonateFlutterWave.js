@@ -5,7 +5,7 @@ import DonateButton from "./srce/DonateButton";
 import {Divider, Grid, Typography} from "@material-ui/core";
 import {Call, CreditCard, Payments} from "@material-ui/icons";
 
-const image = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/giving.jpeg";
+const image = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/give/give1.jpeg";
 
 export default function DonateFlutterWave() {
 
