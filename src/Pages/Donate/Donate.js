@@ -174,7 +174,7 @@ export default function DetailedAccordion() {
             <Backdrop open={loading}>
                 <CircularProgress color="inherit"/>
             </Backdrop>
-            <img src={image1} style={{width: "100%", borderRadius: "0.25rem"}} alt="Example"/>
+            <img src="https://gcc-store.s3.us-east-2.amazonaws.com/Images/giving.jpeg" style={{width: "100%", borderRadius: "0.25rem"}} alt="Example"/>
             <div className={classes.root}>
                 <Accordion defaultExpanded
                     // style={{backgroundColor: "#00000000"}}
