@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Pages/Programs/Programs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Programs/Programs.js" afterDir="false" />
-    </list>
+    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +106,7 @@
       <workItem from="1627050249361" duration="10612000" />
       <workItem from="1627067243224" duration="102000" />
       <workItem from="1628152130264" duration="3784000" />
-      <workItem from="1628313011453" duration="3292000" />
+      <workItem from="1628313011453" duration="3581000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -257,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628317127559</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Commit app logo">
+      <created>1628318290279</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1628318290279</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
