@@ -7,7 +7,7 @@ import {makeStyles} from "@material-ui/styles"
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-import image1 from '../../Assets/Images/pastor001.jpg'
+import image1 from '../../Assets/Images/AE538FD2-3FF9-4730-BF27-C582B7DFE4F8.jpeg'
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActions from "@material-ui/core/CardActions";
