@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Program.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Program.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Programs/Programs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Programs/Programs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +110,7 @@
       <workItem from="1627050249361" duration="10612000" />
       <workItem from="1627067243224" duration="102000" />
       <workItem from="1628152130264" duration="3784000" />
-      <workItem from="1628313011453" duration="6726000" />
+      <workItem from="1628313011453" duration="7684000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -328,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628323267303</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Commit app date programs">
+      <created>1628348806014</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1628348806015</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +383,7 @@
     <MESSAGE value="Commit app images" />
     <MESSAGE value="Commit app donate images" />
     <MESSAGE value="Commit app donate programs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit app donate programs" />
+    <MESSAGE value="Commit app date programs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit app date programs" />
   </component>
 </project>

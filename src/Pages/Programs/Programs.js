@@ -26,7 +26,7 @@ function Programs() {
             </>
             :
             <>
-                <Grid item xs={12} container justifyContent="center"><Program newDate={nextMonday(new Date())} time={10} title="Monday Evening Service"/></Grid>
+                <Grid item xs={12} container justifyContent="center"><Program newDate={nextMonday(new Date())} time={17} title="Monday Evening Service"/></Grid>
             </>
 
     )
@@ -38,7 +38,7 @@ function Programs() {
             </>
             :
             <>
-                <Grid item xs={12} container justifyContent="center"><Program newDate={nextTuesday(new Date())} time={10} title="Tuesday Evening Service"/></Grid>
+                <Grid item xs={12} container justifyContent="center"><Program newDate={nextTuesday(new Date())} time={17} title="Tuesday Evening Service"/></Grid>
             </>
     )
 
@@ -49,7 +49,7 @@ function Programs() {
             </>
             :
             <>
-                <Grid item xs={12} container justifyContent="center"><Program newDate={nextWednesday(new Date())} time={10}
+                <Grid item xs={12} container justifyContent="center"><Program newDate={nextWednesday(new Date())} time={17}
                                             title="Mid-Week Service"/></Grid>
             </>
     )
@@ -61,7 +61,7 @@ function Programs() {
             </>
             :
             <>
-                <Grid item xs={12} container justifyContent="center"><Program newDate={nextThursday(new Date())} time={10}
+                <Grid item xs={12} container justifyContent="center"><Program newDate={nextThursday(new Date())} time={17}
                                             title="Thursday Evening Service"/></Grid>
             </>
     )
@@ -73,7 +73,7 @@ function Programs() {
             </>
             :
             <>
-                <Grid item xs={12} container justifyContent="center"><Program newDate={nextFriday(new Date())} time={10} title="Friday Evening Service"/></Grid>
+                <Grid item xs={12} container justifyContent="center"><Program newDate={nextFriday(new Date())} time={17} title="Friday Evening Service"/></Grid>
             </>
     )
 
@@ -104,7 +104,7 @@ function Programs() {
             <Grid item xs={12} container justifyContent="center">
                 <Typography variant="h4" mt={2}>Church Programs</Typography>
             </Grid>
-            <Grid item mt={4} xs={12} md={10} lg={8} container justifyContent="center">
+            <Grid item mt={4} xs={12} md={10} lg={8} container justifyContent="center" spacing={2}>
                  <Iframe/>
             </Grid>
             <Grid container justifyContent="center" style={{padding: "20px 0 10px"}}>
@@ -119,7 +119,7 @@ function Programs() {
             </Grid>
             <Grid item mt={4} xs={12} container justifyContent="center" spacing={2}>
                 {console.log(isThursday(new Date()), new Date().getHours() >= 18, new Date().getHours())}
-                {/*<Grid item xs={12}><Program newDate={nextSunday(new Date())} time={10} title="Evening Service"/></Grid>*/}
+                {/*<Grid item xs={12}><Program newDate={nextSunday(new Date())} time={17} title="Evening Service"/></Grid>*/}
                 {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() >= 13 ? <>{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}</> : <></>}
                 {isTuesday(new Date()) && new Date().getHours() < 18 || isMonday(new Date()) && new Date().getHours() >= 18 ? <>{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}{Monday}</> : <></>}
                 {isWednesday(new Date()) && new Date().getHours() < 18 || isTuesday(new Date()) && new Date().getHours() >= 18 ? <>{Wednesday}{Thursday}{Friday}{Sunday}{Monday}{Tuesday}</> : <></>}

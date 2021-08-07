@@ -116,7 +116,7 @@ function Program(props) {
                             <Typography gutterBottom variant="h6" component="p">
                                 {/*{console.log(new Date(newDate.getYear(), newDate.getMonth(), newDate.getDate()))}*/}
                                 {/*{console.log(date)}*/}
-                                {format(newDate, "PPpp")}
+                                {format(date, "PPpp")}
                             </Typography>
                         </Grid>
                         <Grid container spacing={4} direction="row" justifyContent="center">
