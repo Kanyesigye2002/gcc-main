@@ -26,17 +26,17 @@ function Home() {
             <Grid container justifyContent="center">
                 <NextService date={home}/>
             </Grid>
-            {/*<Grid container justifyContent="center" style={{padding: "20px 0 10px"}}>*/}
-            {/*    <Button*/}
-            {/*        startIcon={<YouTube color="primary" size="1.5em"/>}*/}
-            {/*        style={{width: 300}}*/}
-            {/*        variant="contained"*/}
-            {/*        className="btn-height"*/}
-            {/*    >*/}
-            {/*        Latest Video*/}
-            {/*    </Button>*/}
-            {/*</Grid>*/}
-            {/*<Iframe data={home}/>*/}
+            <Grid container justifyContent="center" style={{padding: "20px 0 10px"}}>
+                <Button
+                    startIcon={<YouTube color="primary" size="1.5em"/>}
+                    style={{width: 300}}
+                    variant="contained"
+                    className="btn-height"
+                >
+                    Latest Video
+                </Button>
+            </Grid>
+            <Iframe data={home}/>
             <Swipes/>
         </>
     );

@@ -13,7 +13,7 @@ export default function DonateFlutterWave() {
         <>
             <Grid container justifyContent="center" spacing={1}>
                 <Grid item xs={12} container justifyContent="center">
-                    <img src={image} style={{width: "100%", borderRadius: "0.25rem"}} alt="Example"/>
+                    <img src={image} style={{width: "100%", borderRadius: "0.25rem"}} alt="glorious church "/>
                 </Grid>
                 <Grid item xs={12} container justifyContent="center">
                     <Typography variant="h2">Give Online</Typography>
