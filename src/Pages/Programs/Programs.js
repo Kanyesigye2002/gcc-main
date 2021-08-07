@@ -13,6 +13,9 @@ import {
 import {Grid, Typography} from "@material-ui/core";
 import Program from "../../Components/Cards/Program";
 import Divider from "@material-ui/core/Divider";
+import {Iframe} from "../../Components";
+import Button from "@material-ui/core/Button";
+import {YouTube} from "@material-ui/icons";
 
 function Programs() {
 
@@ -102,6 +105,19 @@ function Programs() {
                 <Typography variant="h4" mt={2}>Church Programs</Typography>
             </Grid>
             <Grid item mt={4} container justifyContent="center" spacing={2}>
+                 <Iframe/>
+            </Grid>
+            <Grid container justifyContent="center" style={{padding: "20px 0 10px"}}>
+                <Button
+                    startIcon={<YouTube color="primary" size="1.5em"/>}
+                    style={{width: 300}}
+                    variant="contained"
+                    className="btn-height"
+                >
+                    Latest Video
+                </Button>
+            </Grid>
+            <Grid item mt={4} xs={12} md={10} lg={8} container justifyContent="center" spacing={2}>
                 {console.log(isThursday(new Date()), new Date().getHours() >= 18, new Date().getHours())}
                 {/*<Grid item xs={12}><Program newDate={nextSunday(new Date())} time={10} title="Evening Service"/></Grid>*/}
                 {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() >= 13 ? <>{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}</> : <></>}

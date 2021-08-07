@@ -43,7 +43,7 @@ const Application = (props) => {
                     <Paper className={classes.root} style={background}>
                         <Switch>
                             <Route path="/admin" name="Home" component={Admin}/>
-                            <Route path="/test" name="Home" component={test}/>
+                            {/*<Route path="/test" name="Home" component={test}/>*/}
                             <Route path="/" name="Home" render={props => <App {...props} checked={checked} setChecked={setChecked}/>}/>
                         </Switch>
                     </Paper>
