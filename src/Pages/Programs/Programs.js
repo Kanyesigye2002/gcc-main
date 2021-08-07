@@ -104,7 +104,7 @@ function Programs() {
             <Grid item xs={12} container justifyContent="center">
                 <Typography variant="h4" mt={2}>Church Programs</Typography>
             </Grid>
-            <Grid item mt={4} container justifyContent="center" spacing={2}>
+            <Grid item mt={4} xs={12} md={10} lg={8} container justifyContent="center">
                  <Iframe/>
             </Grid>
             <Grid container justifyContent="center" style={{padding: "20px 0 10px"}}>
@@ -117,7 +117,7 @@ function Programs() {
                     Latest Video
                 </Button>
             </Grid>
-            <Grid item mt={4} xs={12} md={10} lg={8} container justifyContent="center" spacing={2}>
+            <Grid item mt={4} xs={12} container justifyContent="center" spacing={2}>
                 {console.log(isThursday(new Date()), new Date().getHours() >= 18, new Date().getHours())}
                 {/*<Grid item xs={12}><Program newDate={nextSunday(new Date())} time={10} title="Evening Service"/></Grid>*/}
                 {isMonday(new Date()) && new Date().getHours() < 18 || isSunday(new Date()) && new Date().getHours() >= 13 ? <>{Monday}{Tuesday}{Wednesday}{Thursday}{Friday}{Sunday}</> : <></>}
