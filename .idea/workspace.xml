@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="" />
+    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="Commit app footer">
+      <change beforePath="$PROJECT_DIR$/src/Components/Footer/GccFooter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Footer/GccFooter.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +108,7 @@
       <workItem from="1627050249361" duration="10612000" />
       <workItem from="1627067243224" duration="102000" />
       <workItem from="1628152130264" duration="3784000" />
-      <workItem from="1628313011453" duration="3581000" />
+      <workItem from="1628313011453" duration="3853000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -262,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628318290279</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Commit app footer">
+      <created>1628319011982</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1628319011983</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +314,7 @@
     <MESSAGE value="Commit app performance" />
     <MESSAGE value="Commit app update 1" />
     <MESSAGE value="Commit app logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit app logo" />
+    <MESSAGE value="Commit app footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit app footer" />
   </component>
 </project>

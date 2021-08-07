@@ -41,8 +41,8 @@ function GccFooter() {
                         <Grid item xs={12} container alignContent="center" justifyContent="center">
                             <Typography>Welcome to Glorious Church</Typography>
                         </Grid>
-                        <Grid item xs={12} container alignContent="center" justifyContent="center">
-                            <Grid item xs={12}>
+                        <Grid item xs={12} container alignContent="center" justifyContent="center" spacing={1}>
+                            <Grid item xs={10}>
                                 <Grid item container justifyContent="space-between" alignItems="center">
                                     <Typography variant="subtitle1">Location: </Typography>
                                     <LocationOn/>
@@ -50,36 +50,23 @@ function GccFooter() {
                                 <Typography variant="subtitle2">Bunamwaya Located 200M from Bunamwaya-Ngobe
                                     Road</Typography>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={10}>
                                 <Grid item container justifyContent="space-between" alignItems="center">
                                     <Typography variant="subtitle1" className="">Email Us: </Typography>
                                     <Mail/>
                                 </Grid>
                                 <Typography variant="subtitle2">gloriouschurch@gcc.com</Typography>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={10}>
                                 <Grid item container justifyContent="space-between" alignItems="center">
                                     <Typography variant="subtitle1" className="">Call Us: </Typography>
                                     <Call/>
                                 </Grid>
                                 <Typography variant="subtitle2">Tel +256-782 325564</Typography>
                             </Grid>
-                            {/*<Hidden smUp>*/}
-                            {/*    <iframe title="Church Location"*/}
-                            {/*            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.776094264171!2d32.54391671475331!3d0.2636038998076775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd4f3d32d995%3A0x444bed85639cbda8!2sGLORIOUS%20CHURCH%20OF%20CHRIST!5e0!3m2!1sen!2sug!4v1624952809594!5m2!1sen!2sug"*/}
-                            {/*            frameBorder="0"*/}
-                            {/*            style={{*/}
-                            {/*                border: "0",*/}
-                            {/*                width: "100%",*/}
-                            {/*                maxWidth: "400px",*/}
-                            {/*                height: "200px",*/}
-                            {/*                borderRadius: "2px"*/}
-                            {/*            }}*/}
-                            {/*            allowFullScreen=""/>*/}
-                            {/*</Hidden>*/}
                         </Grid>
                     </Grid>
-                    <Grid item container xs={12} sm={6} spacing={2} style={{marginTop: "20px"}}>
+                    <Grid item container mt={2} xs={12} sm={6} spacing={2} style={{marginTop: "20px"}}>
                         {MenuItems.map((item, index) => (
                             <Grid item xs={6} key={index} style={{padding: "5px 6px"}}>
                                 <Link to={item.url}>
