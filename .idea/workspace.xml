@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/AboutUs/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/AboutUs/AboutUs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Ministries/Ministries.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Ministries/Ministries.js" afterDir="false" />
-    </list>
+    <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +107,7 @@
       <workItem from="1627050249361" duration="10612000" />
       <workItem from="1627067243224" duration="102000" />
       <workItem from="1628152130264" duration="3784000" />
-      <workItem from="1628313011453" duration="4998000" />
+      <workItem from="1628313011453" duration="5180000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -288,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628319446369</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Commit app images">
+      <created>1628320793123</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1628320793123</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +335,7 @@
     <MESSAGE value="Commit app update 1" />
     <MESSAGE value="Commit app logo" />
     <MESSAGE value="Commit app footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit app footer" />
+    <MESSAGE value="Commit app images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit app images" />
   </component>
 </project>

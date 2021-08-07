@@ -10,8 +10,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import {Grid, TextField} from "@material-ui/core";
-
-import image1 from "../../Assets/Images/giving.jpeg";
 import axios from "axios";
 import {Url} from "../../Redux/Url";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -21,6 +19,9 @@ import Dialog from "@material-ui/core/Dialog";
 import {createTheme} from '@material-ui/core/styles';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
+// import image1 from "../../Assets/Images/giving.jpeg";
+
+const image1 = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/giving.jpeg";
 
 const theme = createTheme();
 const useStyles = makeStyles(() =>
