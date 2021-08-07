@@ -1,10 +1,11 @@
 import React from 'react';
 import DonateButton from "./srce/DonateButton";
 
-import image from "../../Assets/Images/give/give1.jpeg";
-import image1 from "../../Assets/Images/giving.jpeg";
+// import image from "../../Assets/Images/give/give1.jpeg";
 import {Divider, Grid, Typography} from "@material-ui/core";
 import {Call, CreditCard, Payments} from "@material-ui/icons";
+
+const image = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/giving.jpeg";
 
 export default function DonateFlutterWave() {
 
