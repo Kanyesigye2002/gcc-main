@@ -14,7 +14,7 @@ const Theme = () => {
 
     const theme = createTheme({
         palette: {
-            mode: checked ? "dark":"light",
+            mode: checked ? "light":"dark",
             primary: {
                 light: '#ff7961',
                 main: '#f44336',
