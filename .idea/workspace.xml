@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5130ad8-3ccf-454b-bd12-c09be0ed93a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Users/AddAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Users/AddAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Users/Administrator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Users/Administrator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Users/AdministratorEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Users/AdministratorEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Components/Users/ImageDrag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Components/Users/ImageDrag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/containers/TheLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/containers/TheLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/AppBar/AppBarGcc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AppBar/AppBarGcc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Donate/srce/DonateButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Donate/srce/DonateButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Donate/srce/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Donate/srce/dist/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Donate/srce/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Donate/srce/dist/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,17 +80,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -139,7 +120,8 @@
       <workItem from="1628313011453" duration="8053000" />
       <workItem from="1628488096768" duration="897000" />
       <workItem from="1628685566652" duration="73000" />
-      <workItem from="1628782010391" duration="6833000" />
+      <workItem from="1628782010391" duration="7121000" />
+      <workItem from="1628793142501" duration="588000" />
     </task>
     <task id="LOCAL-00001" summary="Mac Prog">
       <created>1626876678883</created>
@@ -379,7 +361,21 @@
       <option name="project" value="LOCAL" />
       <updated>1628488442607</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Commit Donate n admin parts">
+      <created>1628789868842</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1628789868842</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Commit Donate n admin parts">
+      <created>1628790008264</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1628790008264</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,6 +424,7 @@
     <MESSAGE value="Commit app donate programs" />
     <MESSAGE value="Commit app date programs" />
     <MESSAGE value="Commit app theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit app theme" />
+    <MESSAGE value="Commit Donate n admin parts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit Donate n admin parts" />
   </component>
 </project>

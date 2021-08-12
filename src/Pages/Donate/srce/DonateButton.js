@@ -1,11 +1,9 @@
 import React from 'react';
 import {FlutterWaveButton, closePaymentModal} from './dist/index';
-import {Button} from "@material-ui/core";
-// import {ClickedButton} from "./dist/index.js";
 
 export default function App() {
     const config = {
-        public_key: 'FLWPUBK-cdd7983b5eb1571a8d32ddcbac9ba277-X',
+        public_key: 'FLWPUBK-df0e1543bbd487e4ee7b619dd0a1251e-X',
         tx_ref: Date.now(),
         // amount: 100,
         currency: 'UGX',
