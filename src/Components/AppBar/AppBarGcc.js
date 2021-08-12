@@ -17,11 +17,12 @@ import {
 import {makeStyles} from "@material-ui/styles"
 import {MenuItems} from "../MenuItems/MenuItems";
 import { MoreVert} from '@material-ui/icons'
-import logo from "https://gcc-store.s3.us-east-2.amazonaws.com/Images/logos/logo-sm.png";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import { createTheme } from '@material-ui/core/styles';
 import {MUISwitch} from "../Switcher/Switcher";
+
+const logo = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/logos/logo-sm.png";
 
 const theme = createTheme();
 function HideOnScroll(props) {

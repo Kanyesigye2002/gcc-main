@@ -14,11 +14,12 @@ import {Link} from "react-router-dom";
 import {Controls} from "../../Components";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import logo from "https://gcc-store.s3.us-east-2.amazonaws.com/Images/logos/logo-sm.png";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
 import {fetchUserData} from "../../Redux/AdminReducers/api/authenticationService";
 import { createTheme } from '@material-ui/core/styles';
+
+const logo = "https://gcc-store.s3.us-east-2.amazonaws.com/Images/logos/logo-sm.png";
 
 const theme = createTheme();
 const useStyles = makeStyles(() => ({
