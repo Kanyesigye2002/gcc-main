@@ -179,7 +179,7 @@ function ContactUs() {
                                     <Typography variant="subtitle1" className="">Email Us: </Typography>
                                     <Mail/>
                                 </Grid>
-                                <Typography variant="subtitle2">gloriouschurch@gcc.com</Typography>
+                                <Typography variant="subtitle2">gloriouswebsite@gmail.com</Typography>
                             </Grid>
                             <Grid item xs={12}>
                                 <Grid item container justifyContent="space-between" alignItems="center">
