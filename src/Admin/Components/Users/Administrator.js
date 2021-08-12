@@ -15,8 +15,8 @@ import {FetchUsers} from "../../../Redux/MiddleWare";
 
 const useStyles = makeStyles(() => ({
     preview: {
-        width: "-webkit-fill-available",
-        height: "auto",
+        width: "100px",
+        height: "100px",
     },
 }));
 
@@ -56,7 +56,7 @@ function TeamMember(props) {
 
                         {
                             admin.image === null && (
-                                <AccountCircle className={classes.preview}/>
+                                <AccountCircle style={{width: "100px", height: "100px"}}/>
                             )
                         }
                         {
@@ -65,7 +65,7 @@ function TeamMember(props) {
                                     onLoad={() => URL.revokeObjectURL(admin.image)}
                                     alt="gcc"
                                     src={admin.image || "https://via.placeholder.com/250"}
-                                    style={{width: "-webkit-fill-available", height: "auto"}}
+                                    style={{width: "100px", height: "100px"}}
                                 />
                             )
                         }

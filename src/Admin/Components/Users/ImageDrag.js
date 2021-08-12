@@ -9,8 +9,8 @@ import { createTheme } from '@material-ui/core/styles';
 const theme = createTheme();
 const useStyles = makeStyles(() => ({
     dropzoneContainer: {
-        width: theme.spacing(12),
-        height: theme.spacing(12),
+        width: 100,
+        height: 100,
         borderRadius: 100,
         background: "#efefef00",
         display: "flex",
@@ -20,8 +20,8 @@ const useStyles = makeStyles(() => ({
         borderColor: "#aaa",
     },
     preview: {
-        width: theme.spacing(12),
-        height: theme.spacing(12),
+        width: 100,
+        height: 100,
     },
 }));
 

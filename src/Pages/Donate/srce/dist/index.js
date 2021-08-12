@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
+const {Button} = require("@material-ui/core");
 
 /**
  * Check out {@link https://developer.flutterwave.com/docs/flutterwave-standard} for more information.
@@ -213,7 +214,7 @@ function useFlutterwave(flutterWaveConfig) {
 var FlutterWaveButton = function (_a) {
     var text = _a.text, className = _a.className, children = _a.children, callback = _a.callback, onClose = _a.onClose, disabled = _a.disabled, config = __rest(_a, ["text", "className", "children", "callback", "onClose", "disabled"]);
     var handleFlutterwavePayment = useFlutterwave(config);
-    return (React.createElement("button", { disabled: disabled, className: className, onClick: function () { return handleFlutterwavePayment({ callback: callback, onClose: onClose }); } }, text || children));
+    return (React.createElement(Button, {  fullWidth: true, color: "primary", variant: 'contained', disabled: disabled, className: className, onClick: function () { return handleFlutterwavePayment({ callback: callback, onClose: onClose }); } }, text || children));
 };
 
 /**

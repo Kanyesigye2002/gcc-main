@@ -42,6 +42,13 @@ function AddAdmin(props) {
         })
     }
 
+    React.useEffect(() => {
+        setData({
+            ...data,
+            password: ""
+        })
+    }, [])
+
     const onSubmit = (event) => {
         event.preventDefault()
         console.log(data, file)
@@ -62,6 +69,7 @@ function AddAdmin(props) {
                     <Grid spacing={5} container direction="row" justifyContent="center" alignItems="center">
                         <Grid item xs={12} container justifyContent="center">
                             <ImageDrag drop={onDrop} prev={preview}/>
+                            {console.log(data)}
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <Controls.Input name="firstName" label="First Name" value={data.firstName}
@@ -92,8 +100,8 @@ function AddAdmin(props) {
                         {/*    </TextField>*/}
                         {/*</Grid>*/}
                         <Grid item xs={12} sm={6}>
-                            <Controls.Input name="userName"  autoComplete="off" label="User Name" value={data.userName} onChange={onChange}
-                                            error={errors.userName}/>
+                            <Controls.Input name="username"  autoComplete="off" label="User Name" value={data.username} onChange={onChange}
+                                            error={errors.username}/>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <FormControl fullWidth variant="filled" aria-autocomplete="off">

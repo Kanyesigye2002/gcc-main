@@ -14,7 +14,7 @@ import {Link} from "react-router-dom";
 import {Controls} from "../../Components";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import logo from "../../Assets/Images/logos/logo-sm.png";
+import logo from "https://gcc-store.s3.us-east-2.amazonaws.com/Images/logos/logo-sm.png";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
 import {fetchUserData} from "../../Redux/AdminReducers/api/authenticationService";
@@ -73,14 +73,14 @@ export default function TheLayOut(props) {
     const list = (anchor) => (
         <div className={classes.list} role="presentation" onClick={toggleDrawer(anchor, false)}
              onKeyDown={toggleDrawer(anchor, false)}>
-            <Grid container justifyContent="center">
+            <Grid container justifyContent="center" spacing={2}>
                 <Grid item xs={12} container justifyContent="center">
                     <img src={logo} alt="" className={classes.logo}/>
                 </Grid>
                 <Grid item xs={12} style={{marginBottom: 20}}>
                     <Divider/>
                 </Grid>
-                <Grid container style={{padding: "0 20px"}}>
+                <Grid container style={{padding: "0 20px"}} spacing={2}>
                     <Grid item xs={12}>
                         <Link to="/admin" style={{textDecoration: "none"}}>
                             <Controls.Button fullWidth type="button">Admin Dashboard</Controls.Button>
