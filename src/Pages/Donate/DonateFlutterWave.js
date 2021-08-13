@@ -36,7 +36,7 @@ export default function DonateFlutterWave() {
                         <Divider style={{height: 1}}/>
                     </Grid>
                     <Grid item xs={8}>
-                        <Typography>0752331807</Typography>
+                        <Typography>0771581960 & 0705318900</Typography>
                     </Grid>
                     <Grid item xs={2} container justifyContent="flex-end">
                         <Call/>
@@ -46,7 +46,7 @@ export default function DonateFlutterWave() {
                         <Divider style={{height: 1}}/>
                     </Grid>
                     <Grid item xs={8}>
-                        <Typography>522511000176388</Typography>
+                        <Typography>01453500226899-DFCU</Typography>
                     </Grid>
                     <Grid item xs={2} container justifyContent="flex-end">
                         <CreditCard/>
@@ -56,7 +56,7 @@ export default function DonateFlutterWave() {
                         <Divider style={{height: 1}}/>
                     </Grid>
                     <Grid item xs={8}>
-                        <Typography>4650752331807</Typography>
+                        <Typography>0771581960</Typography>
                     </Grid>
                     <Grid item xs={2} container justifyContent="flex-end">
                         <Payments/>
