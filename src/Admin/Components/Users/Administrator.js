@@ -99,23 +99,23 @@ function TeamMember(props) {
                         {/*<Grid item >*/}
                         {/*    <Typography variant="subtitle2">Explicabo voluptatem mollitia et repellat qui dolorum quasi</Typography>*/}
                         {/*</Grid>*/}
-                        <Grid item xs={12} container>
-                            <Grid item container spacing={3} justifyContent="space-between">
-                                <Grid item>
-                                    <IconButton disabled={disable} onClick={ () => {
-                                        setData({...admin, password: ""})
-                                        setOpenPopup(true)
-                                    }}>
-                                        <Edit color="secondary"/>
-                                    </IconButton>
-                                </Grid>
-                                <Grid item>
-                                    <IconButton disabled={disable} onClick={ () => deleteAdmin()}>
-                                        <DeleteSweep color="secondary"/>
-                                    </IconButton>
-                                </Grid>
-                            </Grid>
-                        </Grid>
+                        {/*<Grid item xs={12} container>*/}
+                        {/*    <Grid item container spacing={3} justifyContent="space-between">*/}
+                        {/*        <Grid item>*/}
+                        {/*            <IconButton disabled={disable} onClick={ () => {*/}
+                        {/*                setData({...admin, password: ""})*/}
+                        {/*                setOpenPopup(true)*/}
+                        {/*            }}>*/}
+                        {/*                <Edit color="secondary"/>*/}
+                        {/*            </IconButton>*/}
+                        {/*        </Grid>*/}
+                        {/*        <Grid item>*/}
+                        {/*            <IconButton disabled={disable} onClick={ () => deleteAdmin()}>*/}
+                        {/*                <DeleteSweep color="secondary"/>*/}
+                        {/*            </IconButton>*/}
+                        {/*        </Grid>*/}
+                        {/*    </Grid>*/}
+                        {/*</Grid>*/}
                     </Grid>
                 </Grid>
 
