@@ -32,34 +32,24 @@ export default function DonateFlutterWave() {
                 </Grid>
                 <Grid item xs={10} container justifyContent="space-between" spacing={1}>
                     <Typography>Give in direct to our mobile money</Typography>
-                    <Grid item xs={12}>
-                        <Divider style={{height: 1}}/>
-                    </Grid>
                     <Grid item xs={8}>
                         <Typography>0771581960 & 0705318900</Typography>
                     </Grid>
                     <Grid item xs={2} container justifyContent="flex-end">
                         <Call/>
                     </Grid>
-                    <Typography>Give in direct to our Credit Card</Typography>
                     <Grid item xs={12}>
                         <Divider style={{height: 1}}/>
                     </Grid>
+                    <Typography>Give in direct to our Credit Card</Typography>
                     <Grid item xs={8}>
                         <Typography>01453500226899-DFCU</Typography>
                     </Grid>
                     <Grid item xs={2} container justifyContent="flex-end">
                         <CreditCard/>
                     </Grid>
-                    <Typography>Give in direct to our Voucher</Typography>
                     <Grid item xs={12}>
                         <Divider style={{height: 1}}/>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <Typography>0771581960</Typography>
-                    </Grid>
-                    <Grid item xs={2} container justifyContent="flex-end">
-                        <Payments/>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} container justifyContent="center">
