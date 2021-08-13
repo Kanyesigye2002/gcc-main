@@ -62,7 +62,7 @@ function GccFooter() {
                                     <Typography variant="subtitle1" className="">Call Us: </Typography>
                                     <Call/>
                                 </Grid>
-                                <Typography variant="subtitle2">Tel +256-782 325564</Typography>
+                                <Typography variant="subtitle2">Tel 0750064865</Typography>
                             </Grid>
                         </Grid>
                     </Grid>
