@@ -87,21 +87,9 @@ function AddAdmin(props) {
                             <Controls.Input type="numbers" name="phoneNumber" label="Phone Contact" value={data.phoneNumber}
                                             onChange={onChange} error={errors.phoneNumber}/>
                         </Grid>
-                        {/*<Grid item xs={12} sm={6}>*/}
-                        {/*    <TextField fullWidth label="Currency" type="text" name="currency" variant="filled"*/}
-                        {/*               select value={role} onChange={change}*/}
-                        {/*               SelectProps={{native: true}}>*/}
-                        {/*        {roles.map((option) => (*/}
-                        {/*            <option key={option.value} value={option.value}>*/}
-                        {/*                {option.label}*/}
-                        {/*            </option>*/}
-                        {/*        ))*/}
-                        {/*        }*/}
-                        {/*    </TextField>*/}
-                        {/*</Grid>*/}
                         <Grid item xs={12} sm={6}>
-                            <Controls.Input name="username"  autoComplete="off" label="User Name" value={data.username} onChange={onChange}
-                                            error={errors.username}/>
+                            <Controls.Input name="userName"  autoComplete="off" label="User Name" value={data.userName} onChange={onChange}
+                                            error={errors.userName}/>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <FormControl fullWidth variant="filled" aria-autocomplete="off">
