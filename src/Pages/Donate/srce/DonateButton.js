@@ -3,7 +3,7 @@ import {FlutterWaveButton, closePaymentModal} from './dist/index';
 
 export default function App() {
     const config = {
-        public_key: 'FLWPUBK-df0e1543bbd487e4ee7b619dd0a1251e-X',
+        public_key: 'FLWPUBK-a6de8482ba41c4576ff916a3c653e258-X',
         tx_ref: Date.now(),
         // amount: 100,
         currency: 'UGX',
